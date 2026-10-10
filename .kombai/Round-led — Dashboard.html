@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css');
+.tempo{--canvas:#0c0f0f;--surface:#121616;--surface-raised:#171c1b;--surface-deep:#0f1312;--line:#28302e;--line-soft:#202725;--text:#eef2ef;--muted:#9ba6a1;--quiet:#75817c;--mint:#4ce0bc;--mint-dim:#173b33;--amber:#f0bd5b;--amber-dim:#3a2d16;--red:#ff7180;--red-dim:#401e24;--blue:#91a9ff;font-family:'DM Sans',sans-serif;color:var(--text);background:var(--canvas);min-height:100vh;font-size:14px;line-height:1.5}
+.tempo button,.tempo select{font:inherit;color:inherit}.tempo button{cursor:pointer}.tempo *{box-sizing:border-box}.mono{font-family:'DM Mono',monospace;font-variant-numeric:tabular-nums}.nav-link{display:inline-flex;align-items:center;gap:9px;padding:10px 13px;color:var(--muted);text-decoration:none;border-radius:9px;white-space:nowrap}.nav-link:hover{color:var(--text);background:var(--surface-raised)}.nav-link.active{background:#1b2824;color:var(--mint)}.focusable:focus-visible{outline:2px solid var(--mint);outline-offset:3px}.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px}.stat-separator:not(:last-child){border-right:1px solid var(--line);padding-right:26px;margin-right:26px}.stop-row{display:grid;grid-template-columns:minmax(250px,1.8fr) minmax(108px,.7fr) minmax(126px,.78fr) minmax(90px,.56fr) minmax(108px,.7fr);align-items:center;gap:10px;padding:15px 14px;border-bottom:1px solid var(--line-soft);position:relative;transition:background .16s ease}.stop-row:hover{background:#161c1a}.stop-row.selected{background:linear-gradient(90deg,rgba(76,224,188,.1),rgba(76,224,188,.035));box-shadow:inset 2px 0 var(--mint)}.stop-row:last-child{border-bottom:0}.stop-number{width:29px;height:29px;border:1px solid #38584f;border-radius:50%;display:grid;place-items:center;color:var(--mint);background:#12201c;font:11px 'DM Mono',monospace;flex:none}.stop-row.selected .stop-number{background:var(--mint);color:#08221a;border-color:var(--mint)}.route-track{position:absolute;left:28px;top:43px;bottom:-17px;width:1px;background:#38584f}.stop-row:last-child .route-track{display:none}.severity{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.025em}.severity-dot{width:7px;height:7px;border-radius:50%;display:inline-block}.risk-red{color:var(--red)}.risk-red .severity-dot{background:var(--red)}.risk-amber{color:var(--amber)}.risk-amber .severity-dot{background:var(--amber)}.risk-mint{color:var(--mint)}.risk-mint .severity-dot{background:var(--mint)}.risk-unknown{color:var(--muted)}.risk-unknown .severity-dot{background:#75817c}.tiny-label{color:var(--quiet);font-size:11px;line-height:1.3}.map-frame{height:336px;position:relative;background:#151b19;border-radius:0 0 13px 13px;overflow:hidden}.map-frame #tempo-map{height:100%;width:100%;display:block;background:#151b19;transform-origin:50% 50%;transition:transform .16s ease}.map-stop{cursor:pointer;outline:none}.map-stop:hover circle,.map-stop:focus-visible circle,.map-stop.selected circle{stroke:#f5f7f6;stroke-width:3}.map-stop.selected:not(.is-current) circle{fill:#ff7180;stroke:#663039}.map-stop.selected:not(.is-current) text{fill:#2a0e12}.map-stop.selected rect{stroke:#f5f7f6}.map-stop:focus-visible{outline:2px solid #4ce0bc;outline-offset:4px}.map-zoom-fallback{position:absolute;z-index:450;top:12px;right:12px;display:flex;flex-direction:column;border-radius:8px;overflow:hidden;border:1px solid #36403c}.map-zoom-fallback button{width:32px;height:32px;background:#151b19;border:0;color:#e8efeb}.map-zoom-fallback button+button{border-top:1px solid #36403c}.legend-dot{width:8px;height:8px;border-radius:50%;display:inline-block}.alert-line{display:grid;grid-template-columns:10px 1fr auto;gap:11px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line-soft)}.alert-line:last-child{border-bottom:0}.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#151a19;border-radius:999px;padding:7px 11px;color:#b6c0bb;font-size:12px}.chip.selected-chip{border-color:#438d78;background:#132822;color:var(--mint)}
+@media(max-width:900px){.tempo-head{padding:0 20px!important;gap:8px!important}.tempo-head>div:first-child{gap:12px!important}.tempo-head>div:last-child button{display:none}.tempo-nav{gap:0!important}.nav-link{padding:8px 9px;font-size:12px}.nav-link i{display:none}.mobile-map-link{display:inline-flex!important}.tempo-body{padding:24px 20px!important}.tempo-columns{grid-template-columns:1fr!important}.right-rail{order:2}.left-workspace{order:1}.stop-row{grid-template-columns:minmax(210px,1.6fr) minmax(84px,.7fr) minmax(96px,.75fr);gap:8px}.stop-row .actual-column,.stop-row .tsb-column{display:none}.ledger-head{grid-template-columns:minmax(210px,1.6fr) minmax(84px,.7fr) minmax(96px,.75fr)!important}.map-frame{height:300px}}
+@media(max-width:620px){.tempo-head{position:relative;height:auto!important;min-height:82px;padding:12px 14px!important;flex-wrap:wrap;gap:9px!important}.tempo-head>div:first-child{width:100%;flex-wrap:wrap;gap:8px!important;padding-right:0}.tempo-head>div:last-child{position:absolute;right:14px;top:12px}.tempo-nav{order:3;width:100%;overflow-x:auto;padding-top:4px}.nav-link{font-size:12px;padding:8px 9px}.tempo-body{padding:18px 14px!important}.page-title-row{align-items:flex-start!important;flex-direction:column}.summary-stats{gap:0!important;justify-content:space-between}.stat-separator:not(:last-child){padding-right:12px;margin-right:12px}.summary-value{font-size:17px!important}.stop-row{grid-template-columns:minmax(0,1fr) auto!important;padding:13px 8px!important;gap:7px}.stop-row .eta-column{grid-column:2;grid-row:1}.stop-row .risk-column{grid-column:1 / -1;margin-left:37px}.ledger-head{display:none!important}.map-frame{height:260px}.right-rail{order:3}}
+</style>
+<div class="tempo" data-kid="1" data-name="operations dashboard app shell">
+    <header class="tempo-head flex h-[72px] items-center justify-between border-b border-[var(--line)] px-10" data-kid="1-1" data-name="app top bar">
+        <div class="flex min-w-0 items-center gap-9" data-kid="1-1-1" data-name="header left group with brand and navigation">
+            <a aria-label="T.E.M.P.O. home" class="flex items-center gap-3 no-underline text-[var(--text)]" data-kid="1-1-1-1" data-name="brand logo link to dashboard" href="#dashboard">
+                <span class="grid h-9 w-9 place-items-center rounded-[11px] bg-[var(--mint)] text-[18px] font-bold text-[#092018]" data-kid="1-1-1-1-1" data-name="brand tile logo">
+                    T
+                </span>
+                <span class="text-[16px] font-bold tracking-[-.03em]" data-kid="1-1-1-1-2" data-name="brand wordmark text">
+                    T.E.M.P.O.
+                </span>
+            </a>
+            <nav aria-label="Main navigation" class="tempo-nav flex items-center gap-1" data-kid="1-1-1-2" data-name="main navigation bar">
+                <a aria-current="page" class="nav-link active focusable" data-kid="1-1-1-2-1" data-name="dashboard nav link (active)" href="#dashboard">
+                    <i class="ti ti-layout-dashboard text-[17px]" data-kid="1-1-1-2-1-1" data-name="dashboard nav icon" style="width:18px;height:18px;color:currentColor">
+                    </i>
+                    Dashboard
+                </a>
+                <a class="nav-link focusable" data-kid="1-1-1-2-2" data-name="routes nav link" href="#routes">
+                    <i class="ti ti-route text-[17px]" data-kid="1-1-1-2-2-1" data-name="routes nav icon" style="width:18px;height:18px;color:currentColor">
+                    </i>
+                    Routes
+                </a>
+                <a class="nav-link focusable" data-kid="1-1-1-2-3" data-name="alerts nav link" href="#alerts">
+                    <i class="ti ti-alert-triangle text-[17px]" data-kid="1-1-1-2-3-1" data-name="alerts nav icon" style="width:18px;height:18px;color:currentColor">
+                    </i>
+                    Alerts
+                </a>
+                <a class="nav-link focusable" data-kid="1-1-1-2-4" data-name="analytics nav link" href="#analytics">
+                    <i class="ti ti-chart-bar text-[17px]" data-kid="1-1-1-2-4-1" data-name="analytics nav icon" style="width:18px;height:18px;color:currentColor">
+                    </i>
+                    Analytics
+                </a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-3" data-kid="1-1-2" data-name="header right controls group">
+            <span class="inline-flex items-center gap-2 rounded-full border border-[#5b4927] bg-[#241d12] px-3 py-[7px] text-[12px] font-semibold text-[#f0c66c]" data-kid="1-1-2-1" data-name="demo scenario badge">
+                <span class="h-[7px] w-[7px] rounded-full bg-[var(--amber)]" data-kid="1-1-2-1-1" data-name="demo badge indicator dot">
+                </span>
+                Demo scenario · not live
+            </span>
+            <button aria-label="More options" class="focusable grid h-9 w-9 place-items-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--muted)]" data-kid="1-1-2-2" data-name="more options menu button">
+                <i class="ti ti-dots text-[19px]" data-kid="1-1-2-2-1" data-name="more options dots icon" style="width:20px;height:20px;color:currentColor">
+                </i>
+            </button>
+        </div>
+    </header>
+    <main class="tempo-body mx-auto max-w-[1440px] px-10 pb-12 pt-8" data-kid="1-2" data-name="main dashboard content">
+        <div class="page-title-row mb-6 flex items-end justify-between gap-6" data-kid="1-2-1" data-name="page title row">
+            <div data-kid="1-2-1-1" data-name="page heading and subtitle">
+                <h1 class="m-0 text-[27px] font-semibold tracking-[-.04em] text-[var(--text)]" data-kid="1-2-1-1-1" data-name="page heading text">
+                    Operations dashboard
+                </h1>
+                <p class="mt-1 mb-0 text-[14px] text-[var(--muted)]" data-kid="1-2-1-1-2" data-name="page subtitle text">
+                    Collection round · thermal safety and dispatch overview
+                </p>
+            </div>
+            <div class="flex items-center gap-2 text-[12px] text-[var(--quiet)]" data-kid="1-2-1-2" data-name="demo disclaimer note">
+                <i class="ti ti-info-circle text-[16px]" data-kid="1-2-1-2-1" data-name="info circle icon" style="width:17px;height:17px;color:currentColor">
+                </i>
+                Illustrative sample values · no live observations
+            </div>
+        </div>
+        <section aria-label="Fleet summary" class="summary-stats mb-7 flex flex-wrap items-center rounded-[12px] border border-[var(--line)] bg-[var(--surface)] px-6 py-[17px]" data-kid="1-2-2" data-name="fleet summary stats bar">
+            <div class="stat-separator min-w-[156px]" data-kid="1-2-2-1" data-name="active vehicles stat block">
+                <div class="tiny-label mb-1" data-kid="1-2-2-1-1" data-name="active vehicles label">
+                    Active vehicles
+                </div>
+                <div class="summary-value flex items-baseline gap-2 text-[22px] font-semibold tracking-[-.03em]" data-kid="1-2-2-1-2" data-name="active vehicles value row">
+                    <span class="mono" data-kid="1-2-2-1-2-1" data-name="active vehicles count number">
+                        2
+                    </span>
+                    <span class="mono text-[13px] font-normal text-[var(--quiet)]" data-kid="1-2-2-1-2-2" data-name="total vehicles denominator">
+                        / 3
+                    </span>
+                    <span class="text-[12px] font-medium text-[var(--mint)]" data-kid="1-2-2-1-2-3" data-name="on round status label">
+                        on round
+                    </span>
+                </div>
+            </div>
+            <div class="stat-separator min-w-[184px]" data-kid="1-2-2-2" data-name="volume in transit stat block">
+                <div class="tiny-label mb-1" data-kid="1-2-2-2-1" data-name="volume in transit label">
+                    Volume in transit
+                </div>
+                <div class="summary-value flex items-baseline gap-2 text-[22px] font-semibold tracking-[-.03em]" data-kid="1-2-2-2-2" data-name="volume in transit value row">
+                    <span class="mono" data-kid="1-2-2-2-2-1" data-name="volume litres number">
+                        4,820
+                    </span>
+                    <span class="text-[13px] font-medium text-[var(--muted)]" data-kid="1-2-2-2-2-2" data-name="volume unit label">
+                        L
+                    </span>
+                </div>
+            </div>
+            <div class="min-w-[170px]" data-kid="1-2-2-3" data-name="bulk milk coolers stat block">
+                <div class="tiny-label mb-1" data-kid="1-2-2-3-1" data-name="bulk coolers label">
+                    Bulk milk coolers
+                </div>
+                <div class="summary-value flex items-baseline gap-2 text-[22px] font-semibold tracking-[-.03em]" data-kid="1-2-2-3-2" data-name="bulk coolers value row">
+                    <span class="mono text-[var(--mint)]" data-kid="1-2-2-3-2-1" data-name="bulk coolers online count">
+                        1
+                    </span>
+                    <span class="mono text-[13px] font-normal text-[var(--quiet)]" data-kid="1-2-2-3-2-2" data-name="bulk coolers total denominator">
+                        / 1
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-[var(--mint)]" data-kid="1-2-2-3-2-3" data-name="bulk coolers online status badge">
+                        <span class="h-[6px] w-[6px] rounded-full bg-[var(--mint)]" data-kid="1-2-2-3-2-3-1" data-name="online status indicator dot">
+                        </span>
+                        online
+                    </span>
+                </div>
+            </div>
+            <div class="ml-auto flex items-center gap-2 border-l border-[var(--line)] pl-6 text-[12px] text-[var(--muted)]" data-kid="1-2-2-4" data-name="last retrieval status note">
+                <i class="ti ti-database-off text-[16px]" data-kid="1-2-2-4-1" data-name="database off icon" style="width:17px;height:17px;color:var(--amber)">
+                </i>
+                Last successful retrieval: unavailable in demo
+            </div>
+        </section>
+        <div class="tempo-columns grid grid-cols-[minmax(0,1.72fr)_minmax(360px,.9fr)] items-start gap-5" data-kid="1-2-3" data-name="two-column dashboard layout">
+            <section aria-labelledby="round-title" class="left-workspace panel min-w-0 overflow-hidden" data-kid="1-2-3-1" data-name="collection round panel">
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--line)] px-5 py-[17px]" data-kid="1-2-3-1-1" data-name="round panel header row">
+                    <div data-kid="1-2-3-1-1-1" data-name="round panel title and description">
+                        <h2 class="m-0 text-[16px] font-semibold tracking-[-.015em]" data-kid="1-2-3-1-1-1-1" data-name="round panel title false" id="round-title">
+                            Collection round
+                        </h2>
+                        <p class="mt-1 mb-0 text-[12px] text-[var(--muted)]" data-kid="1-2-3-1-1-1-2" data-name="round panel subtitle text">
+                            Next stops · estimated travel durations, not clock times
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2" data-kid="1-2-3-1-1-2" data-name="vehicle filter and map controls group">
+                        <label class="sr-only" data-kid="1-2-3-1-1-2-1" data-name="selected vehicle field label (sr-only)" for="vehicle-select">
+                            Selected vehicle
+                        </label>
+                        <select class="focusable rounded-[9px] border border-[var(--line)] bg-[var(--surface-raised)] px-3 py-[9px] text-[13px] font-medium text-[var(--text)]" data-kid="1-2-3-1-1-2-2" data-name="selected vehicle dropdown" id="vehicle-select">
+                            <option data-kid="1-2-3-1-1-2-2-1" data-name="vehicle option: Tanker 01">
+                                Tanker 01 · selected
+                            </option>
+                            <option data-kid="1-2-3-1-1-2-2-2" data-name="vehicle option: Tanker 02">
+                                Tanker 02
+                            </option>
+                            <option data-kid="1-2-3-1-1-2-2-3" data-name="vehicle option: All vehicles">
+                                All vehicles
+                            </option>
+                        </select>
+                        <button class="mobile-map-link focusable hidden items-center gap-1.5 rounded-[9px] border border-[#38584f] bg-[#13231f] px-3 py-[9px] text-[12px] font-semibold text-[var(--mint)]" data-kid="1-2-3-1-1-2-3" data-name="mobile view map button" onclick="document.getElementById('route-map-panel').scrollIntoView({behavior:'smooth',block:'center'})">
+                            <i class="ti ti-map-pin text-[15px]" data-kid="1-2-3-1-1-2-3-1" data-name="map pin icon" style="width:16px;height:16px;color:currentColor">
+                            </i>
+                            View map
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between px-5 py-3 text-[12px]" data-kid="1-2-3-1-2" data-name="round ledger context bar">
+                    <div class="flex items-center gap-2 text-[var(--muted)]" data-kid="1-2-3-1-2-1" data-name="selection status indicator row">
+                        <span class="h-[7px] w-[7px] rounded-full bg-[var(--mint)]" data-kid="1-2-3-1-2-1-1" data-name="selection status dot">
+                        </span>
+                        Vehicle selected on map and ledger
+                    </div>
+                    <div class="mono text-[var(--quiet)]" data-kid="1-2-3-1-2-2" data-name="stop count and demo tag">
+                        4 stops · DEMO
+                    </div>
+                </div>
+                <div class="ledger-head grid grid-cols-[minmax(250px,1.8fr)_minmax(108px,.7fr)_minmax(126px,.78fr)_minmax(90px,.56fr)_minmax(108px,.7fr)] gap-[10px] border-y border-[var(--line-soft)] bg-[var(--surface-deep)] px-[14px] py-[10px] text-[10px] font-semibold uppercase tracking-[.08em] text-[var(--quiet)]" data-kid="1-2-3-1-3" data-name="ledger column header row">
+                    <div data-kid="1-2-3-1-3-1" data-name="collection point column header">
+                        Village / collection point
+                    </div>
+                    <div data-kid="1-2-3-1-3-2" data-name="ETA column header">
+                        ETA · demo
+                    </div>
+                    <div class="actual-column" data-kid="1-2-3-1-3-3" data-name="actual arrival column header">
+                        Actual arrival
+                    </div>
+                    <div class="tsb-column" data-kid="1-2-3-1-3-4" data-name="TSB column header">
+                        TSB
+                    </div>
+                    <div data-kid="1-2-3-1-3-5" data-name="thermal risk column header">
+                        Thermal risk
+                    </div>
+                </div>
+                <div data-kid="1-2-3-1-4" data-name="stop list container" id="stop-list">
+                    <button aria-pressed="true" class="stop-row selected focusable w-full text-left" data-kid="1-2-3-1-4-1" data-name="stop row: selected next stop" data-stop="s1" type="button">
+                        <div class="flex min-w-0 items-center gap-3" data-kid="1-2-3-1-4-1-1" data-name="stop identity group">
+                            <span class="relative" data-kid="1-2-3-1-4-1-1-1" data-name="stop number with route track wrapper">
+                                <span class="stop-number" data-kid="1-2-3-1-4-1-1-1-1" data-name="stop number badge">
+                                    01
+                                </span>
+                                <span class="route-track" data-kid="1-2-3-1-4-1-1-1-2" data-name="route track connector line">
+                                </span>
+                            </span>
+                            <span class="min-w-0" data-kid="1-2-3-1-4-1-1-2" data-name="stop name and vehicle group">
+                                <span class="flex flex-wrap items-center gap-2" data-kid="1-2-3-1-4-1-1-2-1" data-name="stop name row with badge">
+                                    <strong class="truncate text-[14px] font-semibold text-[var(--text)]" data-kid="1-2-3-1-4-1-1-2-1-1" data-name="stop name text">
+                                        Village collection center A
+                                    </strong>
+                                    <span class="rounded-[5px] border border-[#514125] bg-[#282014] px-[6px] py-[2px] text-[10px] font-bold text-[var(--amber)]" data-kid="1-2-3-1-4-1-1-2-1-2" data-name="next stop badge">
+                                        NEXT STOP
+                                    </span>
+                                </span>
+                                <span class="mt-1 block text-[12px] text-[var(--muted)]" data-kid="1-2-3-1-4-1-1-2-2" data-name="stop vehicle and sample type text">
+                                    Tanker 01
+                                    <span class="px-1 text-[var(--quiet)]" data-kid="1-2-3-1-4-1-1-2-2-1" data-name="vehicle and type separator">
+                                        ·
+                                    </span>
+                                    VCC sample
+                                </span>
+                            </span>
+                        </div>
+                        <div class="eta-column" data-kid="1-2-3-1-4-1-2" data-name="stop ETA cell">
+                            <div class="mono text-[13px] font-medium text-[var(--text)]" data-kid="1-2-3-1-4-1-2-1" data-name="stop ETA value">
+                                ~14 min
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-1-2-2" data-name="stop ETA label">
+                                route estimate
+                            </div>
+                        </div>
+                        <div class="actual-column" data-kid="1-2-3-1-4-1-3" data-name="stop actual arrival cell">
+                            <div class="text-[13px] text-[var(--quiet)]" data-kid="1-2-3-1-4-1-3-1" data-name="actual arrival value">
+                                Not reached
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-1-3-2" data-name="actual arrival label">
+                                no actual arrival
+                            </div>
+                        </div>
+                        <div class="tsb-column" data-kid="1-2-3-1-4-1-4" data-name="stop TSB cell">
+                            <div class="mono text-[14px] font-semibold text-[var(--red)]" data-kid="1-2-3-1-4-1-4-1" data-name="TSB value">
+                                0.4 h
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-1-4-2" data-name="TSB label">
+                                modeled buffer
+                            </div>
+                        </div>
+                        <div class="risk-column" data-kid="1-2-3-1-4-1-5" data-name="stop thermal risk cell">
+                            <span class="severity risk-red" data-kid="1-2-3-1-4-1-5-1" data-name="thermal risk severity badge">
+                                <i class="severity-dot" data-kid="1-2-3-1-4-1-5-1-1" data-name="risk severity dot">
+                                </i>
+                                Red · critical
+                            </span>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-1-5-2" data-name="risk note text">
+                                Prioritize this stop
+                            </div>
+                        </div>
+                    </button>
+                    <button aria-pressed="false" class="stop-row focusable w-full text-left" data-kid="1-2-3-1-4-2" data-name="stop row: village B false" data-stop="s2" type="button">
+                        <div class="flex min-w-0 items-center gap-3" data-kid="1-2-3-1-4-2-1" data-name="stop identity group">
+                            <span class="relative" data-kid="1-2-3-1-4-2-1-1" data-name="stop number with route track wrapper">
+                                <span class="stop-number" data-kid="1-2-3-1-4-2-1-1-1" data-name="stop number badge">
+                                    02
+                                </span>
+                                <span class="route-track" data-kid="1-2-3-1-4-2-1-1-2" data-name="route track connector line">
+                                </span>
+                            </span>
+                            <span class="min-w-0" data-kid="1-2-3-1-4-2-1-2" data-name="stop name and vehicle group">
+                                <strong class="block truncate text-[14px] font-semibold text-[var(--text)]" data-kid="1-2-3-1-4-2-1-2-1" data-name="stop name text">
+                                    Village collection center B
+                                </strong>
+                                <span class="mt-1 block text-[12px] text-[var(--muted)]" data-kid="1-2-3-1-4-2-1-2-2" data-name="stop vehicle and sample type text">
+                                    Tanker 01
+                                    <span class="px-1 text-[var(--quiet)]" data-kid="1-2-3-1-4-2-1-2-2-1" data-name="vehicle and type separator">
+                                        ·
+                                    </span>
+                                    VCC sample
+                                </span>
+                            </span>
+                        </div>
+                        <div class="eta-column" data-kid="1-2-3-1-4-2-2" data-name="stop ETA cell">
+                            <div class="mono text-[13px] font-medium text-[var(--text)]" data-kid="1-2-3-1-4-2-2-1" data-name="stop ETA value">
+                                ~26 min
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-2-2-2" data-name="stop ETA label">
+                                route estimate
+                            </div>
+                        </div>
+                        <div class="actual-column" data-kid="1-2-3-1-4-2-3" data-name="stop actual arrival cell">
+                            <div class="text-[13px] text-[var(--quiet)]" data-kid="1-2-3-1-4-2-3-1" data-name="actual arrival value">
+                                Not reached
+                            </div>
+                        </div>
+                        <div class="tsb-column" data-kid="1-2-3-1-4-2-4" data-name="stop TSB cell">
+                            <div class="mono text-[14px] font-semibold text-[var(--amber)]" data-kid="1-2-3-1-4-2-4-1" data-name="TSB value">
+                                1.3 h
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-2-4-2" data-name="TSB label">
+                                modeled buffer
+                            </div>
+                        </div>
+                        <div class="risk-column" data-kid="1-2-3-1-4-2-5" data-name="stop thermal risk cell">
+                            <span class="severity risk-amber" data-kid="1-2-3-1-4-2-5-1" data-name="thermal risk severity badge">
+                                <i class="severity-dot" data-kid="1-2-3-1-4-2-5-1-1" data-name="risk severity dot">
+                                </i>
+                                Yellow · watch
+                            </span>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-2-5-2" data-name="risk note text">
+                                Elevated thermal risk
+                            </div>
+                        </div>
+                    </button>
+                    <button aria-pressed="false" class="stop-row focusable w-full text-left" data-kid="1-2-3-1-4-3" data-name="stop row: village C false" data-stop="s3" type="button">
+                        <div class="flex min-w-0 items-center gap-3" data-kid="1-2-3-1-4-3-1" data-name="stop identity group">
+                            <span class="relative" data-kid="1-2-3-1-4-3-1-1" data-name="stop number with route track wrapper">
+                                <span class="stop-number" data-kid="1-2-3-1-4-3-1-1-1" data-name="stop number badge">
+                                    03
+                                </span>
+                                <span class="route-track" data-kid="1-2-3-1-4-3-1-1-2" data-name="route track connector line">
+                                </span>
+                            </span>
+                            <span class="min-w-0" data-kid="1-2-3-1-4-3-1-2" data-name="stop name and vehicle group">
+                                <strong class="block truncate text-[14px] font-semibold text-[var(--text)]" data-kid="1-2-3-1-4-3-1-2-1" data-name="stop name text">
+                                    Village collection center C
+                                </strong>
+                                <span class="mt-1 block text-[12px] text-[var(--muted)]" data-kid="1-2-3-1-4-3-1-2-2" data-name="stop vehicle and sample type text">
+                                    Tanker 01
+                                    <span class="px-1 text-[var(--quiet)]" data-kid="1-2-3-1-4-3-1-2-2-1" data-name="vehicle and type separator">
+                                        ·
+                                    </span>
+                                    VCC sample
+                                </span>
+                            </span>
+                        </div>
+                        <div class="eta-column" data-kid="1-2-3-1-4-3-2" data-name="stop ETA cell">
+                            <div class="mono text-[13px] font-medium text-[var(--text)]" data-kid="1-2-3-1-4-3-2-1" data-name="stop ETA value">
+                                ~39 min
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-3-2-2" data-name="stop ETA label">
+                                route estimate
+                            </div>
+                        </div>
+                        <div class="actual-column" data-kid="1-2-3-1-4-3-3" data-name="stop actual arrival cell">
+                            <div class="text-[13px] text-[var(--quiet)]" data-kid="1-2-3-1-4-3-3-1" data-name="actual arrival value">
+                                Not reached
+                            </div>
+                        </div>
+                        <div class="tsb-column" data-kid="1-2-3-1-4-3-4" data-name="stop TSB cell">
+                            <div class="mono text-[14px] font-semibold text-[var(--mint)]" data-kid="1-2-3-1-4-3-4-1" data-name="TSB value">
+                                3.1 h
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-3-4-2" data-name="TSB label">
+                                modeled buffer
+                            </div>
+                        </div>
+                        <div class="risk-column" data-kid="1-2-3-1-4-3-5" data-name="stop thermal risk cell">
+                            <span class="severity risk-mint" data-kid="1-2-3-1-4-3-5-1" data-name="thermal risk severity badge">
+                                <i class="severity-dot" data-kid="1-2-3-1-4-3-5-1-1" data-name="risk severity dot">
+                                </i>
+                                Green · lower
+                            </span>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-3-5-2" data-name="risk note text">
+                                Within demo band
+                            </div>
+                        </div>
+                    </button>
+                    <button aria-pressed="false" class="stop-row focusable w-full text-left" data-kid="1-2-3-1-4-4" data-name="stop row: destination depot" data-stop="s4" type="button">
+                        <div class="flex min-w-0 items-center gap-3" data-kid="1-2-3-1-4-4-1" data-name="stop identity group">
+                            <span class="relative" data-kid="1-2-3-1-4-4-1-1" data-name="stop number badge wrapper">
+                                <span class="stop-number" data-kid="1-2-3-1-4-4-1-1-1" data-name="stop number badge">
+                                    04
+                                </span>
+                            </span>
+                            <span class="min-w-0" data-kid="1-2-3-1-4-4-1-2" data-name="stop name and vehicle group">
+                                <strong class="block truncate text-[14px] font-semibold text-[var(--text)]" data-kid="1-2-3-1-4-4-1-2-1" data-name="stop name text">
+                                    Bulk milk cooler · sample depot
+                                </strong>
+                                <span class="mt-1 block text-[12px] text-[var(--muted)]" data-kid="1-2-3-1-4-4-1-2-2" data-name="stop vehicle and destiny text">
+                                    Tanker 01
+                                    <span class="px-1 text-[var(--quiet)]" data-kid="1-2-3-1-4-4-1-2-2-1" data-name="vehicle and destiny separator">
+                                        ·
+                                    </span>
+                                    Final destination
+                                </span>
+                            </span>
+                        </div>
+                        <div class="eta-column" data-kid="1-2-3-1-4-4-2" data-name="stop ETA cell">
+                            <div class="mono text-[13px] font-medium text-[var(--text)]" data-kid="1-2-3-1-4-4-2-1" data-name="stop ETA value">
+                                ~55 min
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-4-2-2" data-name="stop ETA label">
+                                route estimate
+                            </div>
+                        </div>
+                        <div class="actual-column" data-kid="1-2-3-1-4-4-3" data-name="stop actual arrival cell">
+                            <div class="text-[13px] text-[var(--quiet)]" data-kid="1-2-3-1-4-4-3-1" data-name="actual arrival value">
+                                Not reached
+                            </div>
+                        </div>
+                        <div class="tsb-column" data-kid="1-2-3-1-4-4-4" data-name="stop TSB cell">
+                            <div class="mono text-[13px] text-[var(--muted)]" data-kid="1-2-3-1-4-4-4-1" data-name="TSB value (empty placeholder)">
+                                —
+                            </div>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-4-4-2" data-name="TSB label">
+                                not returned
+                            </div>
+                        </div>
+                        <div class="risk-column" data-kid="1-2-3-1-4-4-5" data-name="stop thermal risk cell">
+                            <span class="severity risk-unknown" data-kid="1-2-3-1-4-4-5-1" data-name="thermal risk severity badge">
+                                <i class="severity-dot" data-kid="1-2-3-1-4-4-5-1-1" data-name="risk severity dot">
+                                </i>
+                                Unknown
+                            </span>
+                            <div class="tiny-label mt-1" data-kid="1-2-3-1-4-4-5-2" data-name="risk note text">
+                                No TSB returned
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] bg-[var(--surface-deep)] px-5 py-3 text-[11px] text-[var(--quiet)]" data-kid="1-2-3-1-5" data-name="round panel footer bar">
+                    <span data-kid="1-2-3-1-5-1" data-name="TSB legend note text">
+                        TSB = thermal safety buffer · demo risk bands are modeled estimates
+                    </span>
+                    <button class="focusable inline-flex items-center gap-1.5 rounded-[7px] px-2 py-1 font-semibold text-[var(--mint)] hover:bg-[#13231f]" data-kid="1-2-3-1-5-2" data-name="open route details button" type="button">
+                        Open route details
+                        <i class="ti ti-arrow-up-right text-[14px]" data-kid="1-2-3-1-5-2-1" data-name="open route details arrow icon" style="width:15px;height:15px;color:currentColor">
+                        </i>
+                    </button>
+                </div>
+            </section>
+            <aside class="right-rail flex min-w-0 flex-col gap-5" data-kid="1-2-3-2" data-name="right sidebar rail">
+                <section aria-labelledby="map-title" class="panel overflow-hidden" data-kid="1-2-3-2-1" data-name="route map panel" id="route-map-panel">
+                    <div class="flex items-center justify-between gap-3 px-4 py-[14px]" data-kid="1-2-3-2-1-1" data-name="map panel header row">
+                        <div data-kid="1-2-3-2-1-1-1" data-name="map panel title and description">
+                            <h2 class="m-0 text-[15px] font-semibold" data-kid="1-2-3-2-1-1-1-1" data-name="map panel title text" id="map-title">
+                                Route map
+                            </h2>
+                            <p class="mt-1 mb-0 text-[11px] text-[var(--muted)]" data-kid="1-2-3-2-1-1-1-2" data-name="map panel subtitle text">
+                                Illustrative coordinates · select a stop to focus
+                            </p>
+                        </div>
+                        <span class="inline-flex items-center gap-2 rounded-full border border-[#39564d] bg-[#14241f] px-2.5 py-[5px] text-[11px] font-medium text-[var(--mint)]" data-kid="1-2-3-2-1-1-2" data-name="selected vehicle badge">
+                            <i class="ti ti-truck text-[14px]" data-kid="1-2-3-2-1-1-2-1" data-name="truck icon" style="width:15px;height:15px;color:currentColor">
+                            </i>
+                            Tanker 01
+                        </span>
+                    </div>
+                    <div class="map-frame" data-kid="1-2-3-2-1-2" data-name="schematic route map with selectable stops">
+                        <div class="absolute left-3 top-3 z-10 rounded-[7px] border border-[#43504a] bg-[#0c1110]/90 px-2.5 py-1.5 text-[10px] font-medium text-[#d4ded9]" data-kid="1-2-3-2-1-2-3" data-name="demo map overlay badge">
+                            DEMO MAP · NOT LIVE
+                        </div>
+                        <svg aria-label="Schematic route map around Pune using illustrative locations" data-dynamic="true" data-kid="1-2-3-2-1-2-1" data-name="interactive schematic route map" data-reason="transform scale is set from an internally derived zoom variable by zoom script, masking any authored transform" id="tempo-map" preserveaspectratio="xMidYMid slice" role="img" viewbox="0 0 520 336" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern height="34" id="map-grid" patternunits="userSpaceOnUse" width="34">
+                                    <path d="M34 0H0V34" fill="none" stroke="#242c29" stroke-width=".6">
+                                    </path>
+                                </pattern>
+                                <pattern height="7" id="field-dots" patternunits="userSpaceOnUse" width="7">
+                                    <circle cx="1" cy="1" fill="#344039" r=".6">
+                                    </circle>
+                                </pattern>
+                            </defs>
+                            <rect fill="#151b19" height="336" width="520">
+                            </rect>
+                            <rect fill="url(#map-grid)" height="336" width="520">
+                            </rect>
+                            <path d="M-20 58C75 100 129 10 235 60S387 115 548 39M-25 252C77 198 163 311 257 245S415 202 545 280M58-20C102 64 56 117 139 189S238 258 206 362M383-20C317 56 435 119 367 181S318 263 418 355" fill="none" stroke="#29322e" stroke-width="11">
+                            </path>
+                            <path d="M-20 58C75 100 129 10 235 60S387 115 548 39M-25 252C77 198 163 311 257 245S415 202 545 280M58-20C102 64 56 117 139 189S238 258 206 362M383-20C317 56 435 119 367 181S318 263 418 355" fill="none" stroke="#46534c" stroke-width="1.5">
+                            </path>
+                            <path d="M-10 157C91 128 156 178 254 133S405 122 530 159M265-10C235 94 295 181 260 260S230 302 256 350M18 315C132 244 239 292 331 225S431 197 523 222M-10 30L529 301M-16 292L500 16" fill="none" stroke="#313a35" stroke-dasharray="2 6" stroke-width="1">
+                            </path>
+                            <path d="M95 104Q181 73 271 147T432 221" fill="none" stroke="#4ce0bc" stroke-dasharray="8 7" stroke-linecap="round" stroke-width="3">
+                            </path>
+                            <g fill="#1c2924" stroke="#314139" stroke-width="1">
+                                <path d="M20 19h88v37H20z">
+                                </path>
+                                <path d="M395 39h103v36H395z">
+                                </path>
+                                <path d="M21 263h83v40H21z">
+                                </path>
+                                <path d="M416 272h79v43h-79z">
+                                </path>
+                            </g>
+                            <g fill="url(#field-dots)" opacity=".45">
+                                <path d="M20 19h88v37H20z">
+                                </path>
+                                <path d="M395 39h103v36H395z">
+                                </path>
+                                <path d="M21 263h83v40H21z">
+                                </path>
+                                <path d="M416 272h79v43h-79z">
+                                </path>
+                            </g>
+                            <g fill="#8d9992" font-family="DM Sans,sans-serif" font-size="10" letter-spacing=".3">
+                                <text x="31" y="41">
+                                    NORTH COLLECTION LOOP
+                                </text>
+                                <text x="407" y="61">
+                                    RURAL LINK ROAD
+                                </text>
+                                <text x="31" y="287">
+                                    PUNE OUTER ROUTE
+                                </text>
+                                <text x="427" y="296">
+                                    DEPOT APPROACH
+                                </text>
+                                <text fill="#abb5af" font-size="12" x="231" y="189">
+                                    Pune · sample area
+                                </text>
+                                <text fill="#89958e" font-size="9" x="18" y="327">
+                                    SCHEMATIC ROUTE · NOT TO SCALE
+                                </text>
+                            </g>
+                            <g dominant-baseline="central" font-family="DM Mono,monospace" font-size="10" font-weight="500" id="map-stops" text-anchor="middle">
+                                <g aria-label="Select stop 1, Village collection center A" class="map-stop is-current" data-map-stop="s1" onclick="window.tempoSelectStop&&window.tempoSelectStop('s1',false)" role="button" tabindex="0">
+                                    <circle cx="95" cy="104" fill="#ff7180" r="16" stroke="#54252d" stroke-width="5">
+                                    </circle>
+                                    <circle cx="95" cy="104" fill="#ff7180" r="10">
+                                    </circle>
+                                    <text fill="#2a0e12" x="95" y="104">
+                                        01
+                                    </text>
+                                </g>
+                                <g aria-label="Select stop 2, Village collection center B" class="map-stop" data-map-stop="s2" onclick="window.tempoSelectStop&&window.tempoSelectStop('s2',false)" role="button" tabindex="0">
+                                    <circle cx="198" cy="97" fill="#4ce0bc" r="12" stroke="#183e34" stroke-width="4">
+                                    </circle>
+                                    <text fill="#082018" x="198" y="97">
+                                        02
+                                    </text>
+                                </g>
+                                <g aria-label="Select stop 3, Village collection center C" class="map-stop" data-map-stop="s3" onclick="window.tempoSelectStop&&window.tempoSelectStop('s3',false)" role="button" tabindex="0">
+                                    <circle cx="300" cy="153" fill="#4ce0bc" r="12" stroke="#183e34" stroke-width="4">
+                                    </circle>
+                                    <text fill="#082018" x="300" y="153">
+                                        03
+                                    </text>
+                                </g>
+                                <g aria-label="Select sample BMC destination" class="map-stop" data-map-stop="s4" onclick="window.tempoSelectStop&&window.tempoSelectStop('s4',false)" role="button" tabindex="0">
+                                    <rect fill="#f0bd5b" height="28" rx="7" stroke="#5c4722" stroke-width="4" transform="rotate(45 432 221)" width="28" x="418" y="207">
+                                    </rect>
+                                    <text fill="#211909" x="432" y="221">
+                                        B
+                                    </text>
+                                </g>
+                            </g>
+                            <g id="map-car" transform="translate(290 160)">
+                                <circle fill="#0d1512" r="8" stroke="#dffef3" stroke-width="2">
+                                </circle>
+                                <path d="M-3-2h6l2 5h-10z" fill="#4ce0bc">
+                                </path>
+                            </g>
+                        </svg>
+                        <div aria-label="Map controls" class="map-zoom-fallback" data-kid="1-2-3-2-1-2-2" data-name="map zoom controls">
+                            <button aria-label="Zoom in" data-kid="1-2-3-2-1-2-2-1" data-name="zoom in" onclick="window.tempoMapZoom&&window.tempoMapZoom(1)" type="button">
+                                +
+                            </button>
+                            <button aria-label="Zoom out" data-kid="1-2-3-2-1-2-2-2" data-name="zoom out" onclick="window.tempoMapZoom&&window.tempoMapZoom(-1)" type="button">
+                                −
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[var(--line)] px-4 py-[11px] text-[11px] text-[var(--muted)]" data-kid="1-2-3-2-1-3" data-name="map legend row">
+                        <span class="inline-flex items-center gap-2" data-kid="1-2-3-2-1-3-1" data-name="legend item: collection stop">
+                            <i class="legend-dot bg-[var(--mint)]" data-kid="1-2-3-2-1-3-1-1" data-name="legend dot for collection stop">
+                            </i>
+                            Collection stop
+                        </span>
+                        <span class="inline-flex items-center gap-2" data-kid="1-2-3-2-1-3-2" data-name="legend item: selected critical stop">
+                            <i class="legend-dot bg-[var(--red)]" data-kid="1-2-3-2-1-3-2-1" data-name="legend dot for critical stop">
+                            </i>
+                            Selected / critical
+                        </span>
+                        <span class="inline-flex items-center gap-2" data-kid="1-2-3-2-1-3-3" data-name="legend item: BMC destination">
+                            <span class="inline-block h-[9px] w-[9px] rotate-45 rounded-[2px] bg-[var(--amber)]" data-kid="1-2-3-2-1-3-3-1" data-name="legend diamond for destination">
+                            </span>
+                            BMC destination
+                        </span>
+                    </div>
+                </section>
+                <section aria-labelledby="alerts-title" class="panel px-4 pt-[15px] pb-2" data-kid="1-2-3-2-2" data-name="recent alerts panel">
+                    <div class="flex items-center justify-between gap-3 border-b border-[var(--line)] pb-[12px]" data-kid="1-2-3-2-2-1" data-name="alerts panel header row">
+                        <div data-kid="1-2-3-2-2-1-1" data-name="alerts title and description">
+                            <h2 class="m-0 text-[15px] font-semibold" data-kid="1-2-3-2-2-1-1-1" data-name="alerts panel title text" id="alerts-title">
+                                Recent alerts
+                            </h2>
+                            <p class="mt-1 mb-0 text-[11px] text-[var(--muted)]" data-kid="1-2-3-2-2-1-1-2" data-name="alerts count subtitle text">
+                                2 illustrative records · not live
+                            </p>
+                        </div>
+                        <a class="focusable rounded-[7px] px-2 py-1 text-[12px] font-semibold text-[var(--mint)] no-underline" data-kid="1-2-3-2-2-1-2" data-name="view all alerts link" href="#alerts">
+                            View all
+                            <span aria-hidden="true" data-kid="1-2-3-2-2-1-2-1" data-name="view all arrow character">
+                                →
+                            </span>
+                        </a>
+                    </div>
+                    <div class="alert-line" data-kid="1-2-3-2-2-2" data-name="critical alert row">
+                        <span class="mt-[6px] h-[8px] w-[8px] rounded-full bg-[var(--red)]" data-kid="1-2-3-2-2-2-1" data-name="critical alert severity dot">
+                        </span>
+                        <div data-kid="1-2-3-2-2-2-2" data-name="critical alert content">
+                            <div class="flex flex-wrap items-center gap-2" data-kid="1-2-3-2-2-2-2-1" data-name="critical alert title and severity row">
+                                <strong class="text-[13px] font-semibold text-[var(--text)]" data-kid="1-2-3-2-2-2-2-1-1" data-name="critical alert title text">
+                                    Thermal buffer below threshold
+                                </strong>
+                                <span class="text-[10px] font-bold uppercase tracking-[.05em] text-[var(--red)]" data-kid="1-2-3-2-2-2-2-1-2" data-name="critical alert severity tag">
+                                    Critical
+                                </span>
+                            </div>
+                            <div class="mt-1 text-[12px] leading-[1.45] text-[var(--muted)]" data-kid="1-2-3-2-2-2-2-2" data-name="critical alert description text">
+                                Tanker 01 · Village collection center A · modeled TSB 0.4 h
+                            </div>
+                            <button class="focusable mt-2 rounded-[6px] border border-[var(--line)] bg-[var(--surface-raised)] px-2.5 py-1 text-[11px] font-semibold text-[var(--text)] hover:border-[#68756f]" data-kid="1-2-3-2-2-2-2-3" data-name="acknowledge alert button" type="button">
+                                Acknowledge alert
+                            </button>
+                        </div>
+                        <span class="mono text-[10px] text-[var(--quiet)]" data-kid="1-2-3-2-2-2-3" data-name="demo alert badge text">
+                            DEMO
+                        </span>
+                    </div>
+                    <div class="alert-line" data-kid="1-2-3-2-2-3" data-name="warning alert row">
+                        <span class="mt-[6px] h-[8px] w-[8px] rounded-full bg-[var(--amber)]" data-kid="1-2-3-2-2-3-1" data-name="warning alert severity dot">
+                        </span>
+                        <div data-kid="1-2-3-2-2-3-2" data-name="warning alert content">
+                            <div class="flex flex-wrap items-center gap-2" data-kid="1-2-3-2-2-3-2-1" data-name="warning alert title and severity row">
+                                <strong class="text-[13px] font-semibold text-[var(--text)]" data-kid="1-2-3-2-2-3-2-1-1" data-name="warning alert title text">
+                                    Collection route needs review
+                                </strong>
+                                <span class="text-[10px] font-bold uppercase tracking-[.05em] text-[var(--amber)]" data-kid="1-2-3-2-2-3-2-1-2" data-name="warning alert severity tag">
+                                    Warning
+                                </span>
+                            </div>
+                            <div class="mt-1 text-[12px] leading-[1.45] text-[var(--muted)]" data-kid="1-2-3-2-2-3-2-2" data-name="warning alert description text">
+                                Tanker 02 · A stop is in the modeled elevated-risk band
+                            </div>
+                        </div>
+                        <span class="mono text-[10px] text-[var(--quiet)]" data-kid="1-2-3-2-2-3-3" data-name="demo alert badge text">
+                            DEMO
+                        </span>
+                    </div>
+                    <div class="flex items-start gap-2 border-t border-[var(--line)] py-[10px] text-[11px] leading-[1.45] text-[var(--quiet)]" data-kid="1-2-3-2-2-4" data-name="alerts disclaimer footer note">
+                        <i class="ti ti-info-circle mt-px text-[14px]" data-kid="1-2-3-2-2-4-1" data-name="alert info icon" style="width:15px;height:15px;color:var(--quiet)">
+                        </i>
+                        Sample alert text illustrates layout; it is not a live incident feed.
+                    </div>
+                </section>
+                <div class="flex items-start gap-2 rounded-[10px] border border-[#373123] bg-[#19160f] px-3 py-[11px] text-[11px] leading-[1.45] text-[#cbbd9f]" data-kid="1-2-3-2-3" data-name="thermal thresholds caution banner">
+                    <i class="ti ti-alert-circle mt-px text-[15px]" data-kid="1-2-3-2-3-1" data-name="alert circle caution icon" style="width:16px;height:16px;color:var(--amber)">
+                    </i>
+                    <span data-kid="1-2-3-2-3-2" data-name="caution banner text">
+                        Thermal thresholds are estimates in this prototype. Confirm against measured cooperative data before operational use.
+                    </span>
+                </div>
+            </aside>
+        </div>
+        <footer class="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-4 text-[11px] text-[var(--quiet)]" data-kid="1-2-4" data-name="dashboard footer">
+            <span data-kid="1-2-4-1" data-name="footer product name and tagline">
+                T.E.M.P.O. · Thermal Estimation & Milk Procurement Optimizer
+            </span>
+            <span data-kid="1-2-4-2" data-name="footer demo state note">
+                Illustrative demo state · no live observations or timestamps shown
+            </span>
+        </footer>
+    </main>
+</div>
+<script>
+    (function(){
+  const ids=['s1','s2','s3','s4'];let zoom=1;
+  window.tempoSelectStop=function(id){
+    document.querySelectorAll('.stop-row').forEach(row=>{const selected=row.dataset.stop===id;row.classList.toggle('selected',selected);row.setAttribute('aria-pressed',String(selected));});
+    document.querySelectorAll('.map-stop').forEach(marker=>{const selected=marker.dataset.mapStop===id;marker.classList.toggle('selected',selected);});
+  };
+  window.tempoMapZoom=function(direction){zoom=Math.max(1,Math.min(1.6,zoom+(direction>0?.1:-.1)));const svg=document.getElementById('tempo-map');if(svg)svg.style.transform='scale('+zoom+')';};
+  document.querySelectorAll('.stop-row').forEach(row=>row.addEventListener('click',()=>window.tempoSelectStop(row.dataset.stop)));
+  document.querySelectorAll('.map-stop').forEach(marker=>marker.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();window.tempoSelectStop(marker.dataset.mapStop);}}));
+})();
+</script>
+</div>
+</body></html>

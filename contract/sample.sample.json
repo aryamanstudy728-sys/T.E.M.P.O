@@ -1,0 +1,244 @@
+{
+  "villages": [
+    {
+      "id": "V01",
+      "name": "Village 01",
+      "lat": 22.63877,
+      "lon": 72.92271,
+      "volume_l": 461,
+      "milk_temp_c": 33.4
+    },
+    {
+      "id": "V02",
+      "name": "Village 02",
+      "lat": 22.60986,
+      "lon": 72.97063,
+      "volume_l": 530,
+      "milk_temp_c": 33.4
+    },
+    {
+      "id": "V03",
+      "name": "Village 03",
+      "lat": 22.57904,
+      "lon": 72.94605,
+      "volume_l": 513,
+      "milk_temp_c": 29.9
+    },
+    {
+      "id": "V04",
+      "name": "Village 04",
+      "lat": 22.54066,
+      "lon": 73.00906,
+      "volume_l": 353,
+      "milk_temp_c": 31.9
+    },
+    {
+      "id": "V05",
+      "name": "Village 05",
+      "lat": 22.62764,
+      "lon": 73.03796,
+      "volume_l": 232,
+      "milk_temp_c": 31.3
+    },
+    {
+      "id": "V06",
+      "name": "Village 06",
+      "lat": 22.59724,
+      "lon": 73.07324,
+      "volume_l": 347,
+      "milk_temp_c": 33.3
+    },
+    {
+      "id": "V07",
+      "name": "Village 07",
+      "lat": 22.61044,
+      "lon": 73.05013,
+      "volume_l": 114,
+      "milk_temp_c": 36.5
+    },
+    {
+      "id": "V08",
+      "name": "Village 08",
+      "lat": 22.51912,
+      "lon": 73.0739,
+      "volume_l": 131,
+      "milk_temp_c": 34.2
+    },
+    {
+      "id": "V09",
+      "name": "Village 09",
+      "lat": 22.51281,
+      "lon": 72.95155,
+      "volume_l": 98,
+      "milk_temp_c": 36.2
+    },
+    {
+      "id": "V10",
+      "name": "Village 10",
+      "lat": 22.51841,
+      "lon": 73.06027,
+      "volume_l": 350,
+      "milk_temp_c": 32.9
+    },
+    {
+      "id": "V11",
+      "name": "Village 11",
+      "lat": 22.58093,
+      "lon": 72.8077,
+      "volume_l": 569,
+      "milk_temp_c": 36.1
+    },
+    {
+      "id": "V12",
+      "name": "Village 12",
+      "lat": 22.6702,
+      "lon": 73.02416,
+      "volume_l": 182,
+      "milk_temp_c": 28.4
+    },
+    {
+      "id": "V13",
+      "name": "Village 13",
+      "lat": 22.54873,
+      "lon": 73.04041,
+      "volume_l": 511,
+      "milk_temp_c": 31.2
+    },
+    {
+      "id": "V14",
+      "name": "Village 14",
+      "lat": 22.62301,
+      "lon": 73.03346,
+      "volume_l": 497,
+      "milk_temp_c": 28.7
+    },
+    {
+      "id": "V15",
+      "name": "Village 15",
+      "lat": 22.59761,
+      "lon": 73.07198,
+      "volume_l": 83,
+      "milk_temp_c": 35.3
+    },
+    {
+      "id": "V16",
+      "name": "Village 16",
+      "lat": 22.57537,
+      "lon": 72.82617,
+      "volume_l": 119,
+      "milk_temp_c": 31.2
+    },
+    {
+      "id": "V17",
+      "name": "Village 17",
+      "lat": 22.47028,
+      "lon": 72.8549,
+      "volume_l": 252,
+      "milk_temp_c": 28.6
+    },
+    {
+      "id": "V18",
+      "name": "Village 18",
+      "lat": 22.55015,
+      "lon": 72.86724,
+      "volume_l": 412,
+      "milk_temp_c": 36.0
+    },
+    {
+      "id": "V19",
+      "name": "Village 19",
+      "lat": 22.5493,
+      "lon": 72.90074,
+      "volume_l": 476,
+      "milk_temp_c": 33.1
+    },
+    {
+      "id": "V20",
+      "name": "Village 20",
+      "lat": 22.46601,
+      "lon": 72.93536,
+      "volume_l": 302,
+      "milk_temp_c": 28.2
+    },
+    {
+      "id": "V21",
+      "name": "Village 21",
+      "lat": 22.54432,
+      "lon": 72.93039,
+      "volume_l": 243,
+      "milk_temp_c": 32.6
+    },
+    {
+      "id": "V22",
+      "name": "Village 22",
+      "lat": 22.50294,
+      "lon": 72.989,
+      "volume_l": 473,
+      "milk_temp_c": 30.1
+    },
+    {
+      "id": "V23",
+      "name": "Village 23",
+      "lat": 22.5985,
+      "lon": 73.01683,
+      "volume_l": 563,
+      "milk_temp_c": 35.3
+    },
+    {
+      "id": "V24",
+      "name": "Village 24",
+      "lat": 22.60174,
+      "lon": 72.82109,
+      "volume_l": 177,
+      "milk_temp_c": 36.0
+    },
+    {
+      "id": "V25",
+      "name": "Village 25",
+      "lat": 22.65646,
+      "lon": 72.87012,
+      "volume_l": 245,
+      "milk_temp_c": 29.0
+    },
+    {
+      "id": "V26",
+      "name": "Village 26",
+      "lat": 22.5966,
+      "lon": 72.86297,
+      "volume_l": 528,
+      "milk_temp_c": 28.1
+    },
+    {
+      "id": "V27",
+      "name": "Village 27",
+      "lat": 22.57522,
+      "lon": 73.04309,
+      "volume_l": 142,
+      "milk_temp_c": 31.0
+    },
+    {
+      "id": "V28",
+      "name": "Village 28",
+      "lat": 22.48371,
+      "lon": 72.9402,
+      "volume_l": 446,
+      "milk_temp_c": 31.3
+    },
+    {
+      "id": "V29",
+      "name": "Village 29",
+      "lat": 22.55852,
+      "lon": 73.09355,
+      "volume_l": 339,
+      "milk_temp_c": 30.7
+    },
+    {
+      "id": "V30",
+      "name": "Village 30",
+      "lat": 22.53996,
+      "lon": 72.93214,
+      "volume_l": 341,
+      "milk_temp_c": 28.5
+    }
+  ]
+}

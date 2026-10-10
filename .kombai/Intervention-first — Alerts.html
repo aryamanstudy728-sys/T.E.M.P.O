@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style>
+    @import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+</style>
+<div class="min-h-screen bg-[#0c0f0e] font-['DM_Sans',sans-serif] text-[#eef3f1]" data-kid="1" data-name="page layout container">
+    <header class="sticky top-0 z-20 border-b border-[#252b28] bg-[#0c0f0e]/95 backdrop-blur-sm" data-kid="1-1" data-name="sticky site header">
+        <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-8 py-4 max-md:px-4" data-kid="1-1-1" data-name="header inner toolbar">
+            <div class="flex min-w-0 items-center gap-9" data-kid="1-1-1-1" data-name="header left group with logo and nav">
+                <a class="flex shrink-0 items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#56dfbf]" data-kid="1-1-1-1-1" data-name="brand logo link" href="#">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-[#54ddbb] font-['Space_Grotesk',sans-serif] text-lg font-bold text-[#10201b]" data-kid="1-1-1-1-1-1" data-name="brand monogram badge">
+                        T
+                    </span>
+                    <span class="font-['Space_Grotesk',sans-serif] text-lg font-semibold tracking-tight" data-kid="1-1-1-1-1-2" data-name="brand name text">
+                        T.E.M.P.O.
+                    </span>
+                </a>
+                <nav aria-label="Main navigation" class="flex items-center gap-1 max-md:hidden" data-kid="1-1-1-1-2" data-name="main navigation bar">
+                    <a class="rounded-lg px-4 py-2.5 text-sm font-medium text-[#a4afaa] hover:bg-[#171d1a] hover:text-white focus-visible:outline-2 focus-visible:outline-[#56dfbf]" data-kid="1-1-1-1-2-1" data-name="operations nav link" href="#">
+                        Operations
+                    </a>
+                    <a class="rounded-lg px-4 py-2.5 text-sm font-medium text-[#a4afaa] hover:bg-[#171d1a] hover:text-white focus-visible:outline-2 focus-visible:outline-[#56dfbf]" data-kid="1-1-1-1-2-2" data-name="routes nav link" href="#">
+                        Routes
+                    </a>
+                    <a aria-current="page" class="rounded-lg bg-[#1d2824] px-4 py-2.5 text-sm font-semibold text-[#6de5c6] focus-visible:outline-2 focus-visible:outline-[#56dfbf]" data-kid="1-1-1-1-2-3" data-name="active alerts nav link with badge" href="#">
+                        Alerts
+                        <span class="ml-1 tabular-nums text-[#f4c15c]" data-kid="1-1-1-1-2-3-1" data-name="alerts count badge">
+                            04
+                        </span>
+                    </a>
+                    <a class="rounded-lg px-4 py-2.5 text-sm font-medium text-[#a4afaa] hover:bg-[#171d1a] hover:text-white focus-visible:outline-2 focus-visible:outline-[#56dfbf]" data-kid="1-1-1-1-2-4" data-name="analytics nav link" href="#">
+                        Analytics
+                    </a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-3" data-kid="1-1-1-2" data-name="header right group">
+                <span class="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#51452b] bg-[#211d13] px-3.5 text-[13px] font-medium text-[#f3d28a]" data-kid="1-1-1-2-1" data-name="demo scenario status pill">
+                    <span class="h-2 w-2 rounded-full bg-[#efbd58]" data-kid="1-1-1-2-1-1" data-name="demo status indicator dot">
+                    </span>
+                    Demo scenario · not live
+                </span>
+                <button aria-label="Open menu" class="hidden h-11 w-11 items-center justify-center rounded-lg border border-[#303733] text-lg text-[#d7dfdb] focus-visible:outline-2 focus-visible:outline-[#56dfbf] max-md:flex" data-kid="1-1-1-2-2" data-name="mobile menu button">
+                    <i class="ti ti-menu-2" data-kid="1-1-1-2-2-1" data-name="menu hamburger icon" style="width:20px;height:20px">
+                    </i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="mx-auto max-w-[1440px] px-8 pb-12 pt-8 max-md:px-4 max-md:pt-6" data-kid="1-2" data-name="main content area">
+        <div class="mb-7 flex flex-wrap items-end justify-between gap-5" data-kid="1-2-1" data-name="page header title row">
+            <div data-kid="1-2-1-1" data-name="page title group">
+                <h1 class="font-['Space_Grotesk',sans-serif] text-[30px] font-semibold leading-tight tracking-[-0.035em]" data-dynamic="true" data-kid="1-2-1-1-1" data-name="page headline" data-reason="replaced at runtime by template-rendered page title">
+                    Alert center
+                </h1>
+                <p class="mt-2 text-[15px] text-[#a6b0ac]" data-kid="1-2-1-1-2" data-name="page subtitle text">
+                    Review thermal, collection and route exceptions.
+                </p>
+            </div>
+            <div class="flex items-center gap-2 text-[13px] text-[#a6b0ac]" data-kid="1-2-1-2" data-name="disclaimer notice row">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#171d1a] text-[#7ce6ca]" data-kid="1-2-1-2-1" data-name="disclaimer icon badge">
+                    <i class="ti ti-info-circle" data-kid="1-2-1-2-1-1" data-name="info circle icon" style="width:16px;height:16px">
+                    </i>
+                </span>
+                Acknowledgement records review; it does not resolve risk.
+            </div>
+        </div>
+        <section aria-label="Alert totals" class="mb-7 flex flex-wrap items-center gap-x-10 gap-y-4 border-y border-[#252b28] py-4 max-md:gap-x-6" data-kid="1-2-2" data-name="alert totals summary bar">
+            <div class="min-w-[110px]" data-kid="1-2-2-1" data-name="total alerts stat">
+                <div class="text-[13px] text-[#a1aba6]" data-kid="1-2-2-1-1" data-name="total alerts label">
+                    Total alerts
+                </div>
+                <div class="mt-1 font-['Space_Grotesk',sans-serif] text-[24px] font-semibold tabular-nums" data-dynamic="true" data-kid="1-2-2-1-2" data-name="total alerts value" data-reason="replaced at runtime by template-rendered count">
+                    05
+                </div>
+            </div>
+            <div class="min-w-[110px]" data-kid="1-2-2-2" data-name="critical alerts stat">
+                <div class="text-[13px] text-[#a1aba6]" data-kid="1-2-2-2-1" data-name="critical alerts label">
+                    Critical
+                </div>
+                <div class="mt-1 flex items-baseline gap-2 font-['Space_Grotesk',sans-serif] text-[24px] font-semibold tabular-nums text-[#ff7b8b]" data-dynamic="true" data-kid="1-2-2-2-2" data-name="critical alerts value" data-reason="replaced at runtime by template-rendered count">
+                    02
+                    <span class="text-[13px] font-medium text-[#a1aba6]" data-kid="1-2-2-2-2-1" data-name="critical unit label">
+                        alerts
+                    </span>
+                </div>
+            </div>
+            <div class="min-w-[110px]" data-kid="1-2-2-3" data-name="warning alerts stat">
+                <div class="text-[13px] text-[#a1aba6]" data-kid="1-2-2-3-1" data-name="warning alerts label">
+                    Warning
+                </div>
+                <div class="mt-1 flex items-baseline gap-2 font-['Space_Grotesk',sans-serif] text-[24px] font-semibold tabular-nums text-[#f1c35f]" data-dynamic="true" data-kid="1-2-2-3-2" data-name="warning alerts value" data-reason="replaced at runtime by template-rendered count">
+                    02
+                    <span class="text-[13px] font-medium text-[#a1aba6]" data-kid="1-2-2-3-2-1" data-name="warning unit label">
+                        alerts
+                    </span>
+                </div>
+            </div>
+            <div class="min-w-[145px]" data-kid="1-2-2-4" data-name="unacknowledged alerts stat">
+                <div class="text-[13px] text-[#a1aba6]" data-kid="1-2-2-4-1" data-name="unacknowledged alerts label">
+                    Unacknowledged
+                </div>
+                <div class="mt-1 flex items-baseline gap-2 font-['Space_Grotesk',sans-serif] text-[24px] font-semibold tabular-nums text-[#75e2c4]" data-dynamic="true" data-kid="1-2-2-4-2" data-name="unacknowledged alerts value" data-reason="replaced at runtime by template-rendered count">
+                    04
+                    <span class="text-[13px] font-medium text-[#a1aba6]" data-kid="1-2-2-4-2-1" data-name="unacknowledged unit label">
+                        need review
+                    </span>
+                </div>
+            </div>
+            <div class="ml-auto max-md:ml-0" data-kid="1-2-2-5" data-name="sidebar samples group">
+                <span class="inline-flex items-center gap-2 rounded-md border border-[#303733] px-3 py-2 text-[13px] text-[#c3cdc8]" data-kid="1-2-2-5-1" data-name="sample records pill">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#efbd58]" data-kid="1-2-2-5-1-1" data-name="sample records dot">
+                    </span>
+                    Sample records only
+                </span>
+            </div>
+        </section>
+        <div class="grid grid-cols-[minmax(0,1fr)_340px] items-start gap-7 max-lg:grid-cols-[minmax(0,1fr)_300px] max-md:grid-cols-1 max-md:gap-6" data-kid="1-2-3" data-name="main two-column layout">
+            <section aria-labelledby="worklist-heading" class="min-w-0" data-kid="1-2-3-1" data-name="alert worklist section">
+                <div class="mb-5 flex flex-wrap items-center justify-between gap-4" data-kid="1-2-3-1-1" data-name="worklist header row">
+                    <div data-kid="1-2-3-1-1-1" data-name="worklist heading group">
+                        <h2 class="font-['Space_Grotesk',sans-serif] text-[18px] font-semibold" data-dynamic="true" data-kid="1-2-3-1-1-1-1" data-name="worklist heading" data-reason="replaced at runtime by template-rendered title" id="worklist-heading">
+                            Alert worklist
+                        </h2>
+                        <p class="mt-1 text-[13px] text-[#a1aba6]" data-kid="1-2-3-1-1-1-2" data-name="worklist record summary text">
+                            Unacknowledged records first · 1 acknowledged record in history
+                        </p>
+                    </div>
+                    <button class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[#303733] px-3.5 text-[13px] font-medium text-[#d4ddd8] hover:bg-[#171d1a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-1-2" data-name="filter options button">
+                        <i class="ti ti-adjustments-horizontal text-[16px]" data-kid="1-2-3-1-1-2-1" data-name="slider filter icon" style="width:16px;height:16px">
+                        </i>
+                        Filter options
+                    </button>
+                </div>
+                <div class="mb-4 flex flex-wrap items-center gap-3" data-kid="1-2-3-1-2" data-name="worklist search and filter bar">
+                    <label class="relative min-w-[260px] flex-1 max-md:min-w-full" data-kid="1-2-3-1-2-1" data-name="search field wrapper">
+                        <span class="sr-only" data-kid="1-2-3-1-2-1-1" data-name="search screen-reader label">
+                            Search alerts
+                        </span>
+                        <i class="ti ti-search absolute left-3.5 top-1/2 -translate-y-1/2 text-[17px] text-[#89948f]" data-kid="1-2-3-1-2-1-2" data-name="search magnifier icon" style="width:17px;height:17px">
+                        </i>
+                        <input class="h-12 w-full rounded-lg border border-[#343c38] bg-[#121614] pl-11 pr-4 text-[14px] text-[#eef3f1] placeholder:text-[#89948f] focus:border-[#58dcb9] focus:outline-2 focus:outline-[#58dcb9]/50" data-kid="1-2-3-1-2-1-3" data-name="search input field" placeholder="Search message, vehicle or VCC" type="search"/>
+                    </label>
+                    <div aria-label="Filter by severity" class="flex flex-wrap gap-2" data-kid="1-2-3-1-2-2" data-name="severity filter group" role="group">
+                        <button aria-pressed="true" class="min-h-11 rounded-full bg-[#d9e7e1] px-4 text-[13px] font-semibold text-[#15201b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-2-2-1" data-name="all severity filter button">
+                            All
+                            <span class="ml-1 tabular-nums" data-kid="1-2-3-1-2-2-1-1" data-name="all severity count">
+                                5
+                            </span>
+                        </button>
+                        <button aria-pressed="false" class="min-h-11 rounded-full border border-[#303733] px-4 text-[13px] font-medium text-[#c3cdc8] hover:bg-[#1b211e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-2-2-2" data-name="critical severity filter button">
+                            Critical
+                            <span class="ml-1 tabular-nums text-[#ff8a98]" data-kid="1-2-3-1-2-2-2-1" data-name="critical severity count">
+                                2
+                            </span>
+                        </button>
+                        <button aria-pressed="false" class="min-h-11 rounded-full border border-[#303733] px-4 text-[13px] font-medium text-[#c3cdc8] hover:bg-[#1b211e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-2-2-3" data-name="warning severity filter button">
+                            Warning
+                            <span class="ml-1 tabular-nums text-[#f2c45f]" data-kid="1-2-3-1-2-2-3-1" data-name="warning severity count">
+                                2
+                            </span>
+                        </button>
+                        <button aria-pressed="false" class="min-h-11 rounded-full border border-[#303733] px-4 text-[13px] font-medium text-[#c3cdc8] hover:bg-[#1b211e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-2-2-4" data-name="info severity filter button">
+                            Info
+                            <span class="ml-1 tabular-nums" data-kid="1-2-3-1-2-2-4-1" data-name="info severity count">
+                                1
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-xl border border-[#303733] bg-[#111513]" data-kid="1-2-3-1-3" data-name="alert worklist table card">
+                    <div class="flex items-center justify-between border-b border-[#303733] px-5 py-3.5 max-md:px-4" data-kid="1-2-3-1-3-1" data-name="table group header row">
+                        <div class="flex items-center gap-2 text-[13px] font-semibold text-[#dce5e0]" data-kid="1-2-3-1-3-1-1" data-name="needs acknowledgment group label">
+                            <span class="h-2 w-2 rounded-full bg-[#f0c05d]" data-kid="1-2-3-1-3-1-1-1" data-name="warning indicator dot">
+                            </span>
+                            Needs acknowledgment
+                            <span class="font-normal tabular-nums text-[#97a39d]" data-kid="1-2-3-1-3-1-1-2" data-name="needs acknowledgment count">
+                                4
+                            </span>
+                        </div>
+                        <span class="text-[13px] text-[#97a39d]" data-kid="1-2-3-1-3-1-2" data-name="table sort note">
+                            Sorted by severity, then time
+                        </span>
+                    </div>
+                    <div class="overflow-x-auto max-md:hidden" data-kid="1-2-3-1-3-2" data-name="table scroll container">
+                        <table class="w-full min-w-[760px] border-collapse text-left" data-kid="1-2-3-1-3-2-1" data-name="alert worklist table">
+                            <thead class="bg-[#151a17] text-[12px] font-medium text-[#aab5af]" data-kid="1-2-3-1-3-2-1-1" data-name="table header">
+                                <tr data-kid="1-2-3-1-3-2-1-1-1" data-name="table header row">
+                                    <th class="px-4 py-3 font-medium" data-kid="1-2-3-1-3-2-1-1-1-1" data-name="type severity column header">
+                                        Type / severity
+                                    </th>
+                                    <th class="px-4 py-3 font-medium" data-kid="1-2-3-1-3-2-1-1-1-2" data-name="alert column header">
+                                        Alert
+                                    </th>
+                                    <th class="px-4 py-3 font-medium" data-kid="1-2-3-1-3-2-1-1-1-3" data-name="vehicle vcc column header">
+                                        Vehicle · VCC
+                                    </th>
+                                    <th class="px-4 py-3 font-medium" data-kid="1-2-3-1-3-2-1-1-1-4" data-name="time column header">
+                                        Time
+                                    </th>
+                                    <th class="px-4 py-3 font-medium" data-kid="1-2-3-1-3-2-1-1-1-5" data-name="status column header">
+                                        Status
+                                    </th>
+                                    <th class="px-4 py-3 text-right font-medium" data-kid="1-2-3-1-3-2-1-1-1-6" data-name="action column header">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-[13px]" data-kid="1-2-3-1-3-2-1-2" data-name="table body with alert data rows">
+                                <tr aria-selected="true" class="border-t border-[#29302c] bg-[#1a211d] outline outline-1 outline-inset outline-[#496e5f]" data-dynamic="true" data-kid="1-2-3-1-3-2-1-2-1" data-name="selected critical alert row" data-reason="entire row rendered from data list at runtime">
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-1-1" data-name="alert type cell">
+                                        <div class="flex items-center gap-2 font-medium text-[#e8eeeb]" data-kid="1-2-3-1-3-2-1-2-1-1-1" data-name="alert type label">
+                                            <span class="h-2 w-2 rounded-full bg-[#ff7284]" data-kid="1-2-3-1-3-2-1-2-1-1-1-1" data-name="critical severity dot">
+                                            </span>
+                                            Thermal risk
+                                        </div>
+                                        <div class="mt-2 pl-4 text-[13px] font-medium text-[#ff8b98]" data-kid="1-2-3-1-3-2-1-2-1-1-2" data-name="severity label">
+                                            Critical
+                                        </div>
+                                    </td>
+                                    <td class="max-w-[300px] px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-1-2" data-name="alert message cell">
+                                        <div class="font-medium leading-5 text-[#e8eeeb]" data-kid="1-2-3-1-3-2-1-2-1-2-1" data-name="alert title text">
+                                            Thermal buffer below critical threshold at next stop
+                                        </div>
+                                        <div class="mt-1 text-[13px] text-[#9da8a2]" data-kid="1-2-3-1-3-2-1-2-1-2-2" data-name="alert detail text">
+                                            Next stop requires immediate route review
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-1-3" data-name="vehicle vcc cell">
+                                        <a class="block font-medium text-[#c8d2cd] underline decoration-[#65736b] underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-2-1-2-1-3-1" data-name="vehicle link" href="#">
+                                            VEH-001
+                                        </a>
+                                        <a class="mt-1 block text-[13px] text-[#a8b2ac] underline decoration-[#58645d] underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-2-1-2-1-3-2" data-name="vcc link" href="#">
+                                            VCC-014
+                                        </a>
+                                    </td>
+                                    <td class="whitespace-nowrap px-4 py-4 align-top tabular-nums text-[#c2cbc6]" data-kid="1-2-3-1-3-2-1-2-1-4" data-name="time cell">
+                                        09:42
+                                        <span class="mt-1 block text-[12px] text-[#929d97]" data-kid="1-2-3-1-3-2-1-2-1-4-1" data-name="date under time">
+                                            18 Oct
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-1-5" data-name="status cell">
+                                        <span class="inline-flex min-h-7 items-center rounded-md bg-[#332027] px-2.5 text-[12px] font-medium text-[#ff9ba5]" data-kid="1-2-3-1-3-2-1-2-1-5-1" data-name="unacknowledged status badge">
+                                            Unacknowledged
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 text-right align-top" data-kid="1-2-3-1-3-2-1-2-1-6" data-name="action cell">
+                                        <button class="min-h-11 whitespace-nowrap rounded-lg bg-[#dce9e3] px-3.5 text-[13px] font-semibold text-[#15201b] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-2-1-2-1-6-1" data-name="acknowledge action button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="border-t border-[#29302c] hover:bg-[#171d1a]" data-dynamic="true" data-kid="1-2-3-1-3-2-1-2-2" data-name="critical adulteration alert row" data-reason="entire row rendered from data list at runtime">
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-2-1" data-name="alert type cell">
+                                        <div class="flex items-center gap-2 font-medium text-[#e1e8e4]" data-kid="1-2-3-1-3-2-1-2-2-1-1" data-name="alert type label">
+                                            <span class="h-2 w-2 rounded-full bg-[#ff7284]" data-kid="1-2-3-1-3-2-1-2-2-1-1-1" data-name="critical severity dot">
+                                            </span>
+                                            Adulteration
+                                        </div>
+                                        <div class="mt-2 pl-4 font-medium text-[#ff8b98]" data-kid="1-2-3-1-3-2-1-2-2-1-2" data-name="severity label">
+                                            Critical
+                                        </div>
+                                    </td>
+                                    <td class="max-w-[300px] px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-2-2" data-name="alert message cell">
+                                        <div class="font-medium leading-5 text-[#e1e8e4]" data-kid="1-2-3-1-3-2-1-2-2-2-1" data-name="alert title text">
+                                            Milk quality readings require manual review
+                                        </div>
+                                        <div class="mt-1 text-[13px] text-[#9da8a2]" data-kid="1-2-3-1-3-2-1-2-2-2-2" data-name="alert detail text">
+                                            Quality check flagged at collection
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-2-3" data-name="vehicle vcc cell">
+                                        <a class="block font-medium text-[#c8d2cd] underline decoration-[#65736b] underline-offset-4" data-kid="1-2-3-1-3-2-1-2-2-3-1" data-name="vehicle link" href="#">
+                                            VEH-003
+                                        </a>
+                                        <a class="mt-1 block text-[13px] text-[#a8b2ac] underline decoration-[#58645d] underline-offset-4" data-kid="1-2-3-1-3-2-1-2-2-3-2" data-name="vcc link" href="#">
+                                            VCC-021
+                                        </a>
+                                    </td>
+                                    <td class="whitespace-nowrap px-4 py-4 align-top tabular-nums text-[#c2cbc6]" data-kid="1-2-3-1-3-2-1-2-2-4" data-name="time cell">
+                                        09:36
+                                        <span class="mt-1 block text-[12px] text-[#929d97]" data-kid="1-2-3-1-3-2-1-2-2-4-1" data-name="date under time">
+                                            18 Oct
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-2-5" data-name="status cell">
+                                        <span class="inline-flex min-h-7 items-center rounded-md bg-[#332027] px-2.5 text-[12px] font-medium text-[#ff9ba5]" data-kid="1-2-3-1-3-2-1-2-2-5-1" data-name="unacknowledged status badge">
+                                            Unacknowledged
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 text-right align-top" data-kid="1-2-3-1-3-2-1-2-2-6" data-name="action cell">
+                                        <button class="min-h-11 whitespace-nowrap rounded-lg border border-[#46514b] px-3.5 text-[13px] font-semibold text-[#e3eae6] hover:bg-[#222a25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-2-1-2-2-6-1" data-name="acknowledge action button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="border-t border-[#29302c] hover:bg-[#171d1a]" data-dynamic="true" data-kid="1-2-3-1-3-2-1-2-3" data-name="warning weather spike alert row" data-reason="entire row rendered from data list at runtime">
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-3-1" data-name="alert type cell">
+                                        <div class="flex items-center gap-2 font-medium text-[#e1e8e4]" data-kid="1-2-3-1-3-2-1-2-3-1-1" data-name="alert type label">
+                                            <span class="h-2 w-2 rounded-full bg-[#f0bd58]" data-kid="1-2-3-1-3-2-1-2-3-1-1-1" data-name="warning severity dot">
+                                            </span>
+                                            Weather spike
+                                        </div>
+                                        <div class="mt-2 pl-4 font-medium text-[#f3cb74]" data-kid="1-2-3-1-3-2-1-2-3-1-2" data-name="severity label">
+                                            Warning
+                                        </div>
+                                    </td>
+                                    <td class="max-w-[300px] px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-3-2" data-name="alert message cell">
+                                        <div class="font-medium leading-5 text-[#e1e8e4]" data-kid="1-2-3-1-3-2-1-2-3-2-1" data-name="alert title text">
+                                            Ambient heat may affect upcoming collection stops
+                                        </div>
+                                        <div class="mt-1 text-[13px] text-[#9da8a2]" data-kid="1-2-3-1-3-2-1-2-3-2-2" data-name="alert detail text">
+                                            Review thermal buffer before dispatch
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-3-3" data-name="vehicle vcc cell">
+                                        <a class="block font-medium text-[#c8d2cd] underline decoration-[#65736b] underline-offset-4" data-kid="1-2-3-1-3-2-1-2-3-3-1" data-name="vehicle link" href="#">
+                                            VEH-002
+                                        </a>
+                                        <span class="mt-1 block text-[13px] text-[#7f8a84]" data-kid="1-2-3-1-3-2-1-2-3-3-2" data-name="vcc not linked text">
+                                            VCC not linked
+                                        </span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-4 py-4 align-top tabular-nums text-[#c2cbc6]" data-kid="1-2-3-1-3-2-1-2-3-4" data-name="time cell">
+                                        09:31
+                                        <span class="mt-1 block text-[12px] text-[#929d97]" data-kid="1-2-3-1-3-2-1-2-3-4-1" data-name="date under time">
+                                            18 Oct
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-3-5" data-name="status cell">
+                                        <span class="inline-flex min-h-7 items-center rounded-md bg-[#30291a] px-2.5 text-[12px] font-medium text-[#f2d38e]" data-kid="1-2-3-1-3-2-1-2-3-5-1" data-name="unacknowledged status badge">
+                                            Unacknowledged
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 text-right align-top" data-kid="1-2-3-1-3-2-1-2-3-6" data-name="action cell">
+                                        <button class="min-h-11 whitespace-nowrap rounded-lg border border-[#46514b] px-3.5 text-[13px] font-semibold text-[#e3eae6] hover:bg-[#222a25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-2-1-2-3-6-1" data-name="acknowledge action button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="border-t border-[#29302c] hover:bg-[#171d1a]" data-dynamic="true" data-kid="1-2-3-1-3-2-1-2-4" data-name="warning bmc overload alert row" data-reason="entire row rendered from data list at runtime">
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-4-1" data-name="alert type cell">
+                                        <div class="flex items-center gap-2 font-medium text-[#e1e8e4]" data-kid="1-2-3-1-3-2-1-2-4-1-1" data-name="alert type label">
+                                            <span class="h-2 w-2 rounded-full bg-[#f0bd58]" data-kid="1-2-3-1-3-2-1-2-4-1-1-1" data-name="warning severity dot">
+                                            </span>
+                                            BMC overload
+                                        </div>
+                                        <div class="mt-2 pl-4 font-medium text-[#f3cb74]" data-kid="1-2-3-1-3-2-1-2-4-1-2" data-name="severity label">
+                                            Warning
+                                        </div>
+                                    </td>
+                                    <td class="max-w-[300px] px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-4-2" data-name="alert message cell">
+                                        <div class="font-medium leading-5 text-[#e1e8e4]" data-kid="1-2-3-1-3-2-1-2-4-2-1" data-name="alert title text">
+                                            Cooler queue is above expected capacity
+                                        </div>
+                                        <div class="mt-1 text-[13px] text-[#9da8a2]" data-kid="1-2-3-1-3-2-1-2-4-2-2" data-name="alert detail text">
+                                            Check receiving availability before arrival
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-4-3" data-name="vehicle vcc cell">
+                                        <a class="block font-medium text-[#c8d2cd] underline decoration-[#65736b] underline-offset-4" data-kid="1-2-3-1-3-2-1-2-4-3-1" data-name="vehicle link" href="#">
+                                            VEH-001
+                                        </a>
+                                        <span class="mt-1 block text-[13px] text-[#7f8a84]" data-kid="1-2-3-1-3-2-1-2-4-3-2" data-name="vcc not linked text">
+                                            VCC not linked
+                                        </span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-4 py-4 align-top tabular-nums text-[#c2cbc6]" data-kid="1-2-3-1-3-2-1-2-4-4" data-name="time cell">
+                                        09:25
+                                        <span class="mt-1 block text-[12px] text-[#929d97]" data-kid="1-2-3-1-3-2-1-2-4-4-1" data-name="date under time">
+                                            18 Oct
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 align-top" data-kid="1-2-3-1-3-2-1-2-4-5" data-name="status cell">
+                                        <span class="inline-flex min-h-7 items-center rounded-md bg-[#30291a] px-2.5 text-[12px] font-medium text-[#f2d38e]" data-kid="1-2-3-1-3-2-1-2-4-5-1" data-name="unacknowledged status badge">
+                                            Unacknowledged
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-4 text-right align-top" data-kid="1-2-3-1-3-2-1-2-4-6" data-name="action cell">
+                                        <button class="min-h-11 whitespace-nowrap rounded-lg border border-[#46514b] px-3.5 text-[13px] font-semibold text-[#e3eae6] hover:bg-[#222a25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-2-1-2-4-6-1" data-name="acknowledge action button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div aria-label="Unacknowledged alerts" class="hidden divide-y divide-[#29302c] max-md:block" data-kid="1-2-3-1-3-5">
+                        <article class="px-4 py-4" data-kid="1-2-3-1-3-5-1">
+                            <div class="flex items-center justify-between gap-3" data-kid="1-2-3-1-3-5-1-1">
+                                <span class="flex items-center gap-2 text-[14px] font-semibold text-[#eef3f1]" data-kid="1-2-3-1-3-5-1-1-1">
+                                    <span class="h-2 w-2 rounded-full bg-[#ff7284]" data-kid="1-2-3-1-3-5-1-1-1-1">
+                                    </span>
+                                    Thermal risk · Critical
+                                </span>
+                                <time class="text-[13px] tabular-nums text-[#aab5af]" data-kid="1-2-3-1-3-5-1-1-2">
+                                    09:42
+                                </time>
+                            </div>
+                            <p class="mt-2 text-[14px] leading-5 text-[#e3eae6]" data-kid="1-2-3-1-3-5-1-2">
+                                Thermal buffer below critical threshold at next stop
+                            </p>
+                            <p class="mt-1 text-[13px] text-[#a6b0aa]" data-kid="1-2-3-1-3-5-1-3">
+                                VEH-001
+                                <span class="mx-1 text-[#69756e]" data-kid="1-2-3-1-3-5-1-3-1">
+                                    ·
+                                </span>
+                                VCC-014
+                            </p>
+                            <button class="mt-3 min-h-11 rounded-lg bg-[#dce9e3] px-4 text-[13px] font-semibold text-[#15201b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-5-1-4">
+                                Acknowledge
+                            </button>
+                        </article>
+                        <article class="px-4 py-4" data-kid="1-2-3-1-3-5-2">
+                            <div class="flex items-center justify-between gap-3" data-kid="1-2-3-1-3-5-2-1">
+                                <span class="flex items-center gap-2 text-[14px] font-semibold text-[#eef3f1]" data-kid="1-2-3-1-3-5-2-1-1">
+                                    <span class="h-2 w-2 rounded-full bg-[#ff7284]" data-kid="1-2-3-1-3-5-2-1-1-1">
+                                    </span>
+                                    Adulteration · Critical
+                                </span>
+                                <time class="text-[13px] tabular-nums text-[#aab5af]" data-kid="1-2-3-1-3-5-2-1-2">
+                                    09:36
+                                </time>
+                            </div>
+                            <p class="mt-2 text-[14px] leading-5 text-[#e3eae6]" data-kid="1-2-3-1-3-5-2-2">
+                                Milk quality readings require manual review
+                            </p>
+                            <p class="mt-1 text-[13px] text-[#a6b0aa]" data-kid="1-2-3-1-3-5-2-3">
+                                VEH-003
+                                <span class="mx-1 text-[#69756e]" data-kid="1-2-3-1-3-5-2-3-1">
+                                    ·
+                                </span>
+                                VCC-021
+                            </p>
+                            <button class="mt-3 min-h-11 rounded-lg border border-[#46514b] px-4 text-[13px] font-semibold text-[#e3eae6] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-5-2-4">
+                                Acknowledge
+                            </button>
+                        </article>
+                        <article class="px-4 py-4" data-kid="1-2-3-1-3-5-3">
+                            <div class="flex items-center justify-between gap-3" data-kid="1-2-3-1-3-5-3-1">
+                                <span class="flex items-center gap-2 text-[14px] font-semibold text-[#eef3f1]" data-kid="1-2-3-1-3-5-3-1-1">
+                                    <span class="h-2 w-2 rounded-full bg-[#f0bd58]" data-kid="1-2-3-1-3-5-3-1-1-1">
+                                    </span>
+                                    Weather spike · Warning
+                                </span>
+                                <time class="text-[13px] tabular-nums text-[#aab5af]" data-kid="1-2-3-1-3-5-3-1-2">
+                                    09:31
+                                </time>
+                            </div>
+                            <p class="mt-2 text-[14px] leading-5 text-[#e3eae6]" data-kid="1-2-3-1-3-5-3-2">
+                                Ambient heat may affect upcoming collection stops
+                            </p>
+                            <p class="mt-1 text-[13px] text-[#a6b0aa]" data-kid="1-2-3-1-3-5-3-3">
+                                VEH-002
+                                <span class="mx-1 text-[#69756e]" data-kid="1-2-3-1-3-5-3-3-1">
+                                    ·
+                                </span>
+                                VCC not linked
+                            </p>
+                            <button class="mt-3 min-h-11 rounded-lg border border-[#46514b] px-4 text-[13px] font-semibold text-[#e3eae6] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-5-3-4">
+                                Acknowledge
+                            </button>
+                        </article>
+                        <article class="px-4 py-4" data-kid="1-2-3-1-3-5-4">
+                            <div class="flex items-center justify-between gap-3" data-kid="1-2-3-1-3-5-4-1">
+                                <span class="flex items-center gap-2 text-[14px] font-semibold text-[#eef3f1]" data-kid="1-2-3-1-3-5-4-1-1">
+                                    <span class="h-2 w-2 rounded-full bg-[#f0bd58]" data-kid="1-2-3-1-3-5-4-1-1-1">
+                                    </span>
+                                    BMC overload · Warning
+                                </span>
+                                <time class="text-[13px] tabular-nums text-[#aab5af]" data-kid="1-2-3-1-3-5-4-1-2">
+                                    09:25
+                                </time>
+                            </div>
+                            <p class="mt-2 text-[14px] leading-5 text-[#e3eae6]" data-kid="1-2-3-1-3-5-4-2">
+                                Cooler queue is above expected capacity
+                            </p>
+                            <p class="mt-1 text-[13px] text-[#a6b0aa]" data-kid="1-2-3-1-3-5-4-3">
+                                VEH-001
+                                <span class="mx-1 text-[#69756e]" data-kid="1-2-3-1-3-5-4-3-1">
+                                    ·
+                                </span>
+                                VCC not linked
+                            </p>
+                            <button class="mt-3 min-h-11 rounded-lg border border-[#46514b] px-4 text-[13px] font-semibold text-[#e3eae6] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-1-3-5-4-4">
+                                Acknowledge
+                            </button>
+                        </article>
+                    </div>
+                    <div class="border-t border-[#29302c] px-5 py-3 text-[13px] text-[#9da8a2] max-md:px-4" data-kid="1-2-3-1-3-3" data-name="acknowledgement disclaimer footer">
+                        Acknowledging an alert records that it was reviewed. Route risk and quality status remain unchanged.
+                    </div>
+                    <div class="border-t border-[#303733] px-5 py-3.5 max-md:px-4" data-kid="1-2-3-1-3-4" data-name="acknowledged history block">
+                        <div class="flex items-center gap-2 text-[13px] font-semibold text-[#bdc7c1]" data-kid="1-2-3-1-3-4-1" data-name="history section label">
+                            <i class="ti ti-history text-[15px]" data-kid="1-2-3-1-3-4-1-1" data-name="history icon" style="width:16px;height:16px">
+                            </i>
+                            Acknowledged history
+                            <span class="font-normal tabular-nums text-[#97a39d]" data-kid="1-2-3-1-3-4-1-2" data-name="history count">
+                                1
+                            </span>
+                        </div>
+                        <div class="mt-3 grid grid-cols-[1fr_auto_auto] items-center gap-4 text-[13px] max-md:grid-cols-1 max-md:gap-2" data-kid="1-2-3-1-3-4-2" data-name="acknowledged record row">
+                            <span class="text-[#d1dad5]" data-kid="1-2-3-1-3-4-2-1" data-name="acknowledged alert description">
+                                Route change · Collection order updated for next stop
+                            </span>
+                            <span class="text-[#a6b0aa]" data-kid="1-2-3-1-3-4-2-2" data-name="acknowledged vehicle time">
+                                VEH-002 · 08:54
+                            </span>
+                            <span class="text-[#80d7b5]" data-kid="1-2-3-1-3-4-2-3" data-name="acknowledged status label">
+                                Acknowledged
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 text-[12px] text-[#86918b]" data-kid="1-2-3-1-4" data-name="worklist demo disclaimer">
+                    Records in this preview use a demo scenario and do not represent live cooperative data.
+                </p>
+            </section>
+            <aside aria-label="Selected alert context" class="space-y-5 max-md:order-last" data-kid="1-2-3-2" data-name="right sidebar for selected alert context">
+                <section class="rounded-xl border border-[#303733] bg-[#111513] p-5" data-kid="1-2-3-2-1" data-name="selected alert detail card">
+                    <div class="flex items-center justify-between gap-3" data-kid="1-2-3-2-1-1" data-name="selected alert header">
+                        <h2 class="font-['Space_Grotesk',sans-serif] text-[16px] font-semibold" data-kid="1-2-3-2-1-1-1" data-name="selected alert heading">
+                            Selected alert
+                        </h2>
+                        <span class="inline-flex min-h-7 items-center gap-1.5 rounded-md bg-[#332027] px-2.5 text-[12px] font-medium text-[#ff9ba5]" data-kid="1-2-3-2-1-1-2" data-name="severity badge">
+                            <span class="h-1.5 w-1.5 rounded-full bg-[#ff7284]" data-kid="1-2-3-2-1-1-2-1" data-name="severity dot">
+                            </span>
+                            Critical
+                        </span>
+                    </div>
+                    <div class="mt-5 border-t border-[#2c332f] pt-4" data-kid="1-2-3-2-1-2" data-name="detail content">
+                        <div class="flex items-start gap-3" data-kid="1-2-3-2-1-2-1" data-name="alert summary block">
+                            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#332027] text-[#ff8b98]" data-kid="1-2-3-2-1-2-1-1" data-name="alert type icon container">
+                                <i class="ti ti-temperature" data-kid="1-2-3-2-1-2-1-1-1" data-name="temperature icon" style="width:19px;height:19px">
+                                </i>
+                            </span>
+                            <div data-kid="1-2-3-2-1-2-1-2" data-name="alert summary text wrapper">
+                                <div class="text-[13px] font-medium text-[#b5c0ba]" data-kid="1-2-3-2-1-2-1-2-1" data-name="alert type label">
+                                    Thermal risk
+                                </div>
+                                <p class="mt-1 text-[14px] leading-5 text-[#e5ece8]" data-kid="1-2-3-2-1-2-1-2-2" data-name="alert description text">
+                                    Thermal buffer below critical threshold at next stop
+                                </p>
+                            </div>
+                        </div>
+                        <dl class="mt-5 divide-y divide-[#29302c] border-y border-[#29302c] text-[13px]" data-kid="1-2-3-2-1-2-2" data-name="alert details list">
+                            <div class="flex items-center justify-between gap-4 py-3" data-kid="1-2-3-2-1-2-2-1" data-name="recorded time detail row">
+                                <dt class="text-[#9da8a2]" data-kid="1-2-3-2-1-2-2-1-1" data-name="recorded time label">
+                                    Recorded
+                                </dt>
+                                <dd class="tabular-nums text-[#d8e0dc]" data-kid="1-2-3-2-1-2-2-1-2" data-name="recorded time value">
+                                    09:42 · 18 Oct
+                                </dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-4 py-3" data-kid="1-2-3-2-1-2-2-2" data-name="vehicle detail row">
+                                <dt class="text-[#9da8a2]" data-kid="1-2-3-2-1-2-2-2-1" data-name="vehicle label">
+                                    Vehicle
+                                </dt>
+                                <dd data-dynamic="true" data-kid="1-2-3-2-1-2-2-2-2" data-name="vehicle value" data-reason="replaced at runtime with selected record vehicle link">
+                                    <a class="font-medium text-[#d8e0dc] underline decoration-[#65736b] underline-offset-4" data-kid="1-2-3-2-1-2-2-2-2-1" data-name="vehicle link" href="#">
+                                        VEH-001
+                                    </a>
+                                </dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-4 py-3" data-kid="1-2-3-2-1-2-2-3" data-name="collection center detail row">
+                                <dt class="text-[#9da8a2]" data-kid="1-2-3-2-1-2-2-3-1" data-name="collection center label">
+                                    Collection center
+                                </dt>
+                                <dd data-dynamic="true" data-kid="1-2-3-2-1-2-2-3-2" data-name="collection center value" data-reason="replaced at runtime with selected record vcc link">
+                                    <a class="font-medium text-[#d8e0dc] underline decoration-[#65736b] underline-offset-4" data-kid="1-2-3-2-1-2-2-3-2-1" data-name="collection center link" href="#">
+                                        VCC-014
+                                    </a>
+                                </dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-4 py-3" data-kid="1-2-3-2-1-2-2-4" data-name="acknowledgment status detail row">
+                                <dt class="text-[#9da8a2]" data-kid="1-2-3-2-1-2-2-4-1" data-name="acknowledgment label">
+                                    Acknowledgment
+                                </dt>
+                                <dd class="text-[#f2d38e]" data-kid="1-2-3-2-1-2-2-4-2" data-name="acknowledgment status value">
+                                    Awaiting review
+                                </dd>
+                            </div>
+                        </dl>
+                        <p class="mt-4 text-[13px] leading-5 text-[#a6b0aa]" data-kid="1-2-3-2-1-2-3" data-name="alert context help text">
+                            Open the linked vehicle route to review its current stop sequence. No route details are inferred from this alert.
+                        </p>
+                        <button class="mt-4 min-h-11 w-full rounded-lg bg-[#dce9e3] px-4 text-[13px] font-semibold text-[#15201b] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#56dfbf]" data-kid="1-2-3-2-1-2-4" data-name="primary acknowledge alert button">
+                            Acknowledge alert
+                        </button>
+                        <p class="mt-3 text-center text-[12px] leading-4 text-[#929d97]" data-kid="1-2-3-2-1-2-5" data-name="acknowledge disclaimer text">
+                            Acknowledging records review only. It does not clear this risk.
+                        </p>
+                    </div>
+                </section>
+                <section class="border-t border-[#303733] pt-4" data-kid="1-2-3-2-2" data-name="data unavailability guidance section">
+                    <h2 class="font-['Space_Grotesk',sans-serif] text-[15px] font-semibold" data-kid="1-2-3-2-2-1" data-name="when data is unavailable heading">
+                        When data is unavailable
+                    </h2>
+                    <div class="mt-3 space-y-3 text-[13px] leading-5" data-kid="1-2-3-2-2-2" data-name="unavailable data list">
+                        <div class="flex gap-3" data-kid="1-2-3-2-2-2-1" data-name="offline state guidance row">
+                            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#ff7b8b]" data-kid="1-2-3-2-2-2-1-1" data-name="offline state dot">
+                            </span>
+                            <p class="text-[#bdc7c1]" data-kid="1-2-3-2-2-2-1-2" data-name="offline state description">
+                                <strong class="font-semibold text-[#f0a1a8]" data-kid="1-2-3-2-2-2-1-2-1" data-name="offline label">
+                                    Offline:
+                                </strong>
+                                “Alerts unavailable” when the alert request fails. Do not show zero counts.
+                            </p>
+                        </div>
+                        <div class="flex gap-3" data-kid="1-2-3-2-2-2-2" data-name="confirmed empty state guidance row">
+                            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#80d7b5]" data-kid="1-2-3-2-2-2-2-1" data-name="confirmed empty state dot">
+                            </span>
+                            <p class="text-[#bdc7c1]" data-kid="1-2-3-2-2-2-2-2" data-name="confirmed empty state description">
+                                <strong class="font-semibold text-[#90dabe]" data-kid="1-2-3-2-2-2-2-2-1" data-name="confirmed empty label">
+                                    Confirmed empty:
+                                </strong>
+                                “No alerts returned” after a successful request with no records.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <div class="flex items-start gap-3 rounded-lg border border-[#3b3b2a] bg-[#191810] px-4 py-3.5 text-[13px] leading-5 text-[#c6c3ad]" data-kid="1-2-3-2-3" data-name="accessibility note banner">
+                    <i class="ti ti-info-circle mt-0.5 text-[#eac36c]" data-kid="1-2-3-2-3-1" data-name="info icon" style="width:17px;height:17px">
+                    </i>
+                    <p data-kid="1-2-3-2-3-2" data-name="accessibility note text">
+                        Severity uses text and color. Color is never the only signal.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </main>
+</div>
+</div>
+</body></html>

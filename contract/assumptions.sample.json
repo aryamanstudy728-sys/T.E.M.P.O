@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "name": "route_ceiling_h",
+      "value": 7,
+      "status": "sourced",
+      "note": "one old cooperative case study"
+    },
+    {
+      "name": "cool_target_c",
+      "value": 4,
+      "status": "guessed",
+      "note": "to verify against FSSAI/NDDB"
+    },
+    {
+      "name": "cool_within_h",
+      "value": 2,
+      "status": "guessed",
+      "note": "to verify against FSSAI/NDDB"
+    },
+    {
+      "name": "milk_temp_range_c",
+      "value": [
+        28,
+        37
+      ],
+      "status": "guessed",
+      "note": "milk temperature range"
+    },
+    {
+      "name": "ambient_range_c",
+      "value": [
+        30,
+        45
+      ],
+      "status": "guessed",
+      "note": "ambient temperature range"
+    },
+    {
+      "name": "speed_kmh_pakka",
+      "value": 40,
+      "status": "guessed",
+      "note": "road type speed"
+    },
+    {
+      "name": "speed_kmh_kaccha",
+      "value": 20,
+      "status": "guessed",
+      "note": "road type speed"
+    },
+    {
+      "name": "stop_min",
+      "value": 10,
+      "status": "guessed",
+      "note": "pickup stop time"
+    },
+    {
+      "name": "quality_limit_cfu_ml",
+      "value": 100000,
+      "status": "guessed",
+      "note": "quality threshold"
+    },
+    {
+      "name": "initial_cfu_ml",
+      "value": 1000,
+      "status": "guessed",
+      "note": "initial microbial load"
+    },
+    {
+      "name": "tau_h_open_can",
+      "value": 1.5,
+      "status": "guessed",
+      "note": "time constant"
+    },
+    {
+      "name": "tau_h_insulated_tank",
+      "value": 6,
+      "status": "guessed",
+      "note": "time constant"
+    },
+    {
+      "name": "band_green_h",
+      "value": 2.5,
+      "status": "guessed",
+      "note": "time band"
+    },
+    {
+      "name": "band_red_h",
+      "value": 0.5,
+      "status": "guessed",
+      "note": "time band"
+    },
+    {
+      "name": "vehicles",
+      "value": 5,
+      "status": "guessed",
+      "note": "default fleet size"
+    },
+    {
+      "name": "capacity_l",
+      "value": 2000,
+      "status": "guessed",
+      "note": "default vehicle capacity"
+    },
+    {
+      "name": "chilled_hold_h_normal",
+      "value": 36,
+      "status": "guessed",
+      "note": "chilled hold"
+    },
+    {
+      "name": "chilled_hold_h_cooler_failure",
+      "value": 3,
+      "status": "guessed",
+      "note": "cooler failure hold"
+    },
+    {
+      "name": "ratkowsky_b",
+      "value": 0.03,
+      "status": "guessed",
+      "note": "growth model parameter"
+    },
+    {
+      "name": "t_min_c",
+      "value": 2.0,
+      "status": "guessed",
+      "note": "growth model parameter"
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "rows": [
+    {
+      "parameter": "vehicles",
+      "value": 3,
+      "fixed": 20.3,
+      "nearest": 17.7,
+      "distance_only": 15.3,
+      "risk_based": 6.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "vehicles",
+      "value": 4,
+      "fixed": 16.0,
+      "nearest": 15.3,
+      "distance_only": 14.7,
+      "risk_based": 1.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "vehicles",
+      "value": 5,
+      "fixed": 14.0,
+      "nearest": 7.7,
+      "distance_only": 14.7,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "vehicles",
+      "value": 6,
+      "fixed": 10.3,
+      "nearest": 2.7,
+      "distance_only": 14.7,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "vehicles",
+      "value": 8,
+      "fixed": 6.0,
+      "nearest": 1.7,
+      "distance_only": 14.7,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "ambient_c",
+      "value": 30,
+      "fixed": 5.0,
+      "nearest": 1.0,
+      "distance_only": 5.3,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "ambient_c",
+      "value": 36,
+      "fixed": 14.0,
+      "nearest": 7.7,
+      "distance_only": 14.7,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "ambient_c",
+      "value": 40,
+      "fixed": 19.0,
+      "nearest": 14.3,
+      "distance_only": 18.3,
+      "risk_based": 0.7,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "ambient_c",
+      "value": 42,
+      "fixed": 19.7,
+      "nearest": 18.0,
+      "distance_only": 18.7,
+      "risk_based": 6.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "ambient_c",
+      "value": 45,
+      "fixed": 21.3,
+      "nearest": 20.7,
+      "distance_only": 21.3,
+      "risk_based": 8.7,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "kaccha_speed_mult",
+      "value": 1.0,
+      "fixed": 14.0,
+      "nearest": 7.7,
+      "distance_only": 14.7,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "kaccha_speed_mult",
+      "value": 0.75,
+      "fixed": 17.7,
+      "nearest": 12.0,
+      "distance_only": 15.3,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "kaccha_speed_mult",
+      "value": 0.5,
+      "fixed": 20.0,
+      "nearest": 19.7,
+      "distance_only": 13.7,
+      "risk_based": 1.3,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "kaccha_speed_mult",
+      "value": 0.35,
+      "fixed": 21.7,
+      "nearest": 24.0,
+      "distance_only": 15.7,
+      "risk_based": 2.3,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "cool_h",
+      "value": 2.0,
+      "fixed": 14.0,
+      "nearest": 7.7,
+      "distance_only": 14.7,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "cool_h",
+      "value": 3.0,
+      "fixed": 20.3,
+      "nearest": 19.0,
+      "distance_only": 20.0,
+      "risk_based": 4.3,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "cool_h",
+      "value": 4.0,
+      "fixed": 25.7,
+      "nearest": 26.7,
+      "distance_only": 25.3,
+      "risk_based": 21.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "cool_h",
+      "value": 5.0,
+      "fixed": 30.0,
+      "nearest": 30.0,
+      "distance_only": 30.0,
+      "risk_based": 30.0,
+      "risk_based_wins": false
+    },
+    {
+      "parameter": "ratkowsky_b",
+      "value": 0.02,
+      "fixed": 0.0,
+      "nearest": 0.0,
+      "distance_only": 0.0,
+      "risk_based": 0.0,
+      "risk_based_wins": false
+    },
+    {
+      "parameter": "ratkowsky_b",
+      "value": 0.03,
+      "fixed": 14.0,
+      "nearest": 7.7,
+      "distance_only": 14.7,
+      "risk_based": 0.0,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "ratkowsky_b",
+      "value": 0.04,
+      "fixed": 25.7,
+      "nearest": 26.7,
+      "distance_only": 25.3,
+      "risk_based": 19.7,
+      "risk_based_wins": true
+    },
+    {
+      "parameter": "ratkowsky_b",
+      "value": 0.05,
+      "fixed": 30.0,
+      "nearest": 30.0,
+      "distance_only": 30.0,
+      "risk_based": 30.0,
+      "risk_based_wins": false
+    }
+  ]
+}

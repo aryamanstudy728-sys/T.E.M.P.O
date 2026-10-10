@@ -1,0 +1,200 @@
+.layout {
+  --bg: #0b0e0d;
+  --canvas: var(--bg);
+  --page: var(--bg);
+  --surface: #121715;
+  --surface-raised: #18201d;
+  --line: #222d28;
+  --line-soft: #1a231f;
+  --stroke: var(--line);
+  --stroke-soft: var(--line-soft);
+  --edge: var(--line);
+  --edge-soft: var(--line-soft);
+  --text: #e6ede8;
+  --ink: var(--text);
+  --muted: #87948d;
+  --subtle: #55625c;
+  --quiet: var(--subtle);
+  --sub: var(--muted);
+  --mint: #2ee59d;
+  --mint-dim: rgba(46, 229, 157, 0.12);
+  --mint-ink: #07110e;
+  --red: #ff5c5c;
+  --red-dim: rgba(255, 92, 92, 0.12);
+  --amber: #f5a623;
+  --yellow: var(--amber);
+  --amber-dim: rgba(245, 166, 35, 0.12);
+  --yellow-dim: var(--amber-dim);
+  --nav: #0d1110;
+
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.layout .app-header {
+  height: 74px;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex;
+  align-items: center;
+  padding: 0 44px;
+  gap: 48px;
+  background: #0d1110;
+}
+
+.layout .brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 225px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.layout .brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--mint);
+  display: grid;
+  place-items: center;
+  color: #07110e;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.layout .brand-name {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.layout .brand-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+.layout .top-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  flex: 1;
+}
+
+.layout .top-nav a {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 14px;
+  color: #a8b1ac;
+  text-decoration: none;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.layout .top-nav a svg,
+.layout .top-nav a svg {
+  font-size: 17px;
+  color: #89958f;
+}
+
+.layout .top-nav a.active {
+  color: #f1f7f3;
+  background: #17211e;
+  box-shadow: inset 0 -2px 0 var(--mint);
+}
+
+.layout .top-nav a.active svg,
+.layout .top-nav a.active svg {
+  color: var(--mint);
+}
+
+.layout .header-state {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 11px;
+  white-space: nowrap;
+}
+
+.layout .sim-banner {
+  font-size: 11px;
+  color: #f5a623;
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 1120px) {
+  .layout .app-header {
+    padding: 0 25px;
+    gap: 24px;
+  }
+  .layout .brand {
+    min-width: 190px;
+  }
+}
+
+@media (max-width: 860px) {
+  .layout .app-header {
+    height: auto;
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 5px 18px;
+    padding: 13px 20px;
+  }
+  .layout .brand {
+    min-width: 170px;
+  }
+  .layout .top-nav {
+    order: 3;
+    flex-basis: 100%;
+    height: 42px;
+    overflow-x: auto;
+  }
+  .layout .header-state {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .layout .app-header {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .layout .brand {
+    min-width: 0;
+  }
+  .layout .brand-sub {
+    display: none;
+  }
+  .layout .brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+  .layout .header-state {
+    gap: 6px;
+  }
+  .layout .top-nav {
+    gap: 2px;
+    height: 42px;
+    margin: 0 -2px;
+  }
+  .layout .top-nav a {
+    padding: 0 11px;
+    font-size: 12px;
+  }
+}
+

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css');
+.route-ui{--bg:#101211;--surface:#161918;--surface-2:#1b1f1e;--line:#2a302e;--line-soft:#232927;--text:#f2f5f3;--muted:#a3ada8;--quiet:#7e8984;--mint:#43d7b0;--mint-dim:#173e34;--red:#ff7085;--red-bg:#421f29;--amber:#efc15c;--amber-bg:#40351d;--green:#51d5a1;--green-bg:#183a30;min-height:100vh;background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,sans-serif;font-size:14px;line-height:1.45;box-sizing:border-box;overflow-x:clip}.route-ui *{box-sizing:border-box}.route-ui button,.route-ui select{font:inherit}.route-ui button:focus-visible,.route-ui select:focus-visible,.route-ui a:focus-visible,.route-ui summary:focus-visible{outline:3px solid var(--mint);outline-offset:3px}.topbar{height:68px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;padding:0 32px;gap:32px;background:#111413}.brand{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.03em;white-space:nowrap}.brand-mark{width:31px;height:31px;border-radius:9px;background:var(--mint);color:#09261f;display:grid;place-items:center;font-weight:800;font-size:15px}.main-nav{height:100%;display:flex;align-items:center;gap:6px;flex:1}.nav-link{height:44px;display:flex;align-items:center;gap:9px;padding:0 15px;color:var(--muted);text-decoration:none;border-radius:9px;font-weight:600;white-space:nowrap}.nav-link i{font-size:17px;color:#87918d}.nav-link.active{color:var(--text);background:#1b201e;position:relative}.nav-link.active i{color:var(--mint)}.nav-link.active:after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--mint);border-radius:2px}.header-right{display:flex;align-items:center;gap:12px}.feed-state{height:38px;padding:0 12px;border:1px solid #49333a;border-radius:9px;display:flex;align-items:center;gap:8px;color:#ffc0c9;font-size:13px;font-weight:600;white-space:nowrap}.state-dot{width:8px;height:8px;border-radius:50%;background:var(--red)}.profile{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:#c2cbc6;font-size:14px}.content{max-width:1480px;margin:0 auto;padding:28px 32px 40px}.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:20px}.page-head h1{font-size:27px;line-height:1.12;letter-spacing:-.04em;margin:0 0 6px;font-weight:700}.page-head p{margin:0;color:var(--muted);font-size:14px}.demo-note{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid #574728;background:#211d15;border-radius:9px;color:#e2cf9a;font-size:13px;line-height:1.35;margin-bottom:18px}.demo-note i{font-size:18px;color:var(--amber);flex:none}.demo-note strong{color:#f4dd9d;font-weight:600}.controls{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:16px}.select-side{display:flex;align-items:center;gap:14px;min-width:0}.vehicle-label{color:var(--quiet);font-size:12px;text-transform:uppercase;letter-spacing:.07em;font-weight:700}.vehicle-select-wrap{position:relative;display:flex;align-items:center}.vehicle-select{appearance:none;color:var(--text);background:#202523;border:1px solid #39413e;border-radius:8px;height:44px;min-width:230px;padding:0 38px 0 13px;font-weight:600;cursor:pointer}.vehicle-select-wrap .ti-chevron-down{position:absolute;right:12px;color:var(--muted);pointer-events:none}.route-meta{display:flex;align-items:center;gap:8px;padding-left:4px;color:var(--muted);font-size:13px;white-space:nowrap}.route-meta .sep{color:#59615d}.route-meta strong{color:#dce2de;font-weight:600}.btn-primary{min-height:44px;padding:0 17px;border:0;border-radius:8px;background:var(--mint);color:#09271f;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;white-space:nowrap}.btn-primary i{font-size:17px}.btn-primary:hover{background:#68e2c0}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:17px;align-items:start}.ledger{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}.ledger-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;border-bottom:1px solid var(--line)}.ledger-title{display:flex;align-items:center;gap:10px}.ledger-title h2{font-size:16px;margin:0;font-weight:700;letter-spacing:-.015em}.ledger-title .count{font-size:12px;color:var(--muted);padding-left:10px;border-left:1px solid var(--line)}.route-total{display:flex;align-items:center;gap:7px;color:#b7c0bb;font-size:13px;white-space:nowrap}.route-total i{color:var(--mint);font-size:16px}.column-head,.stop-row{display:grid;grid-template-columns:42px minmax(158px,1.55fr) minmax(76px,.78fr) minmax(77px,.78fr) minmax(70px,.7fr) minmax(66px,.68fr) minmax(67px,.7fr) minmax(72px,.7fr) 86px;column-gap:8px;align-items:center;padding-left:16px;padding-right:16px}.column-head{min-height:43px;color:var(--quiet);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.055em;background:#131716;border-bottom:1px solid var(--line)}.stop-row{min-height:75px;border-bottom:1px solid var(--line-soft);position:relative}.stop-row:last-child{border-bottom:0}.stop-row.critical-row{background:linear-gradient(90deg,rgba(255,112,133,.08),rgba(255,112,133,.015) 54%,transparent)}.stop-row.next-row{background:linear-gradient(90deg,rgba(67,215,176,.045),transparent 50%)}.seq{position:relative;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;background:#252a28;color:#c5cec9;border:1px solid #3a423e}.seq.done{background:var(--mint-dim);color:var(--mint);border-color:#25604d}.seq.danger{background:var(--red-bg);color:#ffabb7;border-color:#79404b}.seq.current{box-shadow:0 0 0 3px #1e4539;border-color:var(--mint);color:#c6ffed}.stop-name{min-width:0}.stop-name strong{font-size:13.5px;font-weight:600;color:#edf1ef;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stop-name span{display:flex;align-items:center;gap:7px;color:var(--quiet);font-size:12px;margin-top:4px;white-space:nowrap}.stage{font-size:11px;font-weight:700;letter-spacing:.01em}.stage.done{color:var(--mint)}.stage.current{color:#75dfbe}.stage.upcoming{color:#89948e}.mono{font-family:'IBM Plex Mono',monospace;font-size:12px;font-variant-numeric:tabular-nums;color:#d4dbd7;white-space:nowrap}.mono.muted{color:#68736d}.dim-label{color:var(--quiet);font-size:12px}.risk-tag{min-height:27px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 8px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.03em;width:max-content}.risk-tag:before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}.risk-tag.green{color:#6be2b5;background:var(--green-bg)}.risk-tag.yellow{color:#f3d27f;background:var(--amber-bg)}.risk-tag.red{color:#ff9dac;background:var(--red-bg)}.risk-tag.unknown{color:#a9b2ad;background:#282e2b}.action-cell{display:flex;justify-content:flex-end}.reroute{height:36px;padding:0 10px;border-radius:7px;border:1px solid #71414a;background:#301c22;color:#ffb0bc;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:5px;cursor:pointer}.reroute i{font-size:15px}.reroute:hover{background:#48252d}.no-action{color:#56615b;font-size:12px}.ledger-foot{display:flex;align-items:center;gap:8px;padding:11px 17px;color:#abb5af;font-size:12px;border-top:1px solid var(--line-soft);background:#141817}.ledger-foot i{font-size:15px;color:var(--amber)}.rail{display:flex;flex-direction:column;gap:14px}.result-panel,.vehicle-panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}.rail-head{padding:15px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.rail-head h2{font-size:15px;margin:0;font-weight:700}.example-chip{display:inline-flex;align-items:center;gap:6px;color:#e2cf9a;font-size:11px;font-weight:700;white-space:nowrap}.example-chip i{font-size:14px}.result-content{padding:15px 16px 16px}.result-state{display:flex;align-items:flex-start;gap:9px;padding:10px 11px;border-radius:8px;background:#222018;color:#e5d6a9;font-size:12px;line-height:1.4;margin-bottom:15px}.result-state i{color:var(--amber);font-size:16px;flex:none;margin-top:1px}.result-state strong{color:#f1e2b6}.impact-grid{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line-soft);padding-bottom:13px;margin-bottom:13px}.impact{display:flex;flex-direction:column;gap:3px}.impact:first-child{border-right:1px solid var(--line-soft)}.impact:nth-child(2){padding-left:14px}.impact label{font-size:12px;color:var(--muted)}.impact b{font-family:'IBM Plex Mono',monospace;font-size:21px;letter-spacing:-.045em;color:var(--mint);font-weight:600}.impact:nth-child(2) b{color:#e6c05f}.impact small{font-size:11px;color:var(--quiet)}.change-title{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#e6ebe8;font-weight:700;margin-bottom:11px}.change-title span:last-child{color:var(--quiet);font-weight:500}.change-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}.change-list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:9px}.change-mark{width:20px;height:20px;border-radius:6px;background:#213b33;color:#76ddb9;display:grid;place-items:center;font-size:13px}.change-copy strong{display:block;font-size:12px;font-weight:600;color:#e3e9e5;line-height:1.35}.change-copy p{margin:4px 0 0;font-size:12px;color:var(--muted);line-height:1.4}.vehicle-panel{padding-bottom:3px}.vehicle-line{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line-soft);font-size:13px}.vehicle-line:last-of-type{border-bottom:0}.vehicle-line span{color:var(--muted)}.vehicle-line strong{font-family:'IBM Plex Mono',monospace;color:#e6ece8;font-weight:500;font-size:12px}.confidence-note{padding:12px 15px;background:#191b16;color:#d6c38a;font-size:12px;line-height:1.45;border-top:1px solid #393421}.confidence-note strong{color:#f1dc9e}.accessibility-legend{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px}.legend-item{display:flex;align-items:center;gap:7px}.legend-dot{width:8px;height:8px;border-radius:50%}.legend-dot.mint{background:var(--mint)}.legend-dot.amber{background:var(--amber)}.legend-dot.red{background:var(--red)}.page-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 2px;color:var(--quiet);font-size:12px}.page-footer .ti-info-circle{color:#b7a36a;font-size:15px}.footer-left{display:flex;align-items:center;gap:8px}.route-order-hint{color:#b4bdb8;display:flex;align-items:center;gap:7px}.route-order-hint i{color:var(--mint)}
+@media(max-width:1100px){.content{padding-left:22px;padding-right:22px}.workspace{grid-template-columns:minmax(0,1fr) 290px;gap:12px}.column-head,.stop-row{grid-template-columns:34px minmax(140px,1.45fr) minmax(72px,.75fr) minmax(72px,.75fr) minmax(64px,.65fr) minmax(61px,.63fr) minmax(62px,.64fr) minmax(68px,.68fr) 78px;column-gap:5px;padding-left:12px;padding-right:12px}.route-meta{display:none}.topbar{padding:0 22px;gap:20px}}
+@media(max-width:850px){.topbar{height:auto;min-height:64px;flex-wrap:wrap;padding:11px 18px;gap:8px 18px}.main-nav{order:3;flex-basis:100%;height:auto;overflow-x:auto;padding-bottom:2px}.nav-link{height:42px;padding:0 13px}.header-right{margin-left:auto}.content{padding:22px 18px 32px}.workspace{grid-template-columns:1fr}.rail{display:grid;grid-template-columns:1fr 1fr;align-items:start}.vehicle-panel{grid-column:span 2}.controls{gap:12px}.column-head,.stop-row{grid-template-columns:38px minmax(150px,1.4fr) repeat(3,minmax(72px,.8fr)) minmax(65px,.7fr) minmax(70px,.75fr) minmax(68px,.72fr) 84px}}
+@media(max-width:680px){.content{padding:18px 14px 28px}.topbar{padding:10px 14px}.brand{font-size:16px}.main-nav{gap:2px}.nav-link{padding:0 10px;font-size:13px;gap:7px}.nav-link i{font-size:16px}.feed-state{height:34px;font-size:12px;padding:0 9px}.profile{display:none}.page-head{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:15px}.page-head h1{font-size:24px}.page-head p{font-size:13px}.demo-note{align-items:flex-start;padding:10px 11px;font-size:12px}.controls{align-items:stretch;flex-direction:column;padding:12px}.select-side{align-items:flex-start;flex-direction:column;gap:7px}.vehicle-select-wrap,.vehicle-select{width:100%}.btn-primary{width:100%}.workspace{gap:13px}.ledger-head{align-items:flex-start;flex-direction:column;gap:7px;padding:14px}.route-total{font-size:12px}.column-head{display:none}.stop-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;grid-template-areas:'seq name risk' 'seq eta action' 'meta meta meta';gap:6px 10px;padding:13px 12px;min-height:0}.seq{grid-area:seq;align-self:start}.stop-name{grid-area:name}.stop-name strong{white-space:normal;font-size:14px}.stop-name span{font-size:12px}.stop-row .eta-cell{grid-area:eta;display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}.stop-row .eta-cell:before{content:'ETA';color:var(--quiet);font-size:10px;font-weight:700;letter-spacing:.06em}.stop-row .actual-cell,.stop-row .volume-cell,.stop-row .temp-cell,.stop-row .tsb-cell{display:none}.stop-row .risk-cell{grid-area:risk;justify-self:end}.stop-row .action-cell{grid-area:action;justify-self:end}.stop-row .extra-mobile{grid-area:meta;display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;color:var(--muted);font-size:12px;border-top:1px solid var(--line-soft);padding-top:8px;margin-top:2px}.extra-mobile b{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#d7dfda;font-weight:500}.extra-mobile .unknown{color:#89948e}.stage{font-size:10px}.risk-tag{min-height:28px}.reroute{height:40px}.no-action{display:none}.ledger-foot{align-items:flex-start;font-size:12px;line-height:1.4}.rail{grid-template-columns:1fr}.vehicle-panel{grid-column:auto}.page-footer{align-items:flex-start;flex-direction:column}.accessibility-legend{gap:9px 12px}.result-panel{order:0}.vehicle-panel{order:1}.route-order-hint{display:none}}
+@media(max-width:380px){.nav-link{padding:0 8px}.nav-link span{font-size:12px}.feed-state{font-size:11px}.stop-row{grid-template-columns:30px minmax(0,1fr) auto;column-gap:7px}.risk-tag{padding:0 6px;font-size:10px}.stop-name strong{font-size:13px}}
+</style>
+<style>
+    .extra-mobile{display:none}
+</style>
+<div class="route-ui" data-kid="1" data-name="route management dashboard root">
+    <header class="topbar" data-kid="1-1" data-name="top application bar">
+        <div class="brand" data-kid="1-1-1" data-name="brand logo cluster">
+            <div class="brand-mark" data-kid="1-1-1-1" data-name="brand monogram tile">
+                T
+            </div>
+            <span data-kid="1-1-1-2" data-name="brand wordmark">
+                T.E.M.P.O.
+            </span>
+        </div>
+        <nav aria-label="Main navigation" class="main-nav" data-kid="1-1-2" data-name="main primary navigation">
+            <a class="nav-link" data-kid="1-1-2-1" data-name="dashboard navigation link" href="#dashboard">
+                <i aria-hidden="true" class="ti ti-layout-dashboard" data-kid="1-1-2-1-1" data-name="dashboard grid icon">
+                </i>
+                <span data-kid="1-1-2-1-2" data-name="dashboard nav label">
+                    Dashboard
+                </span>
+            </a>
+            <a aria-current="page" class="nav-link active" data-kid="1-1-2-2" data-name="routes navigation link active" href="#routes">
+                <i aria-hidden="true" class="ti ti-route" data-kid="1-1-2-2-1" data-name="route icon">
+                </i>
+                <span data-kid="1-1-2-2-2" data-name="routes nav label">
+                    Routes
+                </span>
+            </a>
+            <a class="nav-link" data-kid="1-1-2-3" data-name="alerts navigation link" href="#alerts">
+                <i aria-hidden="true" class="ti ti-alert-triangle" data-kid="1-1-2-3-1" data-name="alert triangle icon">
+                </i>
+                <span data-kid="1-1-2-3-2" data-name="alerts nav label">
+                    Alerts
+                </span>
+            </a>
+            <a class="nav-link" data-kid="1-1-2-4" data-name="analytics navigation link" href="#analytics">
+                <i aria-hidden="true" class="ti ti-chart-bar" data-kid="1-1-2-4-1" data-name="bar chart icon">
+                </i>
+                <span data-kid="1-1-2-4-2" data-name="analytics nav label">
+                    Analytics
+                </span>
+            </a>
+        </nav>
+        <div class="header-right" data-kid="1-1-3" data-name="header right actions area">
+            <div aria-label="Data state: demo data, not live" class="feed-state" data-kid="1-1-3-1" data-name="feed data state badge">
+                <span class="state-dot" data-kid="1-1-3-1-1" data-name="feed state warning dot">
+                </span>
+                <span data-kid="1-1-3-1-2" data-name="feed state label text">
+                    Demo data · not live
+                </span>
+            </div>
+        </div>
+    </header>
+    <main class="content" data-kid="1-2" data-name="main content wrapper">
+        <section class="page-head" data-kid="1-2-1" data-name="page title header row">
+            <div data-kid="1-2-1-1" data-name="page title block">
+                <h1 data-kid="1-2-1-1-1" data-name="page heading">
+                    Route management
+                </h1>
+                <p data-kid="1-2-1-1-2" data-name="page subtitle text">
+                    Review the collection sequence and protect thermal buffer at each stop.
+                </p>
+            </div>
+            <div class="route-order-hint" data-kid="1-2-1-2" data-name="route ordering hint">
+                <i aria-hidden="true" class="ti ti-route" data-kid="1-2-1-2-1" data-name="route icon">
+                </i>
+                <span data-kid="1-2-1-2-2" data-name="route ordering hint label">
+                    Ordered by planned arrival
+                </span>
+            </div>
+        </section>
+        <div class="demo-note" data-kid="1-2-2" data-name="demographic data disclaimer note" role="note">
+            <i aria-hidden="true" class="ti ti-info-circle" data-kid="1-2-2-1" data-name="info circle icon">
+            </i>
+            <span data-kid="1-2-2-2" data-name="disclaimer body text">
+                <strong data-kid="1-2-2-2-1" data-name="disclaimer emphasis label">
+                    Demonstration route.
+                </strong>
+                Stops, times and volumes are simulated. TSB thresholds are model estimates, not validated safety limits.
+            </span>
+        </div>
+        <section aria-label="Route controls" class="controls" data-kid="1-2-3" data-name="route controls bar">
+            <div class="select-side" data-kid="1-2-3-1" data-name="vehicle selector row">
+                <label class="vehicle-label" data-kid="1-2-3-1-1" data-name="vehicle field label" for="vehicle-select">
+                    Vehicle
+                </label>
+                <div class="vehicle-select-wrap" data-kid="1-2-3-1-2" data-name="vehicle select wrapper">
+                    <select class="vehicle-select" data-kid="1-2-3-1-2-1" data-name="vehicle selection dropdown" id="vehicle-select">
+                        <option data-kid="1-2-3-1-2-1-1" data-name="vehicle option tanker 2">
+                            Tanker 2 · VEH-002
+                        </option>
+                        <option data-kid="1-2-3-1-2-1-2" data-name="vehicle option tanker 1">
+                            Tanker 1 · VEH-001
+                        </option>
+                        <option data-kid="1-2-3-1-2-1-3" data-name="vehicle option tanker 3">
+                            Tanker 3 · VEH-003
+                        </option>
+                    </select>
+                    <i aria-hidden="true" class="ti ti-chevron-down" data-kid="1-2-3-1-2-2" data-name="select chevron down icon">
+                    </i>
+                </div>
+                <div class="route-meta" data-kid="1-2-3-1-3" data-name="route metadata summary">
+                    <strong data-kid="1-2-3-1-3-1" data-name="route metadata label">
+                        Collection round
+                    </strong>
+                    <span class="sep" data-kid="1-2-3-1-3-2" data-name="metadata separator dot">
+                        ·
+                    </span>
+                    <span data-kid="1-2-3-1-3-3" data-name="metadata stop count">
+                        4 village stops
+                    </span>
+                    <span class="sep" data-kid="1-2-3-1-3-4" data-name="metadata separator dot">
+                        ·
+                    </span>
+                    <span data-kid="1-2-3-1-3-5" data-name="metadata return destination">
+                        Bulk Milk Cooler 1 return
+                    </span>
+                </div>
+            </div>
+            <button class="btn-primary" data-kid="1-2-3-2" data-name="optimize route call-to-action button" type="button">
+                <i aria-hidden="true" class="ti ti-route" data-kid="1-2-3-2-1" data-name="route icon">
+                </i>
+                Optimize route
+            </button>
+        </section>
+        <div class="workspace" data-kid="1-2-4" data-name="main workspace grid">
+            <section aria-labelledby="stop-ledger-title" class="ledger" data-kid="1-2-4-1" data-name="collection sequence ledger panel">
+                <div class="ledger-head" data-kid="1-2-4-1-1" data-name="ledger header row">
+                    <div class="ledger-title" data-kid="1-2-4-1-1-1" data-name="ledger title cluster">
+                        <h2 data-kid="1-2-4-1-1-1-1" data-name="ledger title heading" id="stop-ledger-title">
+                            Collection sequence
+                        </h2>
+                        <span class="count" data-kid="1-2-4-1-1-1-2" data-name="ledger stop count badge">
+                            5 stops
+                        </span>
+                    </div>
+                    <div class="route-total" data-kid="1-2-4-1-1-2" data-name="route completion summary">
+                        <i aria-hidden="true" class="ti ti-circle-check" data-kid="1-2-4-1-1-2-1" data-name="completion check icon">
+                        </i>
+                        <span data-kid="1-2-4-1-1-2-2" data-name="completed count text">
+                            1 completed
+                        </span>
+                        <span data-kid="1-2-4-1-1-2-3" data-name="completion separator dot" style="color:#58625d">
+                            ·
+                        </span>
+                        <span data-kid="1-2-4-1-1-2-4" data-name="remaining stops text">
+                            3 collection stops remaining
+                        </span>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="column-head" data-kid="1-2-4-1-2" data-name="ledger column header row">
+                    <span data-kid="1-2-4-1-2-1" data-name="sequence column header">
+                        Seq
+                    </span>
+                    <span data-kid="1-2-4-1-2-2" data-name="destination column header">
+                        Village / destination
+                    </span>
+                    <span data-kid="1-2-4-1-2-3" data-name="estimated time column header">
+                        Estimated
+                    </span>
+                    <span data-kid="1-2-4-1-2-4" data-name="actual time column header">
+                        Actual
+                    </span>
+                    <span data-kid="1-2-4-1-2-5" data-name="volume column header">
+                        Volume
+                    </span>
+                    <span data-kid="1-2-4-1-2-6" data-name="temperature column header">
+                        Temp
+                    </span>
+                    <span data-kid="1-2-4-1-2-7" data-name="TSB column header">
+                        TSB
+                    </span>
+                    <span data-kid="1-2-4-1-2-8" data-name="risk column header">
+                        Risk
+                    </span>
+                    <span data-kid="1-2-4-1-2-9" data-name="action column header">
+                        Action
+                    </span>
+                </div>
+                <div class="stop-row" data-kid="1-2-4-1-3" data-name="completed stop row">
+                    <span aria-label="Stop 1, complete" class="seq done" data-kid="1-2-4-1-3-1" data-name="stop sequence badge done">
+                        <i aria-hidden="true" class="ti ti-check" data-kid="1-2-4-1-3-1-1" data-name="checkmark icon">
+                        </i>
+                    </span>
+                    <div class="stop-name" data-kid="1-2-4-1-3-2" data-name="stop name block">
+                        <strong data-kid="1-2-4-1-3-2-1" data-name="stop name title">
+                            Village Collection Center 4
+                        </strong>
+                        <span data-kid="1-2-4-1-3-2-2" data-name="stop name meta row">
+                            <b class="stage done" data-kid="1-2-4-1-3-2-2-1" data-name="stop stage label done">
+                                Collected
+                            </b>
+                            · VCC-004
+                        </span>
+                    </div>
+                    <div class="mono eta-cell" data-kid="1-2-4-1-3-3" data-name="estimated time value">
+                        05:40
+                    </div>
+                    <div class="mono actual-cell" data-kid="1-2-4-1-3-4" data-name="actual time value">
+                        05:44
+                    </div>
+                    <div class="mono volume-cell" data-kid="1-2-4-1-3-5" data-name="collect volume value">
+                        418.0 L
+                    </div>
+                    <div class="mono temp-cell" data-kid="1-2-4-1-3-6" data-name="temperature value">
+                        35.4 °C
+                    </div>
+                    <div class="mono tsb-cell" data-kid="1-2-4-1-3-7" data-name="TSB remaining value">
+                        2.8 h
+                    </div>
+                    <div class="risk-cell" data-kid="1-2-4-1-3-8" data-name="risk cell">
+                        <span class="risk-tag green" data-kid="1-2-4-1-3-8-1" data-name="green risk tag">
+                            GREEN
+                        </span>
+                    </div>
+                    <div class="action-cell" data-kid="1-2-4-1-3-9" data-name="action cell">
+                        <span class="no-action" data-kid="1-2-4-1-3-9-1" data-name="no action placeholder">
+                            —
+                        </span>
+                    </div>
+                    <div class="extra-mobile" data-kid="1-2-4-1-3-10" data-name="mobile expanded metrics row">
+                        <span data-kid="1-2-4-1-3-10-1" data-name="mobile actual metric">
+                            Actual
+                            <b data-kid="1-2-4-1-3-10-1-1" data-name="mobile actual value">
+                                05:44
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-3-10-2" data-name="mobile collected metric">
+                            Collected
+                            <b data-kid="1-2-4-1-3-10-2-1" data-name="mobile collected value">
+                                418.0 L
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-3-10-3" data-name="mobile temp metric">
+                            Temp
+                            <b data-kid="1-2-4-1-3-10-3-1" data-name="mobile temp value">
+                                35.4 °C
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-3-10-4" data-name="mobile TSB metric">
+                            TSB
+                            <b data-kid="1-2-4-1-3-10-4-1" data-name="mobile TSB value">
+                                2.8 h
+                            </b>
+                        </span>
+                    </div>
+                </div>
+                <div class="stop-row next-row" data-kid="1-2-4-1-4" data-name="next stop row">
+                    <span aria-label="Stop 2, next" class="seq current" data-kid="1-2-4-1-4-1" data-name="stop sequence badge current">
+                        <span data-kid="1-2-4-1-4-1-1" data-name="current stop number">
+                            2
+                        </span>
+                    </span>
+                    <div class="stop-name" data-kid="1-2-4-1-4-2" data-name="stop name block">
+                        <strong data-kid="1-2-4-1-4-2-1" data-name="stop name title">
+                            Village Collection Center 8
+                        </strong>
+                        <span data-kid="1-2-4-1-4-2-2" data-name="stop name meta row">
+                            <b class="stage current" data-kid="1-2-4-1-4-2-2-1" data-name="stop stage label current">
+                                Next stop
+                            </b>
+                            · VCC-008
+                        </span>
+                    </div>
+                    <div class="mono eta-cell" data-kid="1-2-4-1-4-3" data-name="estimated time value">
+                        06:15
+                    </div>
+                    <div class="mono muted actual-cell" data-kid="1-2-4-1-4-4" data-name="actual time not arrived">
+                        Not arrived
+                    </div>
+                    <div class="mono muted volume-cell" data-kid="1-2-4-1-4-5" data-name="volume not collected">
+                        —
+                    </div>
+                    <div class="mono muted temp-cell" data-kid="1-2-4-1-4-6" data-name="temperature unavailable">
+                        —
+                    </div>
+                    <div class="mono tsb-cell" data-kid="1-2-4-1-4-7" data-name="TSB remaining value">
+                        1.6 h
+                    </div>
+                    <div class="risk-cell" data-kid="1-2-4-1-4-8" data-name="risk cell">
+                        <span class="risk-tag yellow" data-kid="1-2-4-1-4-8-1" data-name="yellow risk tag">
+                            YELLOW
+                        </span>
+                    </div>
+                    <div class="action-cell" data-kid="1-2-4-1-4-9" data-name="action cell">
+                        <span class="no-action" data-kid="1-2-4-1-4-9-1" data-name="no action placeholder">
+                            —
+                        </span>
+                    </div>
+                    <div class="extra-mobile" data-kid="1-2-4-1-4-10" data-name="mobile expanded metrics row">
+                        <span data-kid="1-2-4-1-4-10-1" data-name="mobile actual metric">
+                            Actual
+                            <b class="unknown" data-kid="1-2-4-1-4-10-1-1" data-name="mobile actual value unknown">
+                                Not arrived
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-4-10-2" data-name="mobile collected metric">
+                            Collected
+                            <b class="unknown" data-kid="1-2-4-1-4-10-2-1" data-name="mobile collected value unknown">
+                                Not collected
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-4-10-3" data-name="mobile temp metric">
+                            Temp
+                            <b class="unknown" data-kid="1-2-4-1-4-10-3-1" data-name="mobile temp value unknown">
+                                Unavailable
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-4-10-4" data-name="mobile TSB metric">
+                            TSB
+                            <b data-kid="1-2-4-1-4-10-4-1" data-name="mobile TSB value">
+                                1.6 h
+                            </b>
+                        </span>
+                    </div>
+                </div>
+                <div class="stop-row critical-row" data-kid="1-2-4-1-5" data-name="critical stop row">
+                    <span aria-label="Stop 3, red risk" class="seq danger" data-kid="1-2-4-1-5-1" data-name="stop sequence badge danger">
+                        <span data-kid="1-2-4-1-5-1-1" data-name="danger stop number">
+                            3
+                        </span>
+                    </span>
+                    <div class="stop-name" data-kid="1-2-4-1-5-2" data-name="stop name block">
+                        <strong data-kid="1-2-4-1-5-2-1" data-name="stop name title">
+                            Village Collection Center 2
+                        </strong>
+                        <span data-kid="1-2-4-1-5-2-2" data-name="stop name meta row">
+                            <b class="stage" data-kid="1-2-4-1-5-2-2-1" data-name="stop stage label upcoming red" style="color:var(--red)">
+                                Upcoming
+                            </b>
+                            · VCC-002
+                        </span>
+                    </div>
+                    <div class="mono eta-cell" data-kid="1-2-4-1-5-3" data-name="estimated time value">
+                        06:52
+                    </div>
+                    <div class="mono muted actual-cell" data-kid="1-2-4-1-5-4" data-name="actual time not arrived">
+                        Not arrived
+                    </div>
+                    <div class="mono muted volume-cell" data-kid="1-2-4-1-5-5" data-name="volume not collected">
+                        —
+                    </div>
+                    <div class="mono muted temp-cell" data-kid="1-2-4-1-5-6" data-name="temperature unavailable">
+                        —
+                    </div>
+                    <div class="mono tsb-cell" data-kid="1-2-4-1-5-7" data-name="TSB remaining low value" style="color:#ff95a5">
+                        0.4 h
+                    </div>
+                    <div class="risk-cell" data-kid="1-2-4-1-5-8" data-name="risk cell">
+                        <span class="risk-tag red" data-kid="1-2-4-1-5-8-1" data-name="red risk tag">
+                            RED
+                        </span>
+                    </div>
+                    <div class="action-cell" data-kid="1-2-4-1-5-9" data-name="action cell">
+                        <button aria-label="Reroute Village Collection Center 2" class="reroute" data-kid="1-2-4-1-5-9-1" data-name="reroute action button" type="button">
+                            <i aria-hidden="true" class="ti ti-arrow-up-right" data-kid="1-2-4-1-5-9-1-1" data-name="arrow up right reroute icon">
+                            </i>
+                            Reroute
+                        </button>
+                    </div>
+                    <div class="extra-mobile" data-kid="1-2-4-1-5-10" data-name="mobile expanded metrics row">
+                        <span data-kid="1-2-4-1-5-10-1" data-name="mobile actual metric">
+                            Actual
+                            <b class="unknown" data-kid="1-2-4-1-5-10-1-1" data-name="mobile actual value unknown">
+                                Not arrived
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-5-10-2" data-name="mobile collected metric">
+                            Collected
+                            <b class="unknown" data-kid="1-2-4-1-5-10-2-1" data-name="mobile collected value unknown">
+                                Not collected
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-5-10-3" data-name="mobile temp metric">
+                            Temp
+                            <b class="unknown" data-kid="1-2-4-1-5-10-3-1" data-name="mobile temp value unknown">
+                                Unavailable
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-5-10-4" data-name="mobile TSB metric">
+                            TSB
+                            <b data-kid="1-2-4-1-5-10-4-1" data-name="mobile TSB value low" style="color:#ff95a5">
+                                0.4 h
+                            </b>
+                        </span>
+                    </div>
+                </div>
+                <div class="stop-row" data-kid="1-2-4-1-6" data-name="upcoming stop row">
+                    <span class="seq" data-kid="1-2-4-1-6-1" data-name="stop sequence badge">
+                        <span data-kid="1-2-4-1-6-1-1" data-name="stop number">
+                            4
+                        </span>
+                    </span>
+                    <div class="stop-name" data-kid="1-2-4-1-6-2" data-name="stop name block">
+                        <strong data-kid="1-2-4-1-6-2-1" data-name="stop name title">
+                            Village Collection Center 11
+                        </strong>
+                        <span data-kid="1-2-4-1-6-2-2" data-name="stop name meta row">
+                            <b class="stage upcoming" data-kid="1-2-4-1-6-2-2-1" data-name="stop stage label upcoming">
+                                Upcoming
+                            </b>
+                            · VCC-011
+                        </span>
+                    </div>
+                    <div class="mono eta-cell" data-kid="1-2-4-1-6-3" data-name="estimated time value">
+                        07:24
+                    </div>
+                    <div class="mono muted actual-cell" data-kid="1-2-4-1-6-4" data-name="actual time not arrived">
+                        Not arrived
+                    </div>
+                    <div class="mono muted volume-cell" data-kid="1-2-4-1-6-5" data-name="volume not collected">
+                        —
+                    </div>
+                    <div class="mono muted temp-cell" data-kid="1-2-4-1-6-6" data-name="temperature unavailable">
+                        —
+                    </div>
+                    <div class="mono muted tsb-cell" data-kid="1-2-4-1-6-7" data-name="TSB unavailable">
+                        Unavailable
+                    </div>
+                    <div class="risk-cell" data-kid="1-2-4-1-6-8" data-name="risk cell">
+                        <span class="risk-tag green" data-kid="1-2-4-1-6-8-1" data-name="green risk tag">
+                            GREEN
+                        </span>
+                    </div>
+                    <div class="action-cell" data-kid="1-2-4-1-6-9" data-name="action cell">
+                        <span class="no-action" data-kid="1-2-4-1-6-9-1" data-name="no action placeholder">
+                            —
+                        </span>
+                    </div>
+                    <div class="extra-mobile" data-kid="1-2-4-1-6-10" data-name="mobile expanded metrics row">
+                        <span data-kid="1-2-4-1-6-10-1" data-name="mobile actual metric">
+                            Actual
+                            <b class="unknown" data-kid="1-2-4-1-6-10-1-1" data-name="mobile actual value unknown">
+                                Not arrived
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-6-10-2" data-name="mobile collected metric">
+                            Collected
+                            <b class="unknown" data-kid="1-2-4-1-6-10-2-1" data-name="mobile collected value unknown">
+                                Not collected
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-6-10-3" data-name="mobile temp metric">
+                            Temp
+                            <b class="unknown" data-kid="1-2-4-1-6-10-3-1" data-name="mobile temp value unknown">
+                                Unavailable
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-6-10-4" data-name="mobile TSB metric">
+                            TSB
+                            <b class="unknown" data-kid="1-2-4-1-6-10-4-1" data-name="mobile TSB value unknown">
+                                Unavailable
+                            </b>
+                        </span>
+                    </div>
+                </div>
+                <div class="stop-row" data-kid="1-2-4-1-7" data-name="return stop row">
+                    <span class="seq" data-kid="1-2-4-1-7-1" data-name="stop sequence badge">
+                        <span data-kid="1-2-4-1-7-1-1" data-name="stop number">
+                            5
+                        </span>
+                    </span>
+                    <div class="stop-name" data-kid="1-2-4-1-7-2" data-name="stop name block">
+                        <strong data-kid="1-2-4-1-7-2-1" data-name="stop name title">
+                            Bulk Milk Cooler 1
+                        </strong>
+                        <span data-kid="1-2-4-1-7-2-2" data-name="stop name meta row">
+                            <b class="stage upcoming" data-kid="1-2-4-1-7-2-2-1" data-name="stop stage label return">
+                                Return
+                            </b>
+                            · BMC-001
+                        </span>
+                    </div>
+                    <div class="mono eta-cell" data-kid="1-2-4-1-7-3" data-name="estimated time value">
+                        08:05
+                    </div>
+                    <div class="mono muted actual-cell" data-kid="1-2-4-1-7-4" data-name="actual time not arrived">
+                        Not arrived
+                    </div>
+                    <div class="mono muted volume-cell" data-kid="1-2-4-1-7-5" data-name="volume not collected">
+                        —
+                    </div>
+                    <div class="mono muted temp-cell" data-kid="1-2-4-1-7-6" data-name="temperature unavailable">
+                        —
+                    </div>
+                    <div class="mono muted tsb-cell" data-kid="1-2-4-1-7-7" data-name="TSB unavailable">
+                        —
+                    </div>
+                    <div class="risk-cell" data-kid="1-2-4-1-7-8" data-name="risk cell">
+                        <span class="risk-tag unknown" data-kid="1-2-4-1-7-8-1" data-name="unknown risk tag">
+                            UNKNOWN
+                        </span>
+                    </div>
+                    <div class="action-cell" data-kid="1-2-4-1-7-9" data-name="action cell">
+                        <span class="no-action" data-kid="1-2-4-1-7-9-1" data-name="no action placeholder">
+                            —
+                        </span>
+                    </div>
+                    <div class="extra-mobile" data-kid="1-2-4-1-7-10" data-name="mobile expanded metrics row">
+                        <span data-kid="1-2-4-1-7-10-1" data-name="mobile actual metric">
+                            Actual
+                            <b class="unknown" data-kid="1-2-4-1-7-10-1-1" data-name="mobile actual value unknown">
+                                Not arrived
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-7-10-2" data-name="mobile collected metric">
+                            Collected
+                            <b class="unknown" data-kid="1-2-4-1-7-10-2-1" data-name="mobile collected value unknown">
+                                Not available
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-7-10-3" data-name="mobile temp metric">
+                            Temp
+                            <b class="unknown" data-kid="1-2-4-1-7-10-3-1" data-name="mobile temp value unknown">
+                                Unavailable
+                            </b>
+                        </span>
+                        <span data-kid="1-2-4-1-7-10-4" data-name="mobile TSB metric">
+                            TSB
+                            <b class="unknown" data-kid="1-2-4-1-7-10-4-1" data-name="mobile TSB value unknown">
+                                Unavailable
+                            </b>
+                        </span>
+                    </div>
+                </div>
+                <div class="ledger-foot" data-kid="1-2-4-1-8" data-name="ledger footnote bar">
+                    <i aria-hidden="true" class="ti ti-info-circle" data-kid="1-2-4-1-8-1" data-name="info circle footnote icon">
+                    </i>
+                    <span data-kid="1-2-4-1-8-2" data-name="footnote not-arrived clarification">
+                        “Not arrived” is an unrecorded actual arrival; it is not an estimate.
+                    </span>
+                </div>
+            </section>
+            <aside aria-label="Route optimization context" class="rail" data-kid="1-2-4-2" data-name="right sidebar rail">
+                <section aria-labelledby="optimization-title" class="result-panel" data-kid="1-2-4-2-1" data-name="optimization preview panel">
+                    <div class="rail-head" data-kid="1-2-4-2-1-1" data-name="panel head row">
+                        <h2 data-kid="1-2-4-2-1-1-1" data-name="optimization preview heading" id="optimization-title">
+                            Optimization preview
+                        </h2>
+                        <span class="example-chip" data-kid="1-2-4-2-1-1-2" data-name="example response chip">
+                            <i aria-hidden="true" class="ti ti-flask-2" data-kid="1-2-4-2-1-1-2-1" data-name="flask example icon">
+                            </i>
+                            Example response
+                        </span>
+                    </div>
+                    <div class="result-content" data-kid="1-2-4-2-1-2" data-name="panel content body">
+                        <div class="result-state" data-kid="1-2-4-2-1-2-1" data-name="preview state banner">
+                            <i aria-hidden="true" class="ti ti-eye" data-kid="1-2-4-2-1-2-1-1" data-name="eye preview icon">
+                            </i>
+                            <span data-kid="1-2-4-2-1-2-1-2" data-name="preview state text">
+                                <strong data-kid="1-2-4-2-1-2-1-2-1" data-name="preview state emphasis">
+                                    Preview only
+                                </strong>
+                                · A returned proposal appears here before an operator applies it.
+                            </span>
+                        </div>
+                        <div class="impact-grid" data-kid="1-2-4-2-1-2-2" data-name="impact metrics grid">
+                            <div class="impact" data-kid="1-2-4-2-1-2-2-1" data-name="time saved impact block">
+                                <label data-kid="1-2-4-2-1-2-2-1-1" data-name="impact metric label">
+                                    Potential time saved
+                                </label>
+                                <b data-kid="1-2-4-2-1-2-2-1-2" data-name="impact metric value">
+                                    18 min
+                                </b>
+                                <small data-kid="1-2-4-2-1-2-2-1-3" data-name="impact metric caption">
+                                    Example API result
+                                </small>
+                            </div>
+                            <div class="impact" data-kid="1-2-4-2-1-2-2-2" data-name="risk reduction impact block">
+                                <label data-kid="1-2-4-2-1-2-2-2-1" data-name="impact metric label">
+                                    Risk reduction
+                                </label>
+                                <b data-kid="1-2-4-2-1-2-2-2-2" data-name="impact metric value">
+                                    12.6%
+                                </b>
+                                <small data-kid="1-2-4-2-1-2-2-2-3" data-name="impact metric caption">
+                                    Example API result
+                                </small>
+                            </div>
+                        </div>
+                        <div class="change-title" data-kid="1-2-4-2-1-2-3" data-name="proposed changes header row">
+                            <span data-kid="1-2-4-2-1-2-3-1" data-name="proposed changes title">
+                                Proposed changes
+                            </span>
+                            <span data-kid="1-2-4-2-1-2-3-2" data-name="changes count label">
+                                2 changes
+                            </span>
+                        </div>
+                        <ul class="change-list" data-kid="1-2-4-2-1-2-4" data-name="proposed changes list">
+                            <li data-kid="1-2-4-2-1-2-4-1" data-name="reorder stop change item">
+                                <span class="change-mark" data-kid="1-2-4-2-1-2-4-1-1" data-name="change mark badge">
+                                    <i aria-hidden="true" class="ti ti-arrows-sort" data-kid="1-2-4-2-1-2-4-1-1-1" data-name="arrows sort change icon">
+                                    </i>
+                                </span>
+                                <div class="change-copy" data-kid="1-2-4-2-1-2-4-1-2" data-name="change copy block">
+                                    <strong data-kid="1-2-4-2-1-2-4-1-2-1" data-name="change title">
+                                        Move Center 2 before Center 8
+                                    </strong>
+                                    <p data-kid="1-2-4-2-1-2-4-1-2-2" data-name="change description">
+                                        Serve the 0.4 h estimated buffer earlier in the round.
+                                    </p>
+                                </div>
+                            </li>
+                            <li data-kid="1-2-4-2-1-2-4-2" data-name="return cooler change item">
+                                <span class="change-mark" data-kid="1-2-4-2-1-2-4-2-1" data-name="change mark badge">
+                                    <i aria-hidden="true" class="ti ti-route" data-kid="1-2-4-2-1-2-4-2-1-1" data-name="route change icon">
+                                    </i>
+                                </span>
+                                <div class="change-copy" data-kid="1-2-4-2-1-2-4-2-2" data-name="change copy block">
+                                    <strong data-kid="1-2-4-2-1-2-4-2-2-1" data-name="change title">
+                                        Return to Bulk Milk Cooler 1
+                                    </strong>
+                                    <p data-kid="1-2-4-2-1-2-4-2-2-2" data-name="change description">
+                                        Keep the final destination after the remaining collection stops.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section aria-labelledby="vehicle-summary-title" class="vehicle-panel" data-kid="1-2-4-2-2" data-name="selected vehicle panel">
+                    <div class="rail-head" data-kid="1-2-4-2-2-1" data-name="panel head row">
+                        <h2 data-kid="1-2-4-2-2-1-1" data-name="selected vehicle heading" id="vehicle-summary-title">
+                            Selected vehicle
+                        </h2>
+                        <span class="risk-tag yellow" data-kid="1-2-4-2-2-1-2" data-name="vehicle status tag collecting">
+                            COLLECTING
+                        </span>
+                    </div>
+                    <div class="vehicle-line" data-kid="1-2-4-2-2-2" data-name="vehicle ID row">
+                        <span data-kid="1-2-4-2-2-2-1" data-name="vehicle ID label">
+                            Vehicle ID
+                        </span>
+                        <strong data-kid="1-2-4-2-2-2-2" data-name="vehicle ID value">
+                            VEH-002
+                        </strong>
+                    </div>
+                    <div class="vehicle-line" data-kid="1-2-4-2-2-3" data-name="route progress row">
+                        <span data-kid="1-2-4-2-2-3-1" data-name="route progress label">
+                            Route progress
+                        </span>
+                        <strong data-kid="1-2-4-2-2-3-2" data-name="route progress value">
+                            1 / 5 stops
+                        </strong>
+                    </div>
+                    <div class="vehicle-line" data-kid="1-2-4-2-2-4" data-name="next stop row">
+                        <span data-kid="1-2-4-2-2-4-1" data-name="next stop label">
+                            Next stop
+                        </span>
+                        <strong data-kid="1-2-4-2-2-4-2" data-name="next stop value">
+                            VCC-008
+                        </strong>
+                    </div>
+                    <div class="confidence-note" data-kid="1-2-4-2-2-5" data-name="model confidence note block">
+                        <strong data-kid="1-2-4-2-2-5-1" data-name="note emphasis label">
+                            Model note
+                        </strong>
+                        <br data-kid="1-2-4-2-2-5-2" data-name="line break"/>
+                        Risk bands shown here use demonstration assumptions. Validate thresholds before operational use.
+                    </div>
+                </section>
+            </aside>
+        </div>
+        <footer class="page-footer" data-kid="1-2-5" data-name="page footer bar">
+            <div class="footer-left" data-kid="1-2-5-1" data-name="footer disclaimer cluster">
+                <i aria-hidden="true" class="ti ti-info-circle" data-kid="1-2-5-1-1" data-name="info circle icon">
+                </i>
+                <span data-kid="1-2-5-1-2" data-name="demo data disclaimer text">
+                    Demo route data · no live vehicle feed connected in this view.
+                </span>
+            </div>
+            <div aria-label="Risk color legend" class="accessibility-legend" data-kid="1-2-5-2" data-name="risk color legend">
+                <span class="legend-item" data-kid="1-2-5-2-1" data-name="green legend item">
+                    <i class="legend-dot mint" data-kid="1-2-5-2-1-1" data-name="green legend dot">
+                    </i>
+                    Green
+                </span>
+                <span class="legend-item" data-kid="1-2-5-2-2" data-name="yellow legend item">
+                    <i class="legend-dot amber" data-kid="1-2-5-2-2-1" data-name="yellow legend dot">
+                    </i>
+                    Yellow
+                </span>
+                <span class="legend-item" data-kid="1-2-5-2-3" data-name="red legend item">
+                    <i class="legend-dot red" data-kid="1-2-5-2-3-1" data-name="red legend dot">
+                    </i>
+                    Red
+                </span>
+                <span class="legend-item" data-kid="1-2-5-2-4" data-name="unknown legend item">
+                    <i class="legend-dot" data-kid="1-2-5-2-4-1" data-name="unknown grey legend dot" style="background:#87918c">
+                    </i>
+                    Unknown
+                </span>
+            </div>
+        </footer>
+    </main>
+</div>
+</div>
+</body></html>

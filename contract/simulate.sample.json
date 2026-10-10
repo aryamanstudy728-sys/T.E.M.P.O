@@ -1,0 +1,855 @@
+{
+  "version": 1,
+  "meta": {
+    "seed": 42,
+    "scenario": "normal",
+    "ambient_c": 36.0,
+    "vehicles": 5,
+    "n_villages": 30
+  },
+  "centre": {
+    "id": "C01",
+    "name": "Anand Chilling Centre",
+    "lat": 22.56,
+    "lon": 72.95
+  },
+  "villages": [
+    {
+      "id": "V01",
+      "name": "Village 01",
+      "lat": 22.63877,
+      "lon": 72.92271,
+      "volume_l": 461,
+      "milk_temp_c": 33.4,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.04,
+      "band": "red"
+    },
+    {
+      "id": "V02",
+      "name": "Village 02",
+      "lat": 22.60986,
+      "lon": 72.97063,
+      "volume_l": 530,
+      "milk_temp_c": 33.4,
+      "road_to_centre": "pakka",
+      "buffer_h": 2.41,
+      "band": "yellow"
+    },
+    {
+      "id": "V03",
+      "name": "Village 03",
+      "lat": 22.57904,
+      "lon": 72.94605,
+      "volume_l": 513,
+      "milk_temp_c": 29.9,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.64,
+      "band": "yellow"
+    },
+    {
+      "id": "V04",
+      "name": "Village 04",
+      "lat": 22.54066,
+      "lon": 73.00906,
+      "volume_l": 353,
+      "milk_temp_c": 31.9,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.14,
+      "band": "red"
+    },
+    {
+      "id": "V05",
+      "name": "Village 05",
+      "lat": 22.62764,
+      "lon": 73.03796,
+      "volume_l": 232,
+      "milk_temp_c": 31.3,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.67,
+      "band": "yellow"
+    },
+    {
+      "id": "V06",
+      "name": "Village 06",
+      "lat": 22.59724,
+      "lon": 73.07324,
+      "volume_l": 347,
+      "milk_temp_c": 33.3,
+      "road_to_centre": "kaccha",
+      "buffer_h": 2.04,
+      "band": "yellow"
+    },
+    {
+      "id": "V07",
+      "name": "Village 07",
+      "lat": 22.61044,
+      "lon": 73.05013,
+      "volume_l": 114,
+      "milk_temp_c": 36.5,
+      "road_to_centre": "pakka",
+      "buffer_h": 0.79,
+      "band": "yellow"
+    },
+    {
+      "id": "V08",
+      "name": "Village 08",
+      "lat": 22.51912,
+      "lon": 73.0739,
+      "volume_l": 131,
+      "milk_temp_c": 34.2,
+      "road_to_centre": "pakka",
+      "buffer_h": 0.65,
+      "band": "yellow"
+    },
+    {
+      "id": "V09",
+      "name": "Village 09",
+      "lat": 22.51281,
+      "lon": 72.95155,
+      "volume_l": 98,
+      "milk_temp_c": 36.2,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.01,
+      "band": "red"
+    },
+    {
+      "id": "V10",
+      "name": "Village 10",
+      "lat": 22.51841,
+      "lon": 73.06027,
+      "volume_l": 350,
+      "milk_temp_c": 32.9,
+      "road_to_centre": "kaccha",
+      "buffer_h": 1.01,
+      "band": "yellow"
+    },
+    {
+      "id": "V11",
+      "name": "Village 11",
+      "lat": 22.58093,
+      "lon": 72.8077,
+      "volume_l": 569,
+      "milk_temp_c": 36.1,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.32,
+      "band": "yellow"
+    },
+    {
+      "id": "V12",
+      "name": "Village 12",
+      "lat": 22.6702,
+      "lon": 73.02416,
+      "volume_l": 182,
+      "milk_temp_c": 28.4,
+      "road_to_centre": "kaccha",
+      "buffer_h": 2.36,
+      "band": "yellow"
+    },
+    {
+      "id": "V13",
+      "name": "Village 13",
+      "lat": 22.54873,
+      "lon": 73.04041,
+      "volume_l": 511,
+      "milk_temp_c": 31.2,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.58,
+      "band": "yellow"
+    },
+    {
+      "id": "V14",
+      "name": "Village 14",
+      "lat": 22.62301,
+      "lon": 73.03346,
+      "volume_l": 497,
+      "milk_temp_c": 28.7,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.68,
+      "band": "yellow"
+    },
+    {
+      "id": "V15",
+      "name": "Village 15",
+      "lat": 22.59761,
+      "lon": 73.07198,
+      "volume_l": 83,
+      "milk_temp_c": 35.3,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.66,
+      "band": "yellow"
+    },
+    {
+      "id": "V16",
+      "name": "Village 16",
+      "lat": 22.57537,
+      "lon": 72.82617,
+      "volume_l": 119,
+      "milk_temp_c": 31.2,
+      "road_to_centre": "kaccha",
+      "buffer_h": 2.02,
+      "band": "yellow"
+    },
+    {
+      "id": "V17",
+      "name": "Village 17",
+      "lat": 22.47028,
+      "lon": 72.8549,
+      "volume_l": 252,
+      "milk_temp_c": 28.6,
+      "road_to_centre": "kaccha",
+      "buffer_h": 2.38,
+      "band": "yellow"
+    },
+    {
+      "id": "V18",
+      "name": "Village 18",
+      "lat": 22.55015,
+      "lon": 72.86724,
+      "volume_l": 412,
+      "milk_temp_c": 36.0,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.95,
+      "band": "yellow"
+    },
+    {
+      "id": "V19",
+      "name": "Village 19",
+      "lat": 22.5493,
+      "lon": 72.90074,
+      "volume_l": 476,
+      "milk_temp_c": 33.1,
+      "road_to_centre": "pakka",
+      "buffer_h": 2.48,
+      "band": "yellow"
+    },
+    {
+      "id": "V20",
+      "name": "Village 20",
+      "lat": 22.46601,
+      "lon": 72.93536,
+      "volume_l": 302,
+      "milk_temp_c": 28.2,
+      "road_to_centre": "kaccha",
+      "buffer_h": 1.72,
+      "band": "yellow"
+    },
+    {
+      "id": "V21",
+      "name": "Village 21",
+      "lat": 22.54432,
+      "lon": 72.93039,
+      "volume_l": 243,
+      "milk_temp_c": 32.6,
+      "road_to_centre": "pakka",
+      "buffer_h": 2.61,
+      "band": "green"
+    },
+    {
+      "id": "V22",
+      "name": "Village 22",
+      "lat": 22.50294,
+      "lon": 72.989,
+      "volume_l": 473,
+      "milk_temp_c": 30.1,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.93,
+      "band": "yellow"
+    },
+    {
+      "id": "V23",
+      "name": "Village 23",
+      "lat": 22.5985,
+      "lon": 73.01683,
+      "volume_l": 563,
+      "milk_temp_c": 35.3,
+      "road_to_centre": "pakka",
+      "buffer_h": 0.61,
+      "band": "yellow"
+    },
+    {
+      "id": "V24",
+      "name": "Village 24",
+      "lat": 22.60174,
+      "lon": 72.82109,
+      "volume_l": 177,
+      "milk_temp_c": 36.0,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.07,
+      "band": "yellow"
+    },
+    {
+      "id": "V25",
+      "name": "Village 25",
+      "lat": 22.65646,
+      "lon": 72.87012,
+      "volume_l": 245,
+      "milk_temp_c": 29.0,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.93,
+      "band": "yellow"
+    },
+    {
+      "id": "V26",
+      "name": "Village 26",
+      "lat": 22.5966,
+      "lon": 72.86297,
+      "volume_l": 528,
+      "milk_temp_c": 28.1,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.41,
+      "band": "yellow"
+    },
+    {
+      "id": "V27",
+      "name": "Village 27",
+      "lat": 22.57522,
+      "lon": 73.04309,
+      "volume_l": 142,
+      "milk_temp_c": 31.0,
+      "road_to_centre": "pakka",
+      "buffer_h": 2.48,
+      "band": "yellow"
+    },
+    {
+      "id": "V28",
+      "name": "Village 28",
+      "lat": 22.48371,
+      "lon": 72.9402,
+      "volume_l": 446,
+      "milk_temp_c": 31.3,
+      "road_to_centre": "pakka",
+      "buffer_h": 1.18,
+      "band": "yellow"
+    },
+    {
+      "id": "V29",
+      "name": "Village 29",
+      "lat": 22.55852,
+      "lon": 73.09355,
+      "volume_l": 339,
+      "milk_temp_c": 30.7,
+      "road_to_centre": "kaccha",
+      "buffer_h": 1.74,
+      "band": "yellow"
+    },
+    {
+      "id": "V30",
+      "name": "Village 30",
+      "lat": 22.53996,
+      "lon": 72.93214,
+      "volume_l": 341,
+      "milk_temp_c": 28.5,
+      "road_to_centre": "kaccha",
+      "buffer_h": 0.2,
+      "band": "red"
+    }
+  ],
+  "methods": {
+    "fixed": {
+      "routes": [
+        {
+          "vehicle_id": 1,
+          "stops": [
+            "V01",
+            "V02",
+            "V03",
+            "V04",
+            "V05",
+            "V06"
+          ],
+          "time_h": 4.085
+        },
+        {
+          "vehicle_id": 2,
+          "stops": [
+            "V07",
+            "V08",
+            "V09",
+            "V10",
+            "V11",
+            "V12"
+          ],
+          "time_h": 6.657
+        },
+        {
+          "vehicle_id": 3,
+          "stops": [
+            "V13",
+            "V14",
+            "V15",
+            "V16",
+            "V17",
+            "V18"
+          ],
+          "time_h": 5.038
+        },
+        {
+          "vehicle_id": 4,
+          "stops": [
+            "V19",
+            "V20",
+            "V21",
+            "V22",
+            "V23",
+            "V24"
+          ],
+          "time_h": 4.056
+        },
+        {
+          "vehicle_id": 5,
+          "stops": [
+            "V25",
+            "V26",
+            "V27",
+            "V28",
+            "V29",
+            "V30"
+          ],
+          "time_h": 5.609
+        }
+      ],
+      "buffers": {
+        "V01": -0.721,
+        "V02": -0.363,
+        "V03": 0.38,
+        "V04": 0.9,
+        "V05": 1.446,
+        "V06": 1.785,
+        "V07": -3.76,
+        "V08": -3.054,
+        "V09": -2.219,
+        "V10": -1.075,
+        "V11": -0.286,
+        "V12": 2.062,
+        "V13": -1.462,
+        "V14": -0.826,
+        "V15": -1.052,
+        "V16": 1.113,
+        "V17": 2.263,
+        "V18": 2.122,
+        "V19": -1.071,
+        "V20": 0.141,
+        "V21": 0.241,
+        "V22": 1.1,
+        "V23": 1.174,
+        "V24": 1.944,
+        "V25": -1.615,
+        "V26": -1.131,
+        "V27": -0.608,
+        "V28": 0.035,
+        "V29": 1.41,
+        "V30": 2.812
+      },
+      "breaching_ids": [
+        "V01",
+        "V02",
+        "V07",
+        "V08",
+        "V09",
+        "V10",
+        "V11",
+        "V13",
+        "V14",
+        "V15",
+        "V19",
+        "V25",
+        "V26",
+        "V27"
+      ],
+      "breaches": 14,
+      "time_h": 25.445,
+      "over_ceiling": [],
+      "volume_at_risk_l": 4735
+    },
+    "nearest": {
+      "routes": [
+        {
+          "vehicle_id": 1,
+          "stops": [
+            "V21",
+            "V18",
+            "V11",
+            "V16",
+            "V17",
+            "V08"
+          ],
+          "time_h": 3.631
+        },
+        {
+          "vehicle_id": 2,
+          "stops": [
+            "V03",
+            "V23",
+            "V07",
+            "V15",
+            "V06",
+            "V29"
+          ],
+          "time_h": 2.87
+        },
+        {
+          "vehicle_id": 3,
+          "stops": [
+            "V19",
+            "V26",
+            "V24",
+            "V25",
+            "V01",
+            "V12"
+          ],
+          "time_h": 4.06
+        },
+        {
+          "vehicle_id": 4,
+          "stops": [
+            "V30",
+            "V28",
+            "V20",
+            "V09",
+            "V22",
+            "V04"
+          ],
+          "time_h": 2.862
+        },
+        {
+          "vehicle_id": 5,
+          "stops": [
+            "V02",
+            "V14",
+            "V05",
+            "V27",
+            "V13",
+            "V10"
+          ],
+          "time_h": 2.864
+        }
+      ],
+      "buffers": {
+        "V21": -0.677,
+        "V18": -0.599,
+        "V11": -0.204,
+        "V16": 0.492,
+        "V17": 1.642,
+        "V08": 2.111,
+        "V03": 0.337,
+        "V23": 0.3,
+        "V07": 0.486,
+        "V15": 0.839,
+        "V06": 1.214,
+        "V29": 1.892,
+        "V19": -1.075,
+        "V26": -0.296,
+        "V24": -0.638,
+        "V25": 0.592,
+        "V01": 0.782,
+        "V12": 2.062,
+        "V30": 0.492,
+        "V28": 0.664,
+        "V20": 1.213,
+        "V09": 1.085,
+        "V22": 2.011,
+        "V04": 2.332,
+        "V02": 0.096,
+        "V14": 0.877,
+        "V05": 0.866,
+        "V27": 1.223,
+        "V13": 1.582,
+        "V10": 1.855
+      },
+      "breaching_ids": [
+        "V11",
+        "V18",
+        "V19",
+        "V21",
+        "V24",
+        "V26"
+      ],
+      "breaches": 6,
+      "time_h": 16.287,
+      "over_ceiling": [],
+      "volume_at_risk_l": 2405
+    },
+    "risk_based": {
+      "routes": [
+        {
+          "vehicle_id": 1,
+          "stops": [],
+          "time_h": 0.0
+        },
+        {
+          "vehicle_id": 2,
+          "stops": [
+            "V04",
+            "V13",
+            "V08",
+            "V10",
+            "V29",
+            "V15",
+            "V06",
+            "V27"
+          ],
+          "time_h": 3.191
+        },
+        {
+          "vehicle_id": 3,
+          "stops": [
+            "V30",
+            "V09",
+            "V22",
+            "V28",
+            "V20",
+            "V17",
+            "V21"
+          ],
+          "time_h": 3.151
+        },
+        {
+          "vehicle_id": 4,
+          "stops": [
+            "V03",
+            "V23",
+            "V07",
+            "V14",
+            "V05",
+            "V12",
+            "V02"
+          ],
+          "time_h": 2.562
+        },
+        {
+          "vehicle_id": 5,
+          "stops": [
+            "V01",
+            "V25",
+            "V26",
+            "V24",
+            "V11",
+            "V16",
+            "V18",
+            "V19"
+          ],
+          "time_h": 3.325
+        }
+      ],
+      "buffers": {
+        "V04": 0.144,
+        "V13": 0.578,
+        "V08": 0.649,
+        "V10": 1.007,
+        "V29": 1.739,
+        "V15": 1.664,
+        "V06": 2.04,
+        "V27": 2.485,
+        "V30": 0.203,
+        "V09": 0.005,
+        "V22": 0.932,
+        "V28": 1.176,
+        "V20": 1.724,
+        "V17": 2.379,
+        "V21": 2.613,
+        "V03": 0.644,
+        "V23": 0.607,
+        "V07": 0.793,
+        "V14": 1.682,
+        "V05": 1.671,
+        "V12": 2.359,
+        "V02": 2.407,
+        "V01": 0.039,
+        "V25": 0.929,
+        "V26": 1.413,
+        "V24": 1.071,
+        "V11": 1.325,
+        "V16": 2.021,
+        "V18": 1.953,
+        "V19": 2.481
+      },
+      "breaching_ids": [],
+      "breaches": 0,
+      "time_h": 12.229,
+      "over_ceiling": [],
+      "volume_at_risk_l": 0
+    }
+  },
+  "best_method": "risk_based",
+  "alerts": [
+    {
+      "kind": "low_buffer",
+      "severity": "critical",
+      "message": "Village 01 has 0.0 h of buffer under the risk-based plan.",
+      "village_id": "V01"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 02 has 2.4 h of buffer under the risk-based plan.",
+      "village_id": "V02"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 03 has 0.6 h of buffer under the risk-based plan.",
+      "village_id": "V03"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "critical",
+      "message": "Village 04 has 0.1 h of buffer under the risk-based plan.",
+      "village_id": "V04"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 05 has 1.7 h of buffer under the risk-based plan.",
+      "village_id": "V05"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 06 has 2.0 h of buffer under the risk-based plan.",
+      "village_id": "V06"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 07 has 0.8 h of buffer under the risk-based plan.",
+      "village_id": "V07"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 08 has 0.7 h of buffer under the risk-based plan.",
+      "village_id": "V08"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "critical",
+      "message": "Village 09 has 0.0 h of buffer under the risk-based plan.",
+      "village_id": "V09"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 10 has 1.0 h of buffer under the risk-based plan.",
+      "village_id": "V10"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 11 has 1.3 h of buffer under the risk-based plan.",
+      "village_id": "V11"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 12 has 2.4 h of buffer under the risk-based plan.",
+      "village_id": "V12"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 13 has 0.6 h of buffer under the risk-based plan.",
+      "village_id": "V13"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 14 has 1.7 h of buffer under the risk-based plan.",
+      "village_id": "V14"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 15 has 1.7 h of buffer under the risk-based plan.",
+      "village_id": "V15"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 16 has 2.0 h of buffer under the risk-based plan.",
+      "village_id": "V16"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 17 has 2.4 h of buffer under the risk-based plan.",
+      "village_id": "V17"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 18 has 1.9 h of buffer under the risk-based plan.",
+      "village_id": "V18"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 19 has 2.5 h of buffer under the risk-based plan.",
+      "village_id": "V19"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 20 has 1.7 h of buffer under the risk-based plan.",
+      "village_id": "V20"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 22 has 0.9 h of buffer under the risk-based plan.",
+      "village_id": "V22"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 23 has 0.6 h of buffer under the risk-based plan.",
+      "village_id": "V23"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 24 has 1.1 h of buffer under the risk-based plan.",
+      "village_id": "V24"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 25 has 0.9 h of buffer under the risk-based plan.",
+      "village_id": "V25"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 26 has 1.4 h of buffer under the risk-based plan.",
+      "village_id": "V26"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 27 has 2.5 h of buffer under the risk-based plan.",
+      "village_id": "V27"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 28 has 1.2 h of buffer under the risk-based plan.",
+      "village_id": "V28"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "warning",
+      "message": "Village 29 has 1.7 h of buffer under the risk-based plan.",
+      "village_id": "V29"
+    },
+    {
+      "kind": "low_buffer",
+      "severity": "critical",
+      "message": "Village 30 has 0.2 h of buffer under the risk-based plan.",
+      "village_id": "V30"
+    }
+  ],
+  "explanation": {
+    "text": "On the normal scenario, the fixed route leaves 14 villages past their cooling window and nearest-neighbour leaves 6; the risk-based order leaves 0. The tightest village is Village 09 with 0.0 h of buffer.",
+    "source": "template"
+  }
+}

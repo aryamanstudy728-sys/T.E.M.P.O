@@ -1,0 +1,9 @@
+﻿fastapi
+uvicorn
+pydantic
+ortools
+numpy
+requests
+pytest
+python-dotenv
+anthropic

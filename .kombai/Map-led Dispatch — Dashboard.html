@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css');
+.tempo-screen{--bg:#0b0e0d;--surface:#111615;--surface-raised:#151b19;--line:#29322f;--line-soft:#202825;--text:#edf2ef;--muted:#99a6a0;--subtle:#717f78;--mint:#45d9b1;--mint-dim:#143a30;--red:#f07183;--red-dim:#391d25;--amber:#e9bd58;--amber-dim:#332b19;min-height:100vh;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;overflow-x:clip}.tempo-screen *{box-sizing:border-box}.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}.app-header{height:74px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;padding:0 44px;gap:48px;background:#0d1110}.brand{display:flex;align-items:center;gap:11px;min-width:225px}.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--mint);display:grid;place-items:center;color:#07110e;font-size:18px;font-weight:700;letter-spacing:-.06em}.brand-name{font-size:17px;font-weight:700;letter-spacing:-.035em}.brand-sub{font-size:11px;color:var(--muted);margin-top:1px}.top-nav{display:flex;align-items:center;gap:8px;height:100%;flex:1}.top-nav a{height:42px;display:flex;align-items:center;gap:9px;padding:0 14px;color:#a8b1ac;text-decoration:none;border-radius:7px;font-weight:600;font-size:13px;white-space:nowrap}.top-nav a i{font-size:17px;color:#89958f}.top-nav a.active{color:#f1f7f3;background:#17211e;box-shadow:inset 0 -2px 0 var(--mint)}.top-nav a.active i{color:var(--mint)}.nav-count{font:500 11px 'IBM Plex Mono',monospace;color:var(--red);margin-left:1px}.header-state{display:flex;align-items:center;justify-content:flex-end;gap:11px;white-space:nowrap}.state-demo,.state-offline{display:inline-flex;align-items:center;gap:8px;border-radius:6px;padding:7px 10px;font-size:11px;font-weight:600;letter-spacing:.01em}.state-demo{color:var(--amber);background:#211e16;border:1px solid #3c3421}.state-offline{color:#d1a0a7;background:#21171a;border:1px solid #3c262c}.state-demo:before,.state-offline:before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}.page-wrap{max-width:1490px;margin:0 auto;padding:28px 44px 56px}.page-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;gap:20px}.page-head h1{font-size:25px;line-height:1.2;letter-spacing:-.045em;margin:0;font-weight:700}.page-head p{color:var(--muted);margin:6px 0 0;font-size:14px}.head-note{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.head-note i{font-size:17px;color:var(--amber)}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:20px}.metric{padding:15px 24px 15px 0;position:relative;min-width:0}.metric:not(:first-child){padding-left:24px}.metric:not(:last-child):after{content:'';position:absolute;right:0;top:16px;bottom:16px;width:1px;background:var(--line)}.metric-label{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:12px;font-weight:500}.metric-value{display:flex;align-items:baseline;gap:8px;margin-top:6px;font:600 24px/1.15 'IBM Plex Mono',monospace;letter-spacing:-.04em}.metric-value small{font:500 12px 'DM Sans',sans-serif;color:var(--muted);letter-spacing:0}.metric-value.critical{color:var(--red)}.metric-value.accent{color:var(--mint)}.metric-detail{font-size:11px;color:var(--subtle);margin-top:4px}.demo-strip{min-height:34px;display:flex;align-items:center;gap:9px;padding:7px 11px;color:#c9baa0;background:#191712;border:1px solid #332c1d;border-radius:6px;font-size:12px;margin-bottom:16px}.demo-strip i{color:var(--amber);font-size:16px;flex:none}.work-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;align-items:stretch}.map-panel,.selected-panel,.alerts-panel,.bmc-panel,.fleet-panel{background:var(--surface);border:1px solid var(--line);border-radius:10px}.map-panel{min-width:0;overflow:hidden}.map-head{height:54px;padding:0 17px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line-soft);gap:10px}.panel-title{font-size:14px;font-weight:600;letter-spacing:-.01em;margin:0}.panel-meta{display:flex;align-items:center;gap:11px;color:var(--muted);font-size:11px}.map-tag{display:flex;align-items:center;gap:6px;color:#b6c5bd;background:#18201d;border:1px solid #29342f;border-radius:5px;padding:4px 8px;font-size:10px}.map-tag i{font-size:13px;color:var(--amber)}.icon-button{width:32px;height:32px;border:1px solid var(--line);border-radius:6px;background:#151b19;color:#d5ded9;display:grid;place-items:center;font-size:16px}.map-canvas{position:relative;height:414px;overflow:hidden;background:#151b19;background-image:radial-gradient(ellipse at 51% 43%,#202925 0,#171e1b 44%,#121715 100%)}.map-canvas:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,14,13,.02),rgba(10,14,13,.1))}.map-svg{width:100%;height:100%;position:absolute;inset:0}.map-label{font:11px 'DM Sans',sans-serif;fill:#718078;letter-spacing:.025em}.map-label.major{font-size:13px;fill:#a9b4ae;font-weight:600}.map-road{fill:none;stroke:#2a3530;stroke-width:10;stroke-linecap:round;opacity:.66}.map-road-core{fill:none;stroke:#1d2723;stroke-width:6;stroke-linecap:round}.map-local{fill:none;stroke:#27322e;stroke-width:2;opacity:.78}.map-suburban{fill:#17221d;stroke:#243029;stroke-width:1}.map-route{fill:none;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}.route-critical{stroke:var(--red);stroke-dasharray:2 0}.route-watch{stroke:var(--amber);stroke-dasharray:7 7;opacity:.87}.route-normal{stroke:var(--mint);stroke-dasharray:5 6;opacity:.82}.map-marker{position:absolute;z-index:2;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;border:0;padding:0;cursor:pointer;background:transparent;color:var(--text)}.map-marker:focus-visible{outline:3px solid #f3f7f4;outline-offset:4px;border-radius:50%}.marker-core{display:grid;place-items:center;width:32px;height:32px;border:1px solid #52635b;border-radius:50%;background:#101614;color:#dce7e0;font-size:15px;box-shadow:0 0 0 5px rgba(10,14,13,.55)}.marker-core.truck{background:#172622;border-color:#55d7ad;color:var(--mint)}.map-marker.selected .marker-core{width:39px;height:39px;border:2px solid var(--red);color:#fff;background:#351e24;font-size:18px}.marker-core.vcc{width:24px;height:24px;border-radius:50% 50% 50% 3px;transform:rotate(-45deg);color:var(--mint);border-color:#48977f;font-size:13px}.marker-core.vcc i{transform:rotate(45deg)}.marker-core.bmc{width:29px;height:29px;border-radius:7px;background:#193328;border-color:#4b9a78;color:#7de0ae;font:600 10px 'IBM Plex Mono',monospace}.marker-label{position:absolute;left:calc(100% + 9px);top:50%;transform:translateY(-50%);white-space:nowrap;background:#0f1412;border:1px solid #303c36;border-radius:4px;color:#d4dfd8;padding:4px 7px;font-size:10px;font-weight:600;box-shadow:0 3px 8px rgba(0,0,0,.2)}.map-marker.selected .marker-label{border-color:#75414a;color:#fff}.map-loc{position:absolute;z-index:1;color:#849189;font-size:10px;white-space:nowrap}.map-caption{position:absolute;z-index:2;top:14px;left:15px;padding:5px 8px;color:#bdc7c1;background:rgba(10,14,13,.8);border:1px solid #2b3530;border-radius:5px;font-size:10px}.map-controls{position:absolute;z-index:3;right:14px;top:14px;display:grid;gap:5px}.map-controls button{height:31px;width:31px;border-radius:6px;background:#111715;border:1px solid #334039;color:#d7e2dc;font-size:15px}.map-legend{min-height:52px;padding:10px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line-soft);background:#101513}.legend-group{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.legend-item{display:flex;align-items:center;gap:7px;color:#b3beb7;font-size:11px;white-space:nowrap}.legend-mark{width:8px;height:8px;border-radius:50%;background:var(--mint)}.legend-mark.vcc{width:9px;height:9px;border:1.5px solid var(--mint);background:transparent}.legend-mark.bmc{width:9px;height:9px;border-radius:2px;background:#78d9a7}.legend-line{width:17px;height:0;border-top:2px solid var(--red)}.legend-line.watch{border-color:var(--amber);border-top-style:dashed}.legend-line.normal{border-color:var(--mint);border-top-style:dashed}.legend-note{font-size:10px;color:var(--subtle);white-space:nowrap}.rail{display:flex;flex-direction:column;gap:12px;min-width:0}.selected-panel{padding:15px 16px 14px;border-color:#3a4540;background:#121816}.selected-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.selected-heading{color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.055em}.vehicle-name{font-size:18px;font-weight:700;letter-spacing:-.03em;margin-top:8px}.vehicle-sub{display:flex;align-items:center;gap:7px;margin-top:3px;color:var(--muted);font-size:12px}.state-dot{width:7px;height:7px;border-radius:50%;background:var(--mint);flex:none}.risk-chip{display:inline-flex;align-items:center;gap:6px;color:#ffb5bd;background:var(--red-dim);border:1px solid #5a2c36;border-radius:5px;padding:5px 8px;font-size:10px;font-weight:700;letter-spacing:.025em}.risk-chip:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red)}.selected-data{display:grid;grid-template-columns:1.35fr .8fr .75fr;gap:8px;border-top:1px solid var(--line);margin-top:13px;padding-top:12px}.data-label{font-size:10px;color:var(--subtle);margin-bottom:3px}.data-value{font-size:12px;font-weight:600;color:#e4ebe7;white-space:nowrap}.data-value.mono{font-size:12px}.data-value.danger{color:var(--red)}.risk-context{display:flex;align-items:center;gap:8px;margin-top:11px;padding:8px 9px;border-radius:5px;background:#21191b;color:#ccbfc1;font-size:11px}.risk-context i{font-size:15px;color:var(--red)}.mobile-map-link{display:none}.alerts-panel{padding:14px 15px 4px}.rail-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}.rail-title-row h2{font-size:13px;margin:0;font-weight:600}.rail-title-row a{font-size:11px;color:var(--mint);text-decoration:none}.alert-row{display:grid;grid-template-columns:8px minmax(0,1fr) auto;align-items:start;gap:9px;padding:9px 0;border-top:1px solid var(--line-soft)}.alert-indicator{width:7px;height:7px;margin-top:5px;border-radius:50%;background:var(--red)}.alert-indicator.warning{background:var(--amber)}.alert-message{font-size:11px;line-height:1.35;color:#e3eae6;font-weight:500}.alert-meta{margin-top:3px;color:var(--muted);font-size:10px}.alert-action{background:#1b2924;color:#91dfc1;border:1px solid #29483c;border-radius:4px;padding:4px 7px;font-size:10px;font-weight:600}.bmc-panel{padding:13px 15px 12px}.bmc-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.bmc-name{font-size:12px;font-weight:600}.bmc-status{display:inline-flex;align-items:center;gap:6px;color:#a8dfc2;font-size:10px;font-weight:600}.bmc-status:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--mint)}.bmc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line-soft)}.bmc-stat-label{color:var(--subtle);font-size:10px}.bmc-stat-value{color:#e6ede9;font:500 12px 'IBM Plex Mono',monospace;margin-top:2px}.fleet-panel{margin-top:16px;overflow:hidden}.fleet-head{height:53px;padding:0 17px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line-soft);gap:12px}.fleet-head h2{font-size:14px;margin:0;font-weight:600}.fleet-source{color:var(--subtle);font-size:11px}.fleet-table-wrap{overflow-x:auto}.fleet-table{width:100%;border-collapse:collapse;min-width:640px;text-align:left}.fleet-table th{height:36px;padding:0 17px;color:var(--subtle);font-size:10px;font-weight:600;letter-spacing:.045em;text-transform:uppercase;border-bottom:1px solid var(--line-soft)}.fleet-table td{height:50px;padding:8px 17px;color:#cbd5cf;font-size:12px;border-bottom:1px solid #1d2521}.fleet-table tr:last-child td{border-bottom:0}.fleet-table tbody tr{transition:background .15s ease}.fleet-table tbody tr:hover td,.fleet-table tbody tr.selected td{background:#151d19}.fleet-table tbody tr.selected td:first-child{box-shadow:inset 2px 0 var(--mint)}.vehicle-cell{display:flex;align-items:center;gap:9px}.vehicle-cell i{font-size:17px;color:var(--mint)}.vehicle-cell strong{font-size:12px;color:#eef3f0}.fleet-status{display:inline-flex;align-items:center;gap:6px;color:#b8c5be}.fleet-status:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--mint)}.fleet-status.idle:before{background:#8b968f}.fleet-status.warning:before{background:var(--amber)}.risk-text{color:var(--red);font-weight:600}.risk-text.watch{color:var(--amber)}.route-link{color:#b7e7d0;font-weight:600;text-decoration:none}.table-hint{display:none;color:var(--muted);font-size:11px;padding:9px 15px;border-top:1px solid var(--line-soft)}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f4f7f5;outline-offset:3px}button{font:inherit;cursor:pointer}
+@media(max-width:1120px){.app-header{padding:0 25px;gap:24px}.brand{min-width:190px}.page-wrap{padding-left:25px;padding-right:25px}.work-grid{grid-template-columns:minmax(0,1fr) 330px}.map-canvas{height:390px}.legend-group{gap:9px}.legend-note{display:none}}
+@media(max-width:860px){.app-header{height:auto;min-height:72px;flex-wrap:wrap;gap:5px 18px;padding:13px 20px}.brand{min-width:170px}.top-nav{order:3;flex-basis:100%;height:42px;overflow-x:auto}.header-state{margin-left:auto}.page-wrap{padding:22px 20px 40px}.work-grid{grid-template-columns:minmax(0,1fr) 300px}.map-canvas{height:360px}.selected-data{grid-template-columns:1fr 1fr}.selected-data>div:first-child{grid-column:span 2}}
+@media(max-width:680px){.app-header{padding:12px 16px;gap:10px}.brand{min-width:0}.brand-sub{display:none}.brand-mark{width:32px;height:32px}.header-state{gap:6px}.state-demo,.state-offline{font-size:9px;padding:6px 7px}.top-nav{gap:2px;height:42px;margin:0 -2px}.top-nav a{padding:0 11px;font-size:12px}.top-nav a i{font-size:15px}.page-wrap{padding:21px 15px 34px}.page-head{align-items:flex-start;margin-bottom:17px}.page-head h1{font-size:22px}.page-head p{font-size:13px;max-width:310px}.head-note{display:none}.metrics{grid-template-columns:1fr 1fr;margin-bottom:14px}.metric{padding:12px 10px 12px 0}.metric:not(:first-child){padding-left:12px}.metric:nth-child(2):after{display:none}.metric:nth-child(n+3){border-top:1px solid var(--line)}.metric:not(:last-child):after{top:12px;bottom:12px}.metric:nth-child(2):after{display:none}.metric-value{font-size:20px}.metric-label{font-size:11px}.metric-detail{font-size:10px}.demo-strip{font-size:11px;align-items:flex-start}.work-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}.rail{display:contents}.selected-panel{order:-2}.map-panel{order:-1}.alerts-panel{order:0}.bmc-panel{order:1}.selected-panel,.alerts-panel,.bmc-panel,.map-panel{border-radius:9px}.selected-panel{padding:14px}.mobile-map-link{display:inline-flex;align-items:center;gap:7px;color:var(--mint);font-size:12px;font-weight:600;text-decoration:none;margin-top:11px}.mobile-map-link i{font-size:15px}.map-head{height:48px;padding:0 13px}.map-canvas{height:310px}.map-legend{align-items:flex-start;flex-direction:column;padding:10px 12px}.legend-group{gap:8px 13px}.legend-item{font-size:10px}.legend-note{display:block;white-space:normal}.map-marker.selected .marker-label{display:none}.map-caption{top:10px;left:10px}.map-controls{top:10px;right:10px}.selected-data{grid-template-columns:1.2fr .8fr .8fr}.selected-data>div:first-child{grid-column:auto}.risk-context{font-size:10px}.fleet-panel{margin-top:12px}.fleet-head{height:auto;min-height:51px;padding:9px 13px}.fleet-head h2{font-size:13px}.fleet-source{max-width:125px;text-align:right;font-size:10px}.fleet-table{min-width:590px}.fleet-table th{padding:0 12px;font-size:9px}.fleet-table td{padding:8px 12px;font-size:11px}.table-hint{display:block}.alert-message{font-size:12px}.alert-meta{font-size:10px}}
+@media(max-width:390px){.header-state{width:100%;justify-content:flex-start;order:2}.state-demo,.state-offline{font-size:10px}.top-nav{order:3}.selected-data{grid-template-columns:1fr 1fr}.selected-data>div:first-child{grid-column:span 2}.metric-value{font-size:18px}.map-canvas{height:280px}.marker-label{font-size:9px;padding:3px 5px}}
+</style>
+<div class="tempo-screen" data-kid="1" data-name="temper screen layout container">
+    <header class="app-header" data-kid="1-1" data-name="application header bar">
+        <div aria-label="T.E.M.P.O. milk collection operations" class="brand" data-kid="1-1-1" data-name="brand identity block">
+            <div class="brand-mark" data-kid="1-1-1-1" data-name="brand monogram tile">
+                T
+            </div>
+            <div data-kid="1-1-1-2" data-name="brand text container">
+                <div class="brand-name" data-kid="1-1-1-2-1" data-name="brand name text">
+                    T.E.M.P.O.
+                </div>
+                <div class="brand-sub" data-kid="1-1-1-2-2" data-name="brand tagline text">
+                    Milk collection operations
+                </div>
+            </div>
+        </div>
+        <nav aria-label="Main navigation" class="top-nav" data-kid="1-1-2" data-name="main navigation bar">
+            <a aria-current="page" class="active" data-kid="1-1-2-1" data-name="dashboard navigation link (active)" href="#dashboard">
+                <i aria-hidden="true" class="ti ti-layout-dashboard" data-kid="1-1-2-1-1" data-name="dashboard layout icon">
+                </i>
+                Dashboard
+            </a>
+            <a data-kid="1-1-2-2" data-name="routes navigation link" href="#routes">
+                <i aria-hidden="true" class="ti ti-route" data-kid="1-1-2-2-1" data-name="route icon">
+                </i>
+                Routes
+            </a>
+            <a data-kid="1-1-2-3" data-name="alerts navigation link" href="#alerts">
+                <i aria-hidden="true" class="ti ti-alert-triangle" data-kid="1-1-2-3-1" data-name="alert triangle icon">
+                </i>
+                Alerts
+                <span class="nav-count" data-kid="1-1-2-3-2" data-name="alerts count badge">
+                    02
+                </span>
+            </a>
+            <a data-kid="1-1-2-4" data-name="analytics navigation link" href="#analytics">
+                <i aria-hidden="true" class="ti ti-chart-bar" data-kid="1-1-2-4-1" data-name="bar chart icon">
+                </i>
+                Analytics
+            </a>
+        </nav>
+        <div aria-label="Data connection status" class="header-state" data-kid="1-1-3" data-name="data connection status cluster">
+            <span class="state-demo" data-kid="1-1-3-1" data-name="demo scenario status chip">
+                Scenario preview · not live
+            </span>
+            <span class="state-offline" data-kid="1-1-3-2" data-name="telemetry offline status chip">
+                Telemetry offline
+            </span>
+        </div>
+    </header>
+    <main class="page-wrap" data-kid="1-2" data-name="main dashboard content area" id="dashboard">
+        <section aria-labelledby="page-title" class="page-head" data-kid="1-2-1" data-name="page header with title">
+            <div data-kid="1-2-1-1" data-name="page title block">
+                <h1 data-kid="1-2-1-1-1" data-name="page main headline" id="page-title">
+                    Operations dashboard
+                </h1>
+                <p data-kid="1-2-1-1-2" data-name="page subheading description">
+                    Milk collection, thermal risk and fleet movement across active routes.
+                </p>
+            </div>
+            <div class="head-note" data-kid="1-2-1-2" data-name="page header note with demo disclaimer">
+                <i aria-hidden="true" class="ti ti-info-circle" data-kid="1-2-1-2-1" data-name="info circle icon">
+                </i>
+                Live readings unavailable · showing a demo scenario
+            </div>
+        </section>
+        <div aria-label="Demo scenario fleet summary" class="metrics" data-kid="1-2-2" data-name="fleet summary metrics strip">
+            <div class="metric" data-kid="1-2-2-1" data-name="active vehicles metric card">
+                <div class="metric-label" data-kid="1-2-2-1-1" data-name="active vehicles metric label">
+                    Active vehicles
+                </div>
+                <div class="metric-value" data-kid="1-2-2-1-2" data-name="active vehicles metric value">
+                    02
+                    <small data-kid="1-2-2-1-2-1" data-name="active vehicles total count">
+                        / 03 vehicles
+                    </small>
+                </div>
+                <div class="metric-detail" data-kid="1-2-2-1-3" data-name="active vehicles metric detail">
+                    Collecting or in transit
+                </div>
+            </div>
+            <div class="metric" data-kid="1-2-2-2" data-name="at-risk stops metric card">
+                <div class="metric-label" data-kid="1-2-2-2-1" data-name="at-risk stops metric label">
+                    At-risk stops
+                </div>
+                <div class="metric-value critical" data-kid="1-2-2-2-2" data-name="at-risk stops value (critical highlight)">
+                    02
+                    <small data-kid="1-2-2-2-2-1" data-name="at-risk stops unit">
+                        stops
+                    </small>
+                </div>
+                <div class="metric-detail" data-kid="1-2-2-2-3" data-name="at-risk stops metric detail">
+                    Risk bands are model estimates
+                </div>
+            </div>
+            <div class="metric" data-kid="1-2-2-3" data-name="collected volume metric card">
+                <div class="metric-label" data-kid="1-2-2-3-1" data-name="collected volume metric label">
+                    Collected volume
+                </div>
+                <div class="metric-value accent" data-kid="1-2-2-3-2" data-name="collected volume value (accent highlight)">
+                    1,240
+                    <small data-kid="1-2-2-3-2-1" data-name="collected volume unit">
+                        L
+                    </small>
+                </div>
+                <div class="metric-detail" data-kid="1-2-2-3-3" data-name="collected volume metric detail">
+                    Across demo vehicles
+                </div>
+            </div>
+            <div class="metric" data-kid="1-2-2-4" data-name="BMCs online metric card">
+                <div class="metric-label" data-kid="1-2-2-4-1" data-name="BMCs online metric label">
+                    BMCs online
+                </div>
+                <div class="metric-value" data-kid="1-2-2-4-2" data-name="BMCs online metric value">
+                    01
+                    <small data-kid="1-2-2-4-2-1" data-name="BMCs online total count">
+                        / 01
+                    </small>
+                </div>
+                <div class="metric-detail" data-kid="1-2-2-4-3" data-name="BMCs online metric detail">
+                    Bulk milk coolers
+                </div>
+            </div>
+        </div>
+        <div class="demo-strip" data-kid="1-2-3" data-name="demo scenario status strip" role="status">
+            <i aria-hidden="true" class="ti ti-alert-circle" data-kid="1-2-3-1" data-name="alert circle icon">
+            </i>
+            <span data-kid="1-2-3-2" data-name="telemetry offline disclaimer text">
+                Telemetry is offline. Values and route positions below are for a
+                <strong data-kid="1-2-3-2-1" data-name="demo scenario bolded disclaimer">
+                    Demo scenario · not live
+                </strong>
+                ; they do not represent current field conditions.
+            </span>
+        </div>
+        <section aria-label="Fleet map and dispatch details" class="work-grid" data-kid="1-2-4" data-name="map and details work grid section">
+            <section aria-labelledby="map-title" class="map-panel" data-kid="1-2-4-1" data-name="fleet map panel" id="fleet-map">
+                <div class="map-head" data-kid="1-2-4-1-1" data-name="map header bar">
+                    <h2 class="panel-title" data-kid="1-2-4-1-1-1" data-name="map panel title" id="map-title">
+                        Fleet map
+                    </h2>
+                    <div class="panel-meta" data-kid="1-2-4-1-1-2" data-name="map panel metadata controls">
+                        <span class="map-tag" data-kid="1-2-4-1-1-2-1" data-name="scenario locations tag">
+                            <i aria-hidden="true" class="ti ti-map-pin" data-kid="1-2-4-1-1-2-1-1" data-name="map pin icon">
+                            </i>
+                            Scenario locations
+                        </span>
+                        <button aria-label="Map options" class="icon-button" data-kid="1-2-4-1-1-2-2" data-name="map options button">
+                            <i aria-hidden="true" class="ti ti-adjustments-horizontal" data-kid="1-2-4-1-1-2-2-1" data-name="adjustments horizontal icon">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+                <div aria-label="Demonstration map of a milk collection zone. Tanker 1 is selected on a critical route; other vehicles, village collection centres and the bulk milk cooler are marked separately." class="map-canvas" data-kid="1-2-4-1-2" data-name="interactive fleet map canvas" role="img">
+                    <svg aria-hidden="true" class="map-svg" data-kid="1-2-4-1-2-1" data-name="road and route map SVG" preserveaspectratio="xMidYMid slice" viewbox="0 0 1000 460">
+                        <defs>
+                            <pattern height="74" id="mapgrid" patternunits="userSpaceOnUse" width="88">
+                                <path d="M88 0H0V74" fill="none" stroke="#1e2823" stroke-width="1">
+                                </path>
+                            </pattern>
+                        </defs>
+                        <rect fill="url(#mapgrid)" height="460" width="1000">
+                        </rect>
+                        <path class="map-suburban" d="M0 38L201 6l119 66-43 94-154 8L0 129zM765 4l235 0v104l-132 57-106-43zM0 317l157-32 86 59-36 116H0zM790 299l210-52v213H840l-92-89z" opacity=".57">
+                        </path>
+                        <path class="map-local" d="M-40 103C80 145 139 63 253 90s142 87 248 51 191-78 320-45 123 28 219 7M-31 199C88 176 135 229 250 202s149-67 257-15 175 91 293 67 151-63 225-43M-40 278C98 265 151 300 257 275s143-4 249 43 178 21 292-8 154-13 241 21M43-20c31 92 6 162 45 223s35 131 6 289M182-18c-35 78-30 154 11 225s62 158 19 274M363-24c46 92 3 151 35 227s58 147 31 280M559-20c-29 99 9 163 53 230s23 138 3 272M751-20c-13 90 39 148 26 221s-43 161 28 275M899-10c-49 105 20 162 4 242s-17 123 48 188">
+                        </path>
+                        <path class="map-road" d="M-30 344C103 305 157 301 238 248S370 211 451 231s126 1 192-33 171-47 221-24 91 30 171-15">
+                        </path>
+                        <path class="map-road-core" d="M-30 344C103 305 157 301 238 248S370 211 451 231s126 1 192-33 171-47 221-24 91 30 171-15">
+                        </path>
+                        <path class="map-road" d="M124 486c25-73 41-127 93-187s99-76 133-134 22-112 14-192M526 494c-10-57-23-105-11-163s60-111 92-151 43-92 28-200M849 484c-48-74-58-128-43-189s64-101 96-145 33-81 20-167">
+                        </path>
+                        <path class="map-road-core" d="M124 486c25-73 41-127 93-187s99-76 133-134 22-112 14-192M526 494c-10-57-23-105-11-163s60-111 92-151 43-92 28-200M849 484c-48-74-58-128-43-189s64-101 96-145 33-81 20-167">
+                        </path>
+                        <path class="map-local" d="M-20 344C150 365 185 415 314 437s228-12 324-17 225 53 393 36M105 51c104 99 151 101 213 148s73 95 136 137 152 66 220 88 132 0 232-59M248 8c50 77 53 133 120 178s138 64 173 137M682 12c-6 66 1 103 62 145s132 66 210 72M392 466c51-87 80-145 161-184s172-36 261-89">
+                        </path>
+                        <path class="map-route route-critical" d="M246 312C296 275 323 270 377 263S455 240 504 207s68-56 127-62 87-3 132-37">
+                        </path>
+                        <path class="map-route route-watch" d="M246 312C270 356 304 374 367 382s124 10 183-10 88-36 138-37">
+                        </path>
+                        <path class="map-route route-normal" d="M246 312C193 327 168 358 141 393s-26 49-42 66">
+                        </path>
+                        <circle cx="505" cy="207" fill="#f07183" r="5">
+                        </circle>
+                        <circle cx="505" cy="207" fill="none" r="11" stroke="#f07183" stroke-opacity=".3">
+                        </circle>
+                        <text class="map-label major" x="434" y="120">
+                            Pune collection zone
+                        </text>
+                        <text class="map-label" x="98" y="195">
+                            Village route
+                        </text>
+                        <text class="map-label" x="707" y="298">
+                            Collection corridor
+                        </text>
+                        <text class="map-label" x="768" y="194">
+                            Bulk milk cooler
+                        </text>
+                        <text class="map-label" x="317" y="405">
+                            Village collection centre
+                        </text>
+                        <text class="map-label" x="595" y="186">
+                            Next stop
+                        </text>
+                    </svg>
+                    <div class="map-caption" data-kid="1-2-4-1-2-2" data-name="map zone caption">
+                        Pune collection zone · demo positions
+                    </div>
+                    <button aria-label="Selected vehicle Tanker 1, critical route" class="map-marker selected" data-kid="1-2-4-1-2-3" data-name="selected tanker 1 map marker" style="left:50.5%;top:45%;">
+                        <span class="marker-core truck" data-kid="1-2-4-1-2-3-1" data-name="selected tanker 1 marker core">
+                            <i aria-hidden="true" class="ti ti-truck" data-kid="1-2-4-1-2-3-1-1" data-name="truck icon">
+                            </i>
+                        </span>
+                        <span class="marker-label" data-kid="1-2-4-1-2-3-2" data-name="selected tanker 1 marker label">
+                            Tanker 1 · selected
+                        </span>
+                    </button>
+                    <button aria-label="Vehicle Tanker 2, watch route" class="map-marker" data-kid="1-2-4-1-2-4" data-name="tanker 2 map marker" style="left:25%;top:68%;">
+                        <span class="marker-core truck" data-kid="1-2-4-1-2-4-1" data-name="tanker 2 marker core">
+                            <i aria-hidden="true" class="ti ti-truck" data-kid="1-2-4-1-2-4-1-1" data-name="truck icon">
+                            </i>
+                        </span>
+                        <span class="marker-label" data-kid="1-2-4-1-2-4-2" data-name="tanker 2 marker label">
+                            Tanker 2
+                        </span>
+                    </button>
+                    <button aria-label="Vehicle Tanker 3, on route" class="map-marker" data-kid="1-2-4-1-2-5" data-name="tanker 3 map marker" style="left:13%;top:86%;">
+                        <span class="marker-core truck" data-kid="1-2-4-1-2-5-1" data-name="tanker 3 marker core">
+                            <i aria-hidden="true" class="ti ti-truck" data-kid="1-2-4-1-2-5-1-1" data-name="truck icon">
+                            </i>
+                        </span>
+                    </button>
+                    <button aria-label="Village collection centre" class="map-marker" data-kid="1-2-4-1-2-6" data-name="village collection centre marker" style="left:37%;top:57%;">
+                        <span class="marker-core vcc" data-kid="1-2-4-1-2-6-1" data-name="VCC marker core">
+                            <i aria-hidden="true" class="ti ti-map-pin" data-kid="1-2-4-1-2-6-1-1" data-name="map pin icon">
+                            </i>
+                        </span>
+                    </button>
+                    <button aria-label="Next village collection centre" class="map-marker" data-kid="1-2-4-1-2-7" data-name="next VCC marker" style="left:63%;top:40%;">
+                        <span class="marker-core vcc" data-kid="1-2-4-1-2-7-1" data-name="next VCC marker core">
+                            <i aria-hidden="true" class="ti ti-map-pin" data-kid="1-2-4-1-2-7-1-1" data-name="map pin icon">
+                            </i>
+                        </span>
+                    </button>
+                    <button aria-label="Bulk milk cooler" class="map-marker" data-kid="1-2-4-1-2-8" data-name="bulk milk cooler marker" style="left:84%;top:42%;">
+                        <span class="marker-core bmc" data-kid="1-2-4-1-2-8-1" data-name="BMC marker core">
+                            BMC
+                        </span>
+                        <span class="marker-label" data-kid="1-2-4-1-2-8-2" data-name="BMC marker label">
+                            Bulk milk cooler
+                        </span>
+                    </button>
+                    <div class="map-controls" data-kid="1-2-4-1-2-9" data-name="map zoom controls">
+                        <button aria-label="Zoom in" data-kid="1-2-4-1-2-9-1" data-name="zoom in button">
+                            +
+                        </button>
+                        <button aria-label="Zoom out" data-kid="1-2-4-1-2-9-2" data-name="zoom out button">
+                            −
+                        </button>
+                    </div>
+                </div>
+                <div class="map-legend" data-kid="1-2-4-1-3" data-name="map legend bar">
+                    <div aria-label="Map legend" class="legend-group" data-kid="1-2-4-1-3-1" data-name="legend symbols group">
+                        <span class="legend-item" data-kid="1-2-4-1-3-1-1" data-name="vehicle legend item">
+                            <span class="legend-mark" data-kid="1-2-4-1-3-1-1-1" data-name="vehicle legend dot">
+                            </span>
+                            Vehicle
+                        </span>
+                        <span class="legend-item" data-kid="1-2-4-1-3-1-2" data-name="VCC legend item">
+                            <span class="legend-mark vcc" data-kid="1-2-4-1-3-1-2-1" data-name="VCC legend ring">
+                            </span>
+                            Village collection centre
+                        </span>
+                        <span class="legend-item" data-kid="1-2-4-1-3-1-3" data-name="BMC legend item">
+                            <span class="legend-mark bmc" data-kid="1-2-4-1-3-1-3-1" data-name="BMC legend square">
+                            </span>
+                            BMC
+                        </span>
+                        <span class="legend-item" data-kid="1-2-4-1-3-1-4" data-name="critical route legend item">
+                            <span class="legend-line" data-kid="1-2-4-1-3-1-4-1" data-name="critical route legend line">
+                            </span>
+                            Critical route
+                        </span>
+                        <span class="legend-item" data-kid="1-2-4-1-3-1-5" data-name="watch route legend item">
+                            <span class="legend-line watch" data-kid="1-2-4-1-3-1-5-1" data-name="watch route legend line">
+                            </span>
+                            Watch
+                        </span>
+                        <span class="legend-item" data-kid="1-2-4-1-3-1-6" data-name="on track route legend item">
+                            <span class="legend-line normal" data-kid="1-2-4-1-3-1-6-1" data-name="on track route legend line">
+                            </span>
+                            On track
+                        </span>
+                    </div>
+                    <span class="legend-note" data-kid="1-2-4-1-3-2" data-name="legend disclaimer note">
+                        No marker color means status unavailable—not safe.
+                    </span>
+                </div>
+            </section>
+            <aside aria-label="Selected vehicle and operational alerts" class="rail" data-kid="1-2-4-2" data-name="side rail with panel details">
+                <section aria-labelledby="selected-title" class="selected-panel" data-kid="1-2-4-2-1" data-name="selected vehicle detail panel">
+                    <div class="selected-top" data-kid="1-2-4-2-1-1" data-name="selected panel top row">
+                        <div class="selected-heading" data-kid="1-2-4-2-1-1-1" data-name="selected panel heading" id="selected-title">
+                            Selected vehicle
+                        </div>
+                        <span class="risk-chip" data-kid="1-2-4-2-1-1-2" data-name="red risk status chip">
+                            Red risk
+                        </span>
+                    </div>
+                    <div class="vehicle-name" data-kid="1-2-4-2-1-2" data-name="selected vehicle name">
+                        Tanker 1
+                    </div>
+                    <div class="vehicle-sub" data-kid="1-2-4-2-1-3" data-name="selected vehicle status line">
+                        <span class="state-dot" data-kid="1-2-4-2-1-3-1" data-name="active state dot">
+                        </span>
+                        Collecting
+                        <span class="mono" data-kid="1-2-4-2-1-3-2" data-name="vehicle code text">
+                            · VEH-001
+                        </span>
+                    </div>
+                    <div class="selected-data" data-kid="1-2-4-2-1-4" data-name="selected vehicle data grid">
+                        <div data-kid="1-2-4-2-1-4-1" data-name="next stop data cell">
+                            <div class="data-label" data-kid="1-2-4-2-1-4-1-1" data-name="next stop data label">
+                                Next stop
+                            </div>
+                            <div class="data-value" data-kid="1-2-4-2-1-4-1-2" data-name="next stop data value">
+                                VCC · stop 04
+                            </div>
+                        </div>
+                        <div data-kid="1-2-4-2-1-4-2" data-name="estimated arrival data cell">
+                            <div class="data-label" data-kid="1-2-4-2-1-4-2-1" data-name="estimated arrival label">
+                                Estimated arrival
+                            </div>
+                            <div class="data-value mono" data-kid="1-2-4-2-1-4-2-2" data-name="estimated arrival value">
+                                18 min
+                            </div>
+                        </div>
+                        <div data-kid="1-2-4-2-1-4-3" data-name="TSB buffer data cell">
+                            <div class="data-label" data-kid="1-2-4-2-1-4-3-1" data-name="TSB buffer label">
+                                TSB buffer
+                            </div>
+                            <div class="data-value mono danger" data-kid="1-2-4-2-1-4-3-2" data-name="TSB buffer value (danger)">
+                                0.4 h
+                            </div>
+                        </div>
+                    </div>
+                    <div class="risk-context" data-kid="1-2-4-2-1-5" data-name="thermal risk context banner">
+                        <i aria-hidden="true" class="ti ti-thermometer" data-kid="1-2-4-2-1-5-1" data-name="thermometer icon">
+                        </i>
+                        <span data-kid="1-2-4-2-1-5-2" data-name="risk context text">
+                            Critical band · prioritize this stop. Thresholds are model estimates.
+                        </span>
+                    </div>
+                    <a class="mobile-map-link" data-kid="1-2-4-2-1-6" data-name="mobile map jump link" href="#fleet-map">
+                        <i aria-hidden="true" class="ti ti-map-pin" data-kid="1-2-4-2-1-6-1" data-name="map pin icon">
+                        </i>
+                        View map
+                        <span aria-hidden="true" data-kid="1-2-4-2-1-6-2" data-name="down arrow symbol">
+                            ↓
+                        </span>
+                    </a>
+                </section>
+                <section aria-labelledby="alerts-title" class="alerts-panel" data-kid="1-2-4-2-2" data-name="actionable alerts panel" id="alerts">
+                    <div class="rail-title-row" data-kid="1-2-4-2-2-1" data-name="alerts panel header">
+                        <h2 data-kid="1-2-4-2-2-1-1" data-name="alerts panel title" id="alerts-title">
+                            Actionable alerts
+                        </h2>
+                        <a data-kid="1-2-4-2-2-1-2" data-name="view all alerts link" href="#alerts-list">
+                            View all
+                        </a>
+                    </div>
+                    <div data-kid="1-2-4-2-2-2" data-name="alerts list container" id="alerts-list">
+                        <div class="alert-row" data-kid="1-2-4-2-2-2-1" data-name="thermal risk alert row">
+                            <span class="alert-indicator" data-kid="1-2-4-2-2-2-1-1" data-name="critical alert indicator dot">
+                            </span>
+                            <div data-kid="1-2-4-2-2-2-1-2" data-name="alert content block">
+                                <div class="alert-message" data-kid="1-2-4-2-2-2-1-2-1" data-name="thermal risk alert message">
+                                    Thermal risk at next stop · TSB 0.4 h
+                                </div>
+                                <div class="alert-meta" data-kid="1-2-4-2-2-2-1-2-2" data-name="thermal risk alert metadata">
+                                    Tanker 1 · VCC stop 04 · unacknowledged
+                                </div>
+                            </div>
+                            <button aria-label="Acknowledge thermal risk alert" class="alert-action" data-kid="1-2-4-2-2-2-1-3" data-name="acknowledge alert action button">
+                                Acknowledge
+                            </button>
+                        </div>
+                        <div class="alert-row" data-kid="1-2-4-2-2-2-2" data-name="route review alert row">
+                            <span class="alert-indicator warning" data-kid="1-2-4-2-2-2-2-1" data-name="warning alert indicator dot">
+                            </span>
+                            <div data-kid="1-2-4-2-2-2-2-2" data-name="route review alert content block">
+                                <div class="alert-message" data-kid="1-2-4-2-2-2-2-2-1" data-name="route review alert message">
+                                    Route requires review
+                                </div>
+                                <div class="alert-meta" data-kid="1-2-4-2-2-2-2-2-2" data-name="route review alert metadata">
+                                    Tanker 2 · watch-risk stop
+                                </div>
+                            </div>
+                            <span class="legend-item" data-kid="1-2-4-2-2-2-2-3" data-name="warning tag chip" style="font-size:10px;color:#e9bd58">
+                                Warning
+                            </span>
+                        </div>
+                    </div>
+                </section>
+                <section aria-labelledby="bmc-title" class="bmc-panel" data-kid="1-2-4-2-3" data-name="BMC readiness panel">
+                    <div class="bmc-top" data-kid="1-2-4-2-3-1" data-name="BMC top row">
+                        <div class="bmc-name" data-kid="1-2-4-2-3-1-1" data-name="BMC name and code" id="bmc-title">
+                            BMC readiness
+                            <span class="mono" data-kid="1-2-4-2-3-1-1-1" data-name="BMC code text" style="color:#8f9c95;font-size:10px">
+                                · BMC-001
+                            </span>
+                        </div>
+                        <span class="bmc-status" data-kid="1-2-4-2-3-1-2" data-name="BMC online status chip">
+                            Online
+                        </span>
+                    </div>
+                    <div class="bmc-stats" data-kid="1-2-4-2-3-2" data-name="BMC stats grid">
+                        <div data-kid="1-2-4-2-3-2-1" data-name="BMC temperature stat">
+                            <div class="bmc-stat-label" data-kid="1-2-4-2-3-2-1-1" data-name="BMC temperature label">
+                                Temperature
+                            </div>
+                            <div class="bmc-stat-value" data-kid="1-2-4-2-3-2-1-2" data-name="BMC temperature value">
+                                4.1°C
+                            </div>
+                        </div>
+                        <div data-kid="1-2-4-2-3-2-2" data-name="BMC queue stat">
+                            <div class="bmc-stat-label" data-kid="1-2-4-2-3-2-2-1" data-name="BMC queue label">
+                                Queue
+                            </div>
+                            <div class="bmc-stat-value" data-kid="1-2-4-2-3-2-2-2" data-name="BMC queue value">
+                                1 vehicle
+                            </div>
+                        </div>
+                        <div data-kid="1-2-4-2-3-2-3" data-name="BMC power stat">
+                            <div class="bmc-stat-label" data-kid="1-2-4-2-3-2-3-1" data-name="BMC power label">
+                                Power
+                            </div>
+                            <div class="bmc-stat-value" data-kid="1-2-4-2-3-2-3-2" data-name="BMC power value">
+                                Online
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </section>
+        <section aria-labelledby="fleet-title" class="fleet-panel" data-kid="1-2-5" data-name="fleet vehicles panel" id="routes">
+            <div class="fleet-head" data-kid="1-2-5-1" data-name="fleet panel header">
+                <h2 data-kid="1-2-5-1-1" data-name="fleet panel title" id="fleet-title">
+                    Fleet vehicles
+                </h2>
+                <span class="fleet-source" data-kid="1-2-5-1-2" data-name="fleet data source note">
+                    Demo scenario · not live
+                </span>
+            </div>
+            <div class="fleet-table-wrap" data-kid="1-2-5-2" data-name="fleet table wrapper">
+                <table class="fleet-table" data-kid="1-2-5-2-1" data-name="fleet vehicles table">
+                    <thead data-kid="1-2-5-2-1-1" data-name="fleet table header">
+                        <tr data-kid="1-2-5-2-1-1-1" data-name="header row">
+                            <th data-kid="1-2-5-2-1-1-1-1" data-name="vehicle column header" scope="col">
+                                Vehicle
+                            </th>
+                            <th data-kid="1-2-5-2-1-1-1-2" data-name="status column header" scope="col">
+                                Status
+                            </th>
+                            <th data-kid="1-2-5-2-1-1-1-3" data-name="current volume column header" scope="col">
+                                Current volume
+                            </th>
+                            <th data-kid="1-2-5-2-1-1-1-4" data-name="next stop column header" scope="col">
+                                Next stop
+                            </th>
+                            <th data-kid="1-2-5-2-1-1-1-5" data-name="route risk column header" scope="col">
+                                Route risk
+                            </th>
+                            <th data-kid="1-2-5-2-1-1-1-6" data-name="action column header" scope="col">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-kid="1-2-5-2-1-2" data-name="fleet table body">
+                        <tr class="selected" data-kid="1-2-5-2-1-2-1" data-name="selected tanker 1 row">
+                            <td data-kid="1-2-5-2-1-2-1-1" data-name="tanker 1 cell">
+                                <div class="vehicle-cell" data-kid="1-2-5-2-1-2-1-1-1" data-name="tanker 1 vehicle cell block">
+                                    <i aria-hidden="true" class="ti ti-truck" data-kid="1-2-5-2-1-2-1-1-1-1" data-name="truck icon">
+                                    </i>
+                                    <strong data-kid="1-2-5-2-1-2-1-1-1-2" data-name="tanker 1 name bold text">
+                                        Tanker 1
+                                    </strong>
+                                    <span class="mono" data-kid="1-2-5-2-1-2-1-1-1-3" data-name="tanker 1 vehicle code" style="font-size:10px;color:#8f9c95">
+                                        VEH-001
+                                    </span>
+                                </div>
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-1-2" data-name="status cell">
+                                <span class="fleet-status" data-kid="1-2-5-2-1-2-1-2-1" data-name="collecting status badge">
+                                    Collecting
+                                </span>
+                            </td>
+                            <td class="mono" data-kid="1-2-5-2-1-2-1-3" data-name="current volume cell">
+                                620 L
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-1-4" data-name="next stop cell">
+                                VCC · stop 04
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-1-5" data-name="route risk cell (red critical)">
+                                <span class="risk-text" data-kid="1-2-5-2-1-2-1-5-1" data-name="red risk text chip">
+                                    Red · 0.4 h TSB
+                                </span>
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-1-6" data-name="action cell (row 1)">
+                                <a class="route-link" data-kid="1-2-5-2-1-2-1-6-1" data-name="view route action link (tanker 1)" href="#routes">
+                                    View route
+                                </a>
+                            </td>
+                        </tr>
+                        <tr data-kid="1-2-5-2-1-2-2" data-name="tanker 2 row">
+                            <td data-kid="1-2-5-2-1-2-2-1" data-name="tanker 2 cell">
+                                <div class="vehicle-cell" data-kid="1-2-5-2-1-2-2-1-1" data-name="tanker 2 vehicle cell block">
+                                    <i aria-hidden="true" class="ti ti-truck" data-kid="1-2-5-2-1-2-2-1-1-1" data-name="truck icon">
+                                    </i>
+                                    <strong data-kid="1-2-5-2-1-2-2-1-1-2" data-name="tanker 2 name bold text">
+                                        Tanker 2
+                                    </strong>
+                                    <span class="mono" data-kid="1-2-5-2-1-2-2-1-1-3" data-name="tanker 2 vehicle code" style="font-size:10px;color:#8f9c95">
+                                        VEH-002
+                                    </span>
+                                </div>
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-2-2" data-name="status cell (row 2)">
+                                <span class="fleet-status warning" data-kid="1-2-5-2-1-2-2-2-1" data-name="in transit status badge (warning)">
+                                    In transit
+                                </span>
+                            </td>
+                            <td class="mono" data-kid="1-2-5-2-1-2-2-3" data-name="current volume cell (row 2)">
+                                410 L
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-2-4" data-name="next stop cell (row 2)">
+                                VCC · stop 06
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-2-5" data-name="route risk cell (row 2)">
+                                <span class="risk-text watch" data-kid="1-2-5-2-1-2-2-5-1" data-name="watch risk text chip">
+                                    Watch · 1.8 h TSB
+                                </span>
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-2-6" data-name="action cell (row 2)">
+                                <a class="route-link" data-kid="1-2-5-2-1-2-2-6-1" data-name="view route action link (tanker 2)" href="#routes">
+                                    View route
+                                </a>
+                            </td>
+                        </tr>
+                        <tr data-kid="1-2-5-2-1-2-3" data-name="tanker 3 row">
+                            <td data-kid="1-2-5-2-1-2-3-1" data-name="tanker 3 cell">
+                                <div class="vehicle-cell" data-kid="1-2-5-2-1-2-3-1-1" data-name="tanker 3 vehicle cell block">
+                                    <i aria-hidden="true" class="ti ti-truck" data-kid="1-2-5-2-1-2-3-1-1-1" data-name="truck icon">
+                                    </i>
+                                    <strong data-kid="1-2-5-2-1-2-3-1-1-2" data-name="tanker 3 name bold text">
+                                        Tanker 3
+                                    </strong>
+                                    <span class="mono" data-kid="1-2-5-2-1-2-3-1-1-3" data-name="tanker 3 vehicle code" style="font-size:10px;color:#8f9c95">
+                                        VEH-003
+                                    </span>
+                                </div>
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-3-2" data-name="status cell (row 3)">
+                                <span class="fleet-status idle" data-kid="1-2-5-2-1-2-3-2-1" data-name="idle status badge">
+                                    Idle
+                                </span>
+                            </td>
+                            <td class="mono" data-kid="1-2-5-2-1-2-3-3" data-name="current volume cell (row 3)">
+                                210 L
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-3-4" data-name="next stop cell (row 3)">
+                                BMC-001
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-3-5" data-name="route risk on-track text (row 3)">
+                                On track
+                            </td>
+                            <td data-kid="1-2-5-2-1-2-3-6" data-name="action cell (row 3)">
+                                <a class="route-link" data-kid="1-2-5-2-1-2-3-6-1" data-name="view route action link (tanker 3)" href="#routes">
+                                    View route
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-hint" data-kid="1-2-5-3" data-name="mobile table scroll hint">
+                Route details remain available in the full-width table; scroll horizontally to compare all fields.
+            </div>
+        </section>
+    </main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css');
+:root{--tempo-bg:#0b0d0c;--tempo-panel:#111412;--tempo-panel-2:#151917;--tempo-edge:#2a302d;--tempo-edge-soft:#202522;--tempo-ink:#eef2ef;--tempo-muted:#a0aaa4;--tempo-dim:#7f8a83;--tempo-mint:#45ddb5;--tempo-mint-ink:#8df0d1;--tempo-mint-bg:#123b30;--tempo-amber:#f1c15b;--tempo-amber-bg:#3c3017;--tempo-red:#ff7e8c;--tempo-red-bg:#421d25;--tempo-focus:#8bf3d4;--tempo-mono:'IBM Plex Mono',ui-monospace,monospace}
+.tempo-screen{min-height:100vh;background:var(--tempo-bg);color:var(--tempo-ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.tempo-screen *{box-sizing:border-box}
+.tempo-header{height:72px;border-bottom:1px solid var(--tempo-edge-soft);background:var(--tempo-bg);display:flex;align-items:center;justify-content:space-between;padding:0 34px;gap:28px}
+.tempo-header-left{display:flex;align-items:center;gap:38px;min-width:0}
+.tempo-brand{display:flex;align-items:center;gap:11px;white-space:nowrap;font-weight:700;letter-spacing:-.03em;font-size:18px}
+.tempo-mark{height:34px;width:34px;border-radius:10px;background:var(--tempo-mint);color:#09201a;display:grid;place-items:center;font-weight:800;font-size:18px;letter-spacing:-.04em}
+.tempo-nav{display:flex;align-items:center;gap:6px;height:72px}
+.tempo-nav a{height:72px;padding:0 15px;display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--tempo-muted);font-size:15px;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap}
+.tempo-nav a:hover{color:var(--tempo-ink);background:#111412}
+.tempo-nav a[aria-current='page']{color:var(--tempo-ink);border-bottom-color:var(--tempo-mint)}
+.tempo-nav i{font-size:18px;color:currentColor;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center}
+.tempo-status{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;border:1px solid #544523;background:#211d12;color:#f4dda0;border-radius:8px;padding:9px 12px;font-size:14px;font-weight:600}
+.tempo-status i{font-size:17px;color:var(--tempo-amber);width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center}
+.tempo-main{max-width:1372px;margin:0 auto;padding:31px 0 58px}
+.tempo-pagehead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:20px}
+.tempo-pagehead h1{font-size:29px;line-height:1.15;letter-spacing:-.035em;margin:0;font-weight:700}
+.tempo-pagehead p{margin:8px 0 0;color:var(--tempo-muted);font-size:15px}
+.tempo-section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 13px}
+.tempo-section-heading h2{font-size:18px;letter-spacing:-.02em;font-weight:600;margin:0}
+.tempo-section-heading .meta{font-size:14px;color:var(--tempo-muted);display:flex;align-items:center;gap:8px}
+.tempo-section-heading .meta i{font-size:16px;color:var(--tempo-dim)}
+.tempo-demo-note{min-height:46px;display:flex;align-items:center;gap:11px;background:#17170f;border:1px solid #383321;border-radius:10px;padding:10px 14px;margin:0 0 22px;color:#d7d0af;font-size:14px}
+.tempo-demo-note i{font-size:18px;color:var(--tempo-amber);width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.tempo-demo-note strong{color:#f3dfab;font-weight:600}
+.tempo-panel{background:var(--tempo-panel);border:1px solid var(--tempo-edge);border-radius:14px;overflow:hidden}
+.tempo-panel-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;border-bottom:1px solid var(--tempo-edge-soft)}
+.tempo-panel-head h3{font-size:17px;line-height:1.3;font-weight:600;letter-spacing:-.015em;margin:0}
+.tempo-panel-head .sub{font-size:14px;color:var(--tempo-muted);margin-top:4px}
+.tempo-panel-body{padding:16px 20px 18px}
+.tempo-data-note{color:var(--tempo-muted);font-size:14px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.tempo-data-note .mint-dot{width:8px;height:8px;background:var(--tempo-mint);border-radius:50%;display:inline-block;flex:none}
+.tempo-table-wrap{width:100%;overflow-x:auto}
+.tempo-table{width:100%;border-collapse:collapse;min-width:930px;text-align:left;font-size:14px}
+.tempo-table th{font-size:13px;letter-spacing:.045em;text-transform:uppercase;color:var(--tempo-muted);font-weight:600;padding:11px 12px 12px;border-bottom:1px solid var(--tempo-edge);white-space:nowrap}
+.tempo-table td{padding:15px 12px;border-bottom:1px solid var(--tempo-edge-soft);vertical-align:middle}
+.tempo-table tbody tr:last-child td{border-bottom:0}
+.tempo-table tbody tr:hover td{background:#141815}
+.tempo-vehicle{display:flex;flex-direction:column;gap:3px}
+.tempo-vehicle strong{font-size:15px;font-weight:600;color:var(--tempo-ink)}
+.tempo-vehicle span{font-size:14px;color:var(--tempo-muted);font-family:var(--tempo-mono)}
+.tempo-count{font-family:var(--tempo-mono);font-size:15px;font-weight:500;color:var(--tempo-ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tempo-band-count{font-family:var(--tempo-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tempo-band-count.green{color:var(--tempo-mint-ink)}
+.tempo-band-count.amber{color:var(--tempo-amber)}
+.tempo-band-count.red{color:var(--tempo-red)}
+.tempo-mix{min-width:205px}
+.tempo-segmentbar{height:10px;background:#252b28;border-radius:999px;display:flex;overflow:hidden;gap:2px}
+.tempo-segmentbar span{height:100%;display:block;min-width:0}
+.tempo-segmentbar .green{background:var(--tempo-mint)}
+.tempo-segmentbar .amber{background:var(--tempo-amber)}
+.tempo-segmentbar .red{background:var(--tempo-red)}
+.tempo-total-row td{border-top:1px solid var(--tempo-edge);padding-top:14px;padding-bottom:7px}
+.tempo-total-label{font-weight:600;color:var(--tempo-ink)}
+.tempo-table-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid var(--tempo-edge-soft);padding:14px 20px;color:var(--tempo-muted);font-size:14px}
+.tempo-table-foot strong{color:var(--tempo-ink);font-weight:600}
+.tempo-next-grid{display:grid;grid-template-columns:1.16fr .84fr;gap:16px;margin-top:24px}
+.tempo-legend-head{display:grid;grid-template-columns:1fr auto auto;gap:16px;color:var(--tempo-muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--tempo-edge-soft);padding:2px 0 10px;margin-bottom:5px}
+.tempo-risk-row{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--tempo-edge-soft)}
+.tempo-risk-row:last-child{border-bottom:0}
+.tempo-risk-name{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500}
+.tempo-risk-name i{height:9px;width:9px;border-radius:50%;display:inline-block;flex:none}
+.tempo-risk-name i.green{background:var(--tempo-mint)}.tempo-risk-name i.amber{background:var(--tempo-amber)}.tempo-risk-name i.red{background:var(--tempo-red)}
+.tempo-risk-amount{text-align:right;font-family:var(--tempo-mono);font-size:14px;font-variant-numeric:tabular-nums;color:var(--tempo-ink);white-space:nowrap}
+.tempo-risk-share{text-align:right;width:66px;font-family:var(--tempo-mono);font-size:14px;color:var(--tempo-muted);font-variant-numeric:tabular-nums}
+.tempo-risk-row .tempo-mini-bar{grid-column:1/-1;height:5px;border-radius:99px;background:#222825;overflow:hidden;margin:1px 0 0 19px}
+.tempo-risk-row .tempo-mini-bar span{display:block;height:100%;border-radius:inherit}
+.tempo-risk-row .tempo-mini-bar .green{background:var(--tempo-mint);width:50%}.tempo-risk-row .tempo-mini-bar .amber{background:var(--tempo-amber);width:25%}.tempo-risk-row .tempo-mini-bar .red{background:var(--tempo-red);width:25%}
+.tempo-caption{font-size:14px;color:var(--tempo-muted);margin:14px 0 0;line-height:1.55}
+.tempo-capacity-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:2px 0 17px}
+.tempo-capacity-top .big{font-size:30px;line-height:1.1;font-weight:600;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.tempo-capacity-top .big span{font-size:16px;font-weight:500;color:var(--tempo-muted);letter-spacing:0}
+.tempo-capacity-top .label{font-size:14px;color:var(--tempo-muted);margin-bottom:5px}
+.tempo-capacity-top .ratio{font-family:var(--tempo-mono);font-size:14px;color:var(--tempo-mint-ink);white-space:nowrap}
+.tempo-capacity-bar{height:12px;border-radius:999px;background:#252b28;overflow:hidden}
+.tempo-capacity-bar span{display:block;height:100%;width:20.2%;background:var(--tempo-mint);border-radius:inherit}
+.tempo-capacity-labels{display:flex;justify-content:space-between;gap:16px;margin-top:9px;font-size:14px;color:var(--tempo-muted)}
+.tempo-capacity-labels span:last-child{font-family:var(--tempo-mono);font-variant-numeric:tabular-nums;color:var(--tempo-ink)}
+.tempo-model{margin-top:27px}
+.tempo-model-intro{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:13px}
+.tempo-model-intro h2{font-size:18px;font-weight:600;letter-spacing:-.02em;margin:0}
+.tempo-model-intro p{font-size:14px;color:var(--tempo-muted);margin:0}
+.tempo-model-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tempo-reference{background:var(--tempo-panel);border:1px solid var(--tempo-edge);border-radius:14px;padding:18px 20px 19px}
+.tempo-reference h3{font-size:16px;font-weight:600;margin:0 0 4px}
+.tempo-reference .desc{font-size:14px;color:var(--tempo-muted);margin:0 0 14px}
+.tempo-threshold-table{width:100%;border-collapse:collapse;font-size:14px}
+.tempo-threshold-table th{text-align:left;text-transform:uppercase;letter-spacing:.04em;color:var(--tempo-muted);font-size:13px;font-weight:600;padding:7px 8px;border-bottom:1px solid var(--tempo-edge)}
+.tempo-threshold-table td{padding:9px 8px;border-bottom:1px solid var(--tempo-edge-soft)}
+.tempo-threshold-table tr:last-child td{border-bottom:0}
+.tempo-threshold-table td:last-child{text-align:right;font-family:var(--tempo-mono);font-size:14px;white-space:nowrap}
+.tempo-formula{font-family:var(--tempo-mono);font-size:14px;line-height:1.65;color:#d6dfd9;background:#0d100f;border:1px solid var(--tempo-edge-soft);border-radius:9px;padding:12px 13px;overflow-wrap:anywhere}
+.tempo-constants{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin-top:13px;font-size:14px;color:var(--tempo-muted)}
+.tempo-constants strong{color:var(--tempo-ink);font-family:var(--tempo-mono);font-weight:500}
+.tempo-disclaimer{display:flex;align-items:flex-start;gap:9px;margin-top:15px;padding-top:13px;border-top:1px solid var(--tempo-edge-soft);font-size:14px;line-height:1.5;color:#d0c8a9}
+.tempo-disclaimer i{font-size:17px;color:var(--tempo-amber);margin-top:2px;flex:none}
+.tempo-mobile-list{display:none}
+.tempo-footer{font-size:14px;color:var(--tempo-dim);margin-top:22px;padding-top:14px;border-top:1px solid var(--tempo-edge-soft)}
+.tempo-screen a:focus-visible,.tempo-screen button:focus-visible,.tempo-screen [tabindex]:focus-visible{outline:3px solid var(--tempo-focus);outline-offset:3px;border-radius:5px}
+.tempo-screen button{font:inherit;color:inherit}
+@media(max-width:1460px){.tempo-main{padding-left:28px;padding-right:28px}.tempo-header{padding-left:28px;padding-right:28px}}
+@media(max-width:980px){.tempo-header{height:auto;min-height:68px;flex-wrap:wrap;padding-top:10px;padding-bottom:0;gap:8px}.tempo-header-left{gap:22px;flex:1}.tempo-nav{height:50px}.tempo-nav a{height:50px;padding:0 11px}.tempo-status{margin-bottom:8px}.tempo-next-grid,.tempo-model-grid{grid-template-columns:1fr}.tempo-model-intro{align-items:flex-start;flex-direction:column;gap:5px}}
+@media(max-width:700px){.tempo-header{padding:12px 16px 0;align-items:center}.tempo-header-left{width:100%;justify-content:space-between;gap:10px}.tempo-brand{font-size:16px}.tempo-mark{height:31px;width:31px}.tempo-nav{height:auto;display:flex;overflow-x:auto;max-width:100%;gap:2px;padding-top:6px}.tempo-nav a{height:43px;padding:0 12px;font-size:14px}.tempo-nav i{display:none}.tempo-status{align-self:flex-start;margin:0 0 10px;font-size:14px}.tempo-main{padding:22px 16px 40px}.tempo-pagehead{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:15px}.tempo-pagehead h1{font-size:25px}.tempo-pagehead p{font-size:15px}.tempo-demo-note{align-items:flex-start;padding:11px 12px;font-size:14px}.tempo-section-heading{align-items:flex-start;flex-direction:column;gap:5px}.tempo-panel-head{align-items:flex-start;flex-direction:column;gap:7px;padding:16px}.tempo-panel-body{padding:12px 16px 15px}.tempo-table-wrap{display:none}.tempo-mobile-list{display:block}.tempo-mobile-vehicle{padding:15px 0;border-bottom:1px solid var(--tempo-edge-soft)}.tempo-mobile-vehicle:last-child{border-bottom:0;padding-bottom:4px}.tempo-mobile-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.tempo-mobile-top strong{display:block;font-size:15px;font-weight:600}.tempo-mobile-top small{display:block;font-family:var(--tempo-mono);font-size:14px;color:var(--tempo-muted);margin-top:2px}.tempo-mobile-top .stops{font-family:var(--tempo-mono);font-size:14px;color:var(--tempo-ink);white-space:nowrap}.tempo-mobile-bands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.tempo-mobile-band{font-size:14px;color:var(--tempo-muted);line-height:1.4}.tempo-mobile-band b{display:block;font-family:var(--tempo-mono);font-size:14px;font-weight:500;margin-top:3px}.tempo-mobile-band .g{color:var(--tempo-mint-ink)}.tempo-mobile-band .y{color:var(--tempo-amber)}.tempo-mobile-band .r{color:var(--tempo-red)}.tempo-mobile-meter{margin-top:11px;height:8px;background:#252b28;border-radius:99px;overflow:hidden;display:flex;gap:2px}.tempo-mobile-meter span{display:block;height:100%}.tempo-mobile-meter .g{background:var(--tempo-mint)}.tempo-mobile-meter .y{background:var(--tempo-amber)}.tempo-mobile-meter .r{background:var(--tempo-red)}.tempo-table-foot{align-items:flex-start;flex-direction:column;gap:4px;padding:12px 16px}.tempo-next-grid{margin-top:19px;gap:13px}.tempo-legend-head{font-size:13px}.tempo-model{margin-top:21px}.tempo-reference{padding:16px}.tempo-constants{grid-template-columns:1fr}.tempo-risk-name{font-size:15px}.tempo-caption{font-size:14px}.tempo-footer{font-size:14px}}
+</style>
+<div class="tempo-screen" data-kid="1" data-name="analytics page layout container">
+    <header class="tempo-header" data-kid="1-1" data-name="top header bar with brand and navigation">
+        <div class="tempo-header-left" data-kid="1-1-1" data-name="header left group with brand and nav">
+            <div class="tempo-brand" data-kid="1-1-1-1" data-name="brand lockup with logo and name">
+                <span class="tempo-mark" data-kid="1-1-1-1-1" data-name="brand square logo mark">
+                    T
+                </span>
+                <span data-kid="1-1-1-1-2" data-name="brand name text">
+                    T.E.M.P.O.
+                </span>
+            </div>
+            <nav aria-label="Main navigation" class="tempo-nav" data-kid="1-1-1-2" data-name="main horizontal navigation">
+                <a data-kid="1-1-1-2-1" data-name="dashboard nav link with icon" href="#dashboard">
+                    <i aria-hidden="true" class="ti ti-layout-dashboard" data-kid="1-1-1-2-1-1" data-name="dashboard icon">
+                    </i>
+                    Dashboard
+                </a>
+                <a data-kid="1-1-1-2-2" data-name="routes nav link with icon" href="#routes">
+                    <i aria-hidden="true" class="ti ti-route" data-kid="1-1-1-2-2-1" data-name="route icon">
+                    </i>
+                    Routes
+                </a>
+                <a data-kid="1-1-1-2-3" data-name="alerts nav link with icon" href="#alerts">
+                    <i aria-hidden="true" class="ti ti-alert-triangle" data-kid="1-1-1-2-3-1" data-name="alert triangle icon">
+                    </i>
+                    Alerts
+                </a>
+                <a aria-current="page" data-kid="1-1-1-2-4" data-name="analytics nav link (current page) with icon" href="#analytics">
+                    <i aria-hidden="true" class="ti ti-chart-bar" data-kid="1-1-1-2-4-1" data-name="bar chart icon">
+                    </i>
+                    Analytics
+                </a>
+            </nav>
+        </div>
+        <div class="tempo-status" data-kid="1-1-2" data-name="status badge indicating demo scenario">
+            <i aria-hidden="true" class="ti ti-flask-2" data-kid="1-1-2-1" data-name="flask demo indicator icon">
+            </i>
+            Demo scenario · not live
+        </div>
+    </header>
+    <main class="tempo-main" data-kid="1-2" data-name="main content area">
+        <div class="tempo-pagehead" data-kid="1-2-1" data-name="page title header with heading and subtitle">
+            <div data-kid="1-2-1-1" data-name="page heading container">
+                <h1 data-kid="1-2-1-1-1" data-name="page headline text">
+                    Analytics & Insights
+                </h1>
+                <p data-kid="1-2-1-1-2" data-name="page description subtitle">
+                    Compare route-stop risk by vehicle, then review fleet-level counts.
+                </p>
+            </div>
+        </div>
+        <div class="tempo-demo-note" data-kid="1-2-2" data-name="demo scenario warning note" role="note">
+            <i aria-hidden="true" class="ti ti-info-circle" data-kid="1-2-2-1" data-name="info circle icon">
+            </i>
+            <span data-kid="1-2-2-2" data-name="warning note body text">
+                <strong data-kid="1-2-2-2-1" data-name="warning bold lead-in text">
+                    Demo scenario · not live.
+                </strong>
+                Illustrative values are shown because the current API feed is unavailable.
+            </span>
+        </div>
+        <section aria-labelledby="risk-breakdown-title" data-kid="1-2-3" data-name="per-vehicle risk breakdown section">
+            <div class="tempo-section-heading" data-kid="1-2-3-1" data-name="section header with title and meta info">
+                <h2 data-kid="1-2-3-1-1" data-name="section title text" id="risk-breakdown-title">
+                    Per-vehicle risk breakdown
+                </h2>
+                <span class="meta" data-kid="1-2-3-1-2" data-name="section meta summary with icon">
+                    <i aria-hidden="true" class="ti ti-map-pin" data-kid="1-2-3-1-2-1" data-name="map pin icon">
+                    </i>
+                    12 route stops across 3 vehicles
+                </span>
+            </div>
+            <div class="tempo-panel" data-kid="1-2-3-2" data-name="risk breakdown data panel">
+                <div class="tempo-panel-head" data-kid="1-2-3-2-1" data-name="panel header with title and data note">
+                    <div data-kid="1-2-3-2-1-1" data-name="panel title and subtitle container">
+                        <h3 data-kid="1-2-3-2-1-1-1" data-name="panel title text">
+                            Stop counts by model risk band
+                        </h3>
+                        <div class="sub" data-kid="1-2-3-2-1-1-2" data-name="panel subtitle text">
+                            Each stop is counted once; no combined risk score is applied.
+                        </div>
+                    </div>
+                    <div class="tempo-data-note" data-kid="1-2-3-2-1-2" data-name="demo data indicator note">
+                        <span class="mint-dot" data-kid="1-2-3-2-1-2-1" data-name="mint status dot icon">
+                        </span>
+                        3 vehicles · 12 stops · demo data
+                    </div>
+                </div>
+                <div class="tempo-panel-body" data-kid="1-2-3-2-2" data-name="panel body with table and mobile list">
+                    <div class="tempo-table-wrap" data-kid="1-2-3-2-2-1" data-name="table wrapper for horizontal scroll">
+                        <table aria-label="Route stop counts by vehicle and estimated risk band" class="tempo-table" data-kid="1-2-3-2-2-1-1" data-name="route stop risk data table">
+                            <thead data-kid="1-2-3-2-2-1-1-1" data-name="table header row">
+                                <tr data-kid="1-2-3-2-2-1-1-1-1" data-name="table header">
+                                    <th data-kid="1-2-3-2-2-1-1-1-1-1" data-name="vehicle column header" style="width:23%">
+                                        Vehicle
+                                    </th>
+                                    <th data-kid="1-2-3-2-2-1-1-1-1-2" data-name="route stops column header" style="width:10%">
+                                        Route stops
+                                    </th>
+                                    <th data-kid="1-2-3-2-2-1-1-1-1-3" data-name="distribution column header" style="width:24%">
+                                        Distribution
+                                    </th>
+                                    <th data-kid="1-2-3-2-2-1-1-1-1-4" data-name="green band column header" style="width:14%">
+                                        <span data-kid="1-2-3-2-2-1-1-1-1-4-1" data-name="green band header label" style="color:var(--tempo-mint-ink)">
+                                            Green band
+                                        </span>
+                                    </th>
+                                    <th data-kid="1-2-3-2-2-1-1-1-1-5" data-name="yellow band column header" style="width:14%">
+                                        <span data-kid="1-2-3-2-2-1-1-1-1-5-1" data-name="yellow band header label" style="color:var(--tempo-amber)">
+                                            Yellow band
+                                        </span>
+                                    </th>
+                                    <th data-kid="1-2-3-2-2-1-1-1-1-6" data-name="red band column header" style="width:15%">
+                                        <span data-kid="1-2-3-2-2-1-1-1-1-6-1" data-name="red band header label" style="color:var(--tempo-red)">
+                                            Red band
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-kid="1-2-3-2-2-1-1-2" data-name="table body with vehicle rows">
+                                <tr data-kid="1-2-3-2-2-1-1-2-1" data-name="Tanker North vehicle data row">
+                                    <td data-kid="1-2-3-2-2-1-1-2-1-1" data-name="vehicle name cell">
+                                        <div class="tempo-vehicle" data-kid="1-2-3-2-2-1-1-2-1-1-1" data-name="vehicle name and ID container">
+                                            <strong data-kid="1-2-3-2-2-1-1-2-1-1-1-1" data-name="vehicle name text">
+                                                Tanker North
+                                            </strong>
+                                            <span data-kid="1-2-3-2-2-1-1-2-1-1-1-2" data-name="vehicle ID in monospace">
+                                                VEH-001
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-1-2" data-name="route stops count cell">
+                                        <span class="tempo-count" data-kid="1-2-3-2-2-1-1-2-1-2-1" data-name="route stops count value">
+                                            4
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-1-3" data-name="distribution bar cell">
+                                        <div class="tempo-mix" data-kid="1-2-3-2-2-1-1-2-1-3-1" data-name="distribution bar wrapper">
+                                            <div aria-label="2 green, 1 yellow, 1 red of 4 stops" class="tempo-segmentbar" data-kid="1-2-3-2-2-1-1-2-1-3-1-1" data-name="segmented risk distribution bar">
+                                                <span class="green" data-kid="1-2-3-2-2-1-1-2-1-3-1-1-1" data-name="green segment of distribution bar" style="width:50%">
+                                                </span>
+                                                <span class="amber" data-kid="1-2-3-2-2-1-1-2-1-3-1-1-2" data-name="yellow segment of distribution bar" style="width:25%">
+                                                </span>
+                                                <span class="red" data-kid="1-2-3-2-2-1-1-2-1-3-1-1-3" data-name="red segment of distribution bar" style="width:25%">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-1-4" data-name="green band count cell">
+                                        <span class="tempo-band-count green" data-kid="1-2-3-2-2-1-1-2-1-4-1" data-name="green band count value">
+                                            2 / 4
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-1-5" data-name="yellow band count cell">
+                                        <span class="tempo-band-count amber" data-kid="1-2-3-2-2-1-1-2-1-5-1" data-name="yellow band count value">
+                                            1 / 4
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-1-6" data-name="red band count cell">
+                                        <span class="tempo-band-count red" data-kid="1-2-3-2-2-1-1-2-1-6-1" data-name="red band count value">
+                                            1 / 4
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr data-kid="1-2-3-2-2-1-1-2-2" data-name="Tanker East vehicle data row">
+                                    <td data-kid="1-2-3-2-2-1-1-2-2-1" data-name="vehicle name cell">
+                                        <div class="tempo-vehicle" data-kid="1-2-3-2-2-1-1-2-2-1-1" data-name="vehicle name and ID container">
+                                            <strong data-kid="1-2-3-2-2-1-1-2-2-1-1-1" data-name="vehicle name text">
+                                                Tanker East
+                                            </strong>
+                                            <span data-kid="1-2-3-2-2-1-1-2-2-1-1-2" data-name="vehicle ID in monospace">
+                                                VEH-002
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-2-2" data-name="route stops count cell">
+                                        <span class="tempo-count" data-kid="1-2-3-2-2-1-1-2-2-2-1" data-name="route stops count value">
+                                            5
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-2-3" data-name="distribution bar cell">
+                                        <div class="tempo-mix" data-kid="1-2-3-2-2-1-1-2-2-3-1" data-name="distribution bar wrapper">
+                                            <div aria-label="3 green, 1 yellow, 1 red of 5 stops" class="tempo-segmentbar" data-kid="1-2-3-2-2-1-1-2-2-3-1-1" data-name="segmented risk distribution bar">
+                                                <span class="green" data-kid="1-2-3-2-2-1-1-2-2-3-1-1-1" data-name="green segment of distribution bar" style="width:60%">
+                                                </span>
+                                                <span class="amber" data-kid="1-2-3-2-2-1-1-2-2-3-1-1-2" data-name="yellow segment of distribution bar" style="width:20%">
+                                                </span>
+                                                <span class="red" data-kid="1-2-3-2-2-1-1-2-2-3-1-1-3" data-name="red segment of distribution bar" style="width:20%">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-2-4" data-name="green band count cell">
+                                        <span class="tempo-band-count green" data-kid="1-2-3-2-2-1-1-2-2-4-1" data-name="green band count value">
+                                            3 / 5
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-2-5" data-name="yellow band count cell">
+                                        <span class="tempo-band-count amber" data-kid="1-2-3-2-2-1-1-2-2-5-1" data-name="yellow band count value">
+                                            1 / 5
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-2-6" data-name="red band count cell">
+                                        <span class="tempo-band-count red" data-kid="1-2-3-2-2-1-1-2-2-6-1" data-name="red band count value">
+                                            1 / 5
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr data-kid="1-2-3-2-2-1-1-2-3" data-name="Tanker South vehicle data row">
+                                    <td data-kid="1-2-3-2-2-1-1-2-3-1" data-name="vehicle name cell">
+                                        <div class="tempo-vehicle" data-kid="1-2-3-2-2-1-1-2-3-1-1" data-name="vehicle name and ID container">
+                                            <strong data-kid="1-2-3-2-2-1-1-2-3-1-1-1" data-name="vehicle name text">
+                                                Tanker South
+                                            </strong>
+                                            <span data-kid="1-2-3-2-2-1-1-2-3-1-1-2" data-name="vehicle ID in monospace">
+                                                VEH-003
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-3-2" data-name="route stops count cell">
+                                        <span class="tempo-count" data-kid="1-2-3-2-2-1-1-2-3-2-1" data-name="route stops count value">
+                                            3
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-3-3" data-name="distribution bar cell">
+                                        <div class="tempo-mix" data-kid="1-2-3-2-2-1-1-2-3-3-1" data-name="distribution bar wrapper">
+                                            <div aria-label="1 green, 1 yellow, 1 red of 3 stops" class="tempo-segmentbar" data-kid="1-2-3-2-2-1-1-2-3-3-1-1" data-name="segmented risk distribution bar">
+                                                <span class="green" data-kid="1-2-3-2-2-1-1-2-3-3-1-1-1" data-name="green segment of distribution bar" style="width:33.33%">
+                                                </span>
+                                                <span class="amber" data-kid="1-2-3-2-2-1-1-2-3-3-1-1-2" data-name="yellow segment of distribution bar" style="width:33.33%">
+                                                </span>
+                                                <span class="red" data-kid="1-2-3-2-2-1-1-2-3-3-1-1-3" data-name="red segment of distribution bar" style="width:33.34%">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-3-4" data-name="green band count cell">
+                                        <span class="tempo-band-count green" data-kid="1-2-3-2-2-1-1-2-3-4-1" data-name="green band count value">
+                                            1 / 3
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-3-5" data-name="yellow band count cell">
+                                        <span class="tempo-band-count amber" data-kid="1-2-3-2-2-1-1-2-3-5-1" data-name="yellow band count value">
+                                            1 / 3
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-2-3-6" data-name="red band count cell">
+                                        <span class="tempo-band-count red" data-kid="1-2-3-2-2-1-1-2-3-6-1" data-name="red band count value">
+                                            1 / 3
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot data-kid="1-2-3-2-2-1-1-3" data-name="table footer with totals">
+                                <tr class="tempo-total-row" data-kid="1-2-3-2-2-1-1-3-1" data-name="all vehicles total row">
+                                    <td data-kid="1-2-3-2-2-1-1-3-1-1" data-name="total label cell">
+                                        <span class="tempo-total-label" data-kid="1-2-3-2-2-1-1-3-1-1-1" data-name="all vehicles total label">
+                                            All vehicles
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-3-1-2" data-name="total stops cell">
+                                        <span class="tempo-count" data-kid="1-2-3-2-2-1-1-3-1-2-1" data-name="total stops count value">
+                                            12
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-3-1-3" data-name="total distribution cell">
+                                        <div class="tempo-mix" data-kid="1-2-3-2-2-1-1-3-1-3-1" data-name="total distribution bar wrapper">
+                                            <div aria-label="6 green, 3 yellow, 3 red of 12 stops" class="tempo-segmentbar" data-kid="1-2-3-2-2-1-1-3-1-3-1-1" data-name="total segmented distribution bar">
+                                                <span class="green" data-kid="1-2-3-2-2-1-1-3-1-3-1-1-1" data-name="green segment of total distribution bar" style="width:50%">
+                                                </span>
+                                                <span class="amber" data-kid="1-2-3-2-2-1-1-3-1-3-1-1-2" data-name="yellow segment of total distribution bar" style="width:25%">
+                                                </span>
+                                                <span class="red" data-kid="1-2-3-2-2-1-1-3-1-3-1-1-3" data-name="red segment of total distribution bar" style="width:25%">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-3-1-4" data-name="total green band count cell">
+                                        <span class="tempo-band-count green" data-kid="1-2-3-2-2-1-1-3-1-4-1" data-name="total green band count value">
+                                            6 / 12
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-3-1-5" data-name="total yellow band count cell">
+                                        <span class="tempo-band-count amber" data-kid="1-2-3-2-2-1-1-3-1-5-1" data-name="total yellow band count value">
+                                            3 / 12
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-2-2-1-1-3-1-6" data-name="total red band count cell">
+                                        <span class="tempo-band-count red" data-kid="1-2-3-2-2-1-1-3-1-6-1" data-name="total red band count value">
+                                            3 / 12
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div aria-label="Risk-band counts by vehicle" class="tempo-mobile-list" data-kid="1-2-3-2-2-2" data-name="mobile vehicle list for small screens">
+                        <div class="tempo-mobile-vehicle" data-kid="1-2-3-2-2-2-1" data-name="mobile Tanker North vehicle card">
+                            <div class="tempo-mobile-top" data-kid="1-2-3-2-2-2-1-1" data-name="mobile vehicle top row with name and stops">
+                                <div data-kid="1-2-3-2-2-2-1-1-1" data-name="mobile vehicle name and ID container">
+                                    <strong data-kid="1-2-3-2-2-2-1-1-1-1" data-name="mobile vehicle name text">
+                                        Tanker North
+                                    </strong>
+                                    <small data-kid="1-2-3-2-2-2-1-1-1-2" data-name="mobile vehicle ID text">
+                                        VEH-001
+                                    </small>
+                                </div>
+                                <span class="stops" data-kid="1-2-3-2-2-2-1-1-2" data-name="mobile stopping count label">
+                                    4 stops
+                                </span>
+                            </div>
+                            <div class="tempo-mobile-bands" data-kid="1-2-3-2-2-2-1-2" data-name="mobile band count grid">
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-1-2-1" data-name="mobile green band count item">
+                                    Green band
+                                    <b class="g" data-kid="1-2-3-2-2-2-1-2-1-1" data-name="mobile green band value">
+                                        2 / 4
+                                    </b>
+                                </div>
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-1-2-2" data-name="mobile yellow band count item">
+                                    Yellow band
+                                    <b class="y" data-kid="1-2-3-2-2-2-1-2-2-1" data-name="mobile yellow band value">
+                                        1 / 4
+                                    </b>
+                                </div>
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-1-2-3" data-name="mobile red band count item">
+                                    Red band
+                                    <b class="r" data-kid="1-2-3-2-2-2-1-2-3-1" data-name="mobile red band value">
+                                        1 / 4
+                                    </b>
+                                </div>
+                            </div>
+                            <div aria-label="2 green, 1 yellow, 1 red of 4 stops" class="tempo-mobile-meter" data-kid="1-2-3-2-2-2-1-3" data-name="mobile distribution meter bar">
+                                <span class="g" data-kid="1-2-3-2-2-2-1-3-1" data-name="mobile green meter segment" style="width:50%">
+                                </span>
+                                <span class="y" data-kid="1-2-3-2-2-2-1-3-2" data-name="mobile yellow meter segment" style="width:25%">
+                                </span>
+                                <span class="r" data-kid="1-2-3-2-2-2-1-3-3" data-name="mobile red meter segment" style="width:25%">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tempo-mobile-vehicle" data-kid="1-2-3-2-2-2-2" data-name="mobile Tanker East vehicle card">
+                            <div class="tempo-mobile-top" data-kid="1-2-3-2-2-2-2-1" data-name="mobile vehicle top row with name and stops">
+                                <div data-kid="1-2-3-2-2-2-2-1-1" data-name="mobile vehicle name and ID container">
+                                    <strong data-kid="1-2-3-2-2-2-2-1-1-1" data-name="mobile vehicle name text">
+                                        Tanker East
+                                    </strong>
+                                    <small data-kid="1-2-3-2-2-2-2-1-1-2" data-name="mobile vehicle ID text">
+                                        VEH-002
+                                    </small>
+                                </div>
+                                <span class="stops" data-kid="1-2-3-2-2-2-2-1-2" data-name="mobile stopping count label">
+                                    5 stops
+                                </span>
+                            </div>
+                            <div class="tempo-mobile-bands" data-kid="1-2-3-2-2-2-2-2" data-name="mobile band count grid">
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-2-2-1" data-name="mobile green band count item">
+                                    Green band
+                                    <b class="g" data-kid="1-2-3-2-2-2-2-2-1-1" data-name="mobile green band value">
+                                        3 / 5
+                                    </b>
+                                </div>
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-2-2-2" data-name="mobile yellow band count item">
+                                    Yellow band
+                                    <b class="y" data-kid="1-2-3-2-2-2-2-2-2-1" data-name="mobile yellow band value">
+                                        1 / 5
+                                    </b>
+                                </div>
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-2-2-3" data-name="mobile red band count item">
+                                    Red band
+                                    <b class="r" data-kid="1-2-3-2-2-2-2-2-3-1" data-name="mobile red band value">
+                                        1 / 5
+                                    </b>
+                                </div>
+                            </div>
+                            <div aria-label="3 green, 1 yellow, 1 red of 5 stops" class="tempo-mobile-meter" data-kid="1-2-3-2-2-2-2-3" data-name="mobile distribution meter bar">
+                                <span class="g" data-kid="1-2-3-2-2-2-2-3-1" data-name="mobile green meter segment" style="width:60%">
+                                </span>
+                                <span class="y" data-kid="1-2-3-2-2-2-2-3-2" data-name="mobile yellow meter segment" style="width:20%">
+                                </span>
+                                <span class="r" data-kid="1-2-3-2-2-2-2-3-3" data-name="mobile red meter segment" style="width:20%">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tempo-mobile-vehicle" data-kid="1-2-3-2-2-2-3" data-name="mobile Tanker South vehicle card">
+                            <div class="tempo-mobile-top" data-kid="1-2-3-2-2-2-3-1" data-name="mobile vehicle top row with name and stops">
+                                <div data-kid="1-2-3-2-2-2-3-1-1" data-name="mobile vehicle name and ID container">
+                                    <strong data-kid="1-2-3-2-2-2-3-1-1-1" data-name="mobile vehicle name text">
+                                        Tanker South
+                                    </strong>
+                                    <small data-kid="1-2-3-2-2-2-3-1-1-2" data-name="mobile vehicle ID text">
+                                        VEH-003
+                                    </small>
+                                </div>
+                                <span class="stops" data-kid="1-2-3-2-2-2-3-1-2" data-name="mobile stopping count label">
+                                    3 stops
+                                </span>
+                            </div>
+                            <div class="tempo-mobile-bands" data-kid="1-2-3-2-2-2-3-2" data-name="mobile band count grid">
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-3-2-1" data-name="mobile green band count item">
+                                    Green band
+                                    <b class="g" data-kid="1-2-3-2-2-2-3-2-1-1" data-name="mobile green band value">
+                                        1 / 3
+                                    </b>
+                                </div>
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-3-2-2" data-name="mobile yellow band count item">
+                                    Yellow band
+                                    <b class="y" data-kid="1-2-3-2-2-2-3-2-2-1" data-name="mobile yellow band value">
+                                        1 / 3
+                                    </b>
+                                </div>
+                                <div class="tempo-mobile-band" data-kid="1-2-3-2-2-2-3-2-3" data-name="mobile red band count item">
+                                    Red band
+                                    <b class="r" data-kid="1-2-3-2-2-2-3-2-3-1" data-name="mobile red band value">
+                                        1 / 3
+                                    </b>
+                                </div>
+                            </div>
+                            <div aria-label="1 green, 1 yellow, 1 red of 3 stops" class="tempo-mobile-meter" data-kid="1-2-3-2-2-2-3-3" data-name="mobile distribution meter bar">
+                                <span class="g" data-kid="1-2-3-2-2-2-3-3-1" data-name="mobile green meter segment" style="width:33.33%">
+                                </span>
+                                <span class="y" data-kid="1-2-3-2-2-2-3-3-2" data-name="mobile yellow meter segment" style="width:33.33%">
+                                </span>
+                                <span class="r" data-kid="1-2-3-2-2-2-3-3-3" data-name="mobile red meter segment" style="width:33.34%">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tempo-table-foot" data-kid="1-2-3-2-3" data-name="table footer disclaimer row">
+                    <span data-kid="1-2-3-2-3-1" data-name="table footer left note text">
+                        Counts are demo scenario values, not a live fleet reading.
+                    </span>
+                    <span data-kid="1-2-3-2-3-2" data-name="table footer right note container">
+                        <strong data-kid="1-2-3-2-3-2-1" data-name="table footer right bold note">
+                            Band thresholds are estimated model inputs.
+                        </strong>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <div class="tempo-next-grid" data-kid="1-2-4" data-name="analytics cards grid below main table">
+            <section aria-labelledby="thermal-distribution-title" class="tempo-panel" data-kid="1-2-4-1" data-name="thermal risk distribution panel">
+                <div class="tempo-panel-head" data-kid="1-2-4-1-1" data-name="panel header with title and data note">
+                    <div data-kid="1-2-4-1-1-1" data-name="panel title and subtitle container">
+                        <h3 data-kid="1-2-4-1-1-1-1" data-name="panel title text" id="thermal-distribution-title">
+                            Thermal risk distribution
+                        </h3>
+                        <div class="sub" data-kid="1-2-4-1-1-1-2" data-name="panel subtitle text">
+                            Share of 12 route stops in this demo scenario
+                        </div>
+                    </div>
+                    <div class="tempo-data-note" data-kid="1-2-4-1-1-2" data-name="demo data indicator note">
+                        12 stops total
+                    </div>
+                </div>
+                <div class="tempo-panel-body" data-kid="1-2-4-1-2" data-name="panel body with distribution breakdown">
+                    <div class="tempo-legend-head" data-kid="1-2-4-1-2-1" data-name="legend header row with column labels">
+                        <span data-kid="1-2-4-1-2-1-1" data-name="legend header label for model band">
+                            Model band
+                        </span>
+                        <span data-kid="1-2-4-1-2-1-2" data-name="legend header label for stops over total" style="text-align:right">
+                            Stops / total
+                        </span>
+                        <span data-kid="1-2-4-1-2-1-3" data-name="legend header label for share" style="text-align:right">
+                            Share
+                        </span>
+                    </div>
+                    <div class="tempo-risk-row" data-kid="1-2-4-1-2-2" data-name="green band risk row">
+                        <div class="tempo-risk-name" data-kid="1-2-4-1-2-2-1" data-name="green band name with color dot and duration">
+                            <i class="green" data-kid="1-2-4-1-2-2-1-1" data-name="green indicator dot">
+                            </i>
+                            Green band
+                            <span data-kid="1-2-4-1-2-2-1-2" data-name="green band duration label" style="color:var(--tempo-muted);font-weight:400">
+                                > 2.5 h
+                            </span>
+                        </div>
+                        <div class="tempo-risk-amount" data-kid="1-2-4-1-2-2-2" data-name="green band stops count">
+                            6 / 12
+                        </div>
+                        <div class="tempo-risk-share" data-kid="1-2-4-1-2-2-3" data-name="green band share percentage">
+                            50%
+                        </div>
+                        <div class="tempo-mini-bar" data-kid="1-2-4-1-2-2-4" data-name="green band mini progress bar">
+                            <span class="green" data-kid="1-2-4-1-2-2-4-1" data-name="green mini bar fill span">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="tempo-risk-row" data-kid="1-2-4-1-2-3" data-name="yellow band risk row">
+                        <div class="tempo-risk-name" data-kid="1-2-4-1-2-3-1" data-name="yellow band name with color dot and duration">
+                            <i class="amber" data-kid="1-2-4-1-2-3-1-1" data-name="yellow indicator dot">
+                            </i>
+                            Yellow band
+                            <span data-kid="1-2-4-1-2-3-1-2" data-name="yellow band duration label" style="color:var(--tempo-muted);font-weight:400">
+                                0.5–2.5 h
+                            </span>
+                        </div>
+                        <div class="tempo-risk-amount" data-kid="1-2-4-1-2-3-2" data-name="yellow band stops count">
+                            3 / 12
+                        </div>
+                        <div class="tempo-risk-share" data-kid="1-2-4-1-2-3-3" data-name="yellow band share percentage">
+                            25%
+                        </div>
+                        <div class="tempo-mini-bar" data-kid="1-2-4-1-2-3-4" data-name="yellow band mini progress bar">
+                            <span class="amber" data-kid="1-2-4-1-2-3-4-1" data-name="yellow mini bar fill span" style="width:25%">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="tempo-risk-row" data-kid="1-2-4-1-2-4" data-name="red band risk row">
+                        <div class="tempo-risk-name" data-kid="1-2-4-1-2-4-1" data-name="red band name with color dot and duration">
+                            <i class="red" data-kid="1-2-4-1-2-4-1-1" data-name="red indicator dot">
+                            </i>
+                            Red band
+                            <span data-kid="1-2-4-1-2-4-1-2" data-name="red band duration label" style="color:var(--tempo-muted);font-weight:400">
+                                < 0.5 h
+                            </span>
+                        </div>
+                        <div class="tempo-risk-amount" data-kid="1-2-4-1-2-4-2" data-name="red band stops count">
+                            3 / 12
+                        </div>
+                        <div class="tempo-risk-share" data-kid="1-2-4-1-2-4-3" data-name="red band share percentage">
+                            25%
+                        </div>
+                        <div class="tempo-mini-bar" data-kid="1-2-4-1-2-4-4" data-name="red band mini progress bar">
+                            <span class="red" data-kid="1-2-4-1-2-4-4-1" data-name="red mini bar fill span" style="width:25%">
+                            </span>
+                        </div>
+                    </div>
+                    <p class="tempo-caption" data-kid="1-2-4-1-2-5" data-name="thermal distribution disclaimer caption">
+                        These bands report model output only. A green-band stop is not a guarantee of safety.
+                    </p>
+                </div>
+            </section>
+            <section aria-labelledby="utilization-title" class="tempo-panel" data-kid="1-2-4-2" data-name="vehicle utilization panel">
+                <div class="tempo-panel-head" data-kid="1-2-4-2-1" data-name="panel header with title and data note">
+                    <div data-kid="1-2-4-2-1-1" data-name="panel title and subtitle container">
+                        <h3 data-kid="1-2-4-2-1-1-1" data-name="panel title text" id="utilization-title">
+                            Vehicle utilization
+                        </h3>
+                        <div class="sub" data-kid="1-2-4-2-1-1-2" data-name="panel subtitle text">
+                            Current carried volume against total fleet capacity
+                        </div>
+                    </div>
+                    <div class="tempo-data-note" data-kid="1-2-4-2-1-2" data-name="demo data indicator note">
+                        Demo data
+                    </div>
+                </div>
+                <div class="tempo-panel-body" data-kid="1-2-4-2-2" data-name="panel body with utilization metrics">
+                    <div class="tempo-capacity-top" data-kid="1-2-4-2-2-1" data-name="capacity top row with percentage and ratio">
+                        <div data-kid="1-2-4-2-2-1-1" data-name="capacity label and percentage container">
+                            <div class="label" data-kid="1-2-4-2-2-1-1-1" data-name="fleet utilization label">
+                                Fleet utilization
+                            </div>
+                            <div class="big" data-kid="1-2-4-2-2-1-1-2" data-name="fleet utilization percentage value">
+                                20.2
+                                <span data-kid="1-2-4-2-2-1-1-2-1" data-name="percentage unit span">
+                                    %
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ratio" data-kid="1-2-4-2-2-1-2" data-name="volume ratio value in monospace">
+                            4,580 / 22,640 L
+                        </div>
+                    </div>
+                    <div aria-label="20.2 percent capacity used" class="tempo-capacity-bar" data-kid="1-2-4-2-2-2" data-name="capacity progress bar image" role="img">
+                        <span data-kid="1-2-4-2-2-2-1" data-name="capacity bar fill span">
+                        </span>
+                    </div>
+                    <div class="tempo-capacity-labels" data-kid="1-2-4-2-2-3" data-name="capacity label row for current volume">
+                        <span data-kid="1-2-4-2-2-3-1" data-name="current volume label">
+                            Current volume
+                        </span>
+                        <span data-kid="1-2-4-2-2-3-2" data-name="current volume value">
+                            4,580 L
+                        </span>
+                    </div>
+                    <div class="tempo-capacity-labels" data-kid="1-2-4-2-2-4" data-name="capacity label row for total capacity">
+                        <span data-kid="1-2-4-2-2-4-1" data-name="total fleet capacity label">
+                            Total fleet capacity
+                        </span>
+                        <span data-kid="1-2-4-2-2-4-2" data-name="total fleet capacity value">
+                            22,640 L
+                        </span>
+                    </div>
+                    <p class="tempo-caption" data-kid="1-2-4-2-2-5" data-name="utilization disclaimer caption">
+                        The ratio is calculated from the displayed demo volumes and capacities; it is not a live load estimate.
+                    </p>
+                </div>
+            </section>
+        </div>
+        <section aria-labelledby="model-reference-title" class="tempo-model" data-kid="1-2-5" data-name="model and threshold reference section">
+            <div class="tempo-model-intro" data-kid="1-2-5-1" data-name="model section intro header">
+                <h2 data-kid="1-2-5-1-1" data-name="model section title text" id="model-reference-title">
+                    Model & threshold reference
+                </h2>
+                <p data-kid="1-2-5-1-2" data-name="model section disclaimer text">
+                    Lower-priority reference · estimates require validation before operational use.
+                </p>
+            </div>
+            <div class="tempo-model-grid" data-kid="1-2-5-2" data-name="model reference cards grid">
+                <div class="tempo-reference" data-kid="1-2-5-2-1" data-name="adulteration detection thresholds card">
+                    <h3 data-kid="1-2-5-2-1-1" data-name="thresholds card title">
+                        Adulteration detection thresholds
+                    </h3>
+                    <p class="desc" data-kid="1-2-5-2-1-2" data-name="thresholds card description text">
+                        Documented demo defaults. Thresholds are estimates, not confirmed quality standards.
+                    </p>
+                    <table aria-label="Estimated adulteration detection thresholds" class="tempo-threshold-table" data-kid="1-2-5-2-1-3" data-name="adulteration thresholds data table">
+                        <thead data-kid="1-2-5-2-1-3-1" data-name="thresholds table header">
+                            <tr data-kid="1-2-5-2-1-3-1-1" data-name="thresholds table header row">
+                                <th data-kid="1-2-5-2-1-3-1-1-1" data-name="metric column header">
+                                    Metric
+                                </th>
+                                <th data-kid="1-2-5-2-1-3-1-1-2" data-name="estimated trigger column header" style="text-align:right">
+                                    Estimated trigger
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody data-kid="1-2-5-2-1-3-2" data-name="thresholds table body">
+                            <tr data-kid="1-2-5-2-1-3-2-1" data-name="volume change threshold row">
+                                <td data-kid="1-2-5-2-1-3-2-1-1" data-name="volume change metric name">
+                                    Volume change
+                                </td>
+                                <td data-kid="1-2-5-2-1-3-2-1-2" data-name="volume change trigger value">
+                                    > +2.0%
+                                </td>
+                            </tr>
+                            <tr data-kid="1-2-5-2-1-3-2-2" data-name="fat percentage threshold row">
+                                <td data-kid="1-2-5-2-1-3-2-2-1" data-name="fat percentage metric name">
+                                    Fat percentage change
+                                </td>
+                                <td data-kid="1-2-5-2-1-3-2-2-2" data-name="fat percentage trigger value">
+                                    > 0.3% drop
+                                </td>
+                            </tr>
+                            <tr data-kid="1-2-5-2-1-3-2-3" data-name="SNF percentage threshold row">
+                                <td data-kid="1-2-5-2-1-3-2-3-1" data-name="SNF percentage metric name">
+                                    SNF percentage change
+                                </td>
+                                <td data-kid="1-2-5-2-1-3-2-3-2" data-name="SNF percentage trigger value">
+                                    > 0.3% drop
+                                </td>
+                            </tr>
+                            <tr data-kid="1-2-5-2-1-3-2-4" data-name="density threshold row">
+                                <td data-kid="1-2-5-2-1-3-2-4-1" data-name="density metric name">
+                                    Density
+                                </td>
+                                <td data-kid="1-2-5-2-1-3-2-4-2" data-name="density trigger value">
+                                    < 1.026 g/cm³
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tempo-disclaimer" data-kid="1-2-5-2-1-4" data-name="thresholds validation disclaimer">
+                        <i aria-hidden="true" class="ti ti-alert-triangle" data-kid="1-2-5-2-1-4-1" data-name="alert triangle warning icon">
+                        </i>
+                        <span data-kid="1-2-5-2-1-4-2" data-name="thresholds disclaimer text">
+                            Validate these estimates with cooperative and food-safety specialists before using them for intake decisions.
+                        </span>
+                    </div>
+                </div>
+                <div class="tempo-reference" data-kid="1-2-5-2-2" data-name="thermal safety buffer reference card">
+                    <h3 data-kid="1-2-5-2-2-1" data-name="TSB card title">
+                        Thermal safety buffer (TSB)
+                    </h3>
+                    <p class="desc" data-kid="1-2-5-2-2-2" data-name="TSB card description text">
+                        Reference formula and current dashboard model inputs.
+                    </p>
+                    <div class="tempo-formula" data-kid="1-2-5-2-2-3" data-name="TSB formula code block">
+                        TSB_hours = (θ_critical − (T_initial − T_base))
+                        <br data-kid="1-2-5-2-2-3-1" data-name="line break in formula"/>
+                        ÷ (k × (T_ambient − T_base) × β_insulation)
+                    </div>
+                    <div class="tempo-constants" data-kid="1-2-5-2-2-4" data-name="TSB constants grid">
+                        <span data-kid="1-2-5-2-2-4-1" data-name="theta critical constant item">
+                            <strong data-kid="1-2-5-2-2-4-1-1" data-name="theta critical symbol label">
+                                θ_critical
+                            </strong>
+                            850 degree-hours
+                        </span>
+                        <span data-kid="1-2-5-2-2-4-2" data-name="T base constant item">
+                            <strong data-kid="1-2-5-2-2-4-2-1" data-name="T base symbol label">
+                                T_base
+                            </strong>
+                            4 °C
+                        </span>
+                        <span data-kid="1-2-5-2-2-4-3" data-name="k constant item">
+                            <strong data-kid="1-2-5-2-2-4-3-1" data-name="k symbol label">
+                                k
+                            </strong>
+                            0.15
+                        </span>
+                        <span data-kid="1-2-5-2-2-4-4" data-name="beta insulation constant item">
+                            <strong data-kid="1-2-5-2-2-4-4-1" data-name="beta insulation symbol label">
+                                β_insulation
+                            </strong>
+                            0.4–1.0
+                        </span>
+                    </div>
+                    <div class="tempo-disclaimer" data-kid="1-2-5-2-2-5" data-name="TSB disclaimer note">
+                        <i aria-hidden="true" class="ti ti-info-circle" data-kid="1-2-5-2-2-5-1" data-name="info circle icon">
+                        </i>
+                        <span data-kid="1-2-5-2-2-5-2" data-name="TSB disclaimer text">
+                            Formula coefficients and risk-band thresholds are estimated model inputs. No band guarantees a stop is safe.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="tempo-footer" data-kid="1-2-6" data-name="page footer disclaimer">
+            All figures on this screen are illustrative and marked
+            <strong data-kid="1-2-6-1" data-name="footer demo scenario bold label" style="color:var(--tempo-muted);font-weight:600">
+                Demo scenario · not live.
+            </strong>
+        </div>
+    </main>
+</div>
+</div>
+</body></html>

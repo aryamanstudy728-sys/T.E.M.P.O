@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.3/dist/index.global.js" integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB" crossorigin="anonymous"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css');
+:root{--bg:#0d0f10;--surface:#141718;--surface-2:#191d1e;--surface-3:#202526;--line:#2a3031;--ink:#f3f6f4;--muted:#a0aaa8;--quiet:#76817e;--mint:#54dbb2;--mint-dim:#183c33;--red:#ff7182;--red-dim:#421f26;--amber:#edc15b;--amber-dim:#3b321d;--blue:#90a6ff;--blue-dim:#242d4a;--radius:12px;--font:'DM Sans',sans-serif;--mono:'IBM Plex Mono',monospace}
+.shell{min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.45;padding-bottom:34px}
+.topbar{height:70px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 40px;gap:40px;background:#0d0f10}
+.brand{display:flex;align-items:center;gap:10px;min-width:190px;font-size:17px;font-weight:700;letter-spacing:-.4px}
+.brand-mark{width:31px;height:31px;border-radius:9px;background:var(--mint);color:#09241d;display:grid;place-items:center;font-weight:800;font-size:14px}
+.nav{height:100%;display:flex;align-items:center;gap:7px;flex:1}
+.nav a{height:100%;display:flex;align-items:center;gap:9px;padding:0 15px;color:#a5afac;text-decoration:none;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a.active{color:#f6faf8;border-bottom-color:var(--mint)}
+.nav i{font-size:17px;color:#84918d;width:18px;text-align:center}.nav .active i{color:var(--mint)}
+.top-right{display:flex;align-items:center;gap:14px;white-space:nowrap}
+.demo-state{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#171c1d;border:1px solid #343b3b;border-radius:7px;color:#c4ceca;font-size:12px;font-weight:600}
+.demo-dot{width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.page{max-width:1440px;margin:0 auto;padding:27px 40px 36px}
+.page-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:19px;gap:24px}
+.page-head h1{font-size:28px;line-height:1.15;letter-spacing:-.7px;margin:0 0 6px;font-weight:650}
+.page-head p{margin:0;color:var(--muted);font-size:14px}
+.page-context{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;padding-bottom:4px}
+.page-context i{font-size:15px;color:var(--amber)}
+.statline{display:flex;align-items:stretch;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:19px;padding:12px 0}
+.stat{min-width:0;display:flex;align-items:baseline;gap:10px;padding:0 25px;border-right:1px solid var(--line)}
+.stat:first-child{padding-left:2px}.stat:last-child{border-right:0}
+.stat-label{font-size:13px;color:#a5afac;white-space:nowrap}.stat-value{font:600 19px/1 var(--mono);color:#f4f7f5;letter-spacing:-.7px}.stat.critical .stat-value{color:var(--red)}.stat.warning .stat-value{color:var(--amber)}.stat.unack .stat-value{color:var(--mint)}
+.workgrid{display:grid;grid-template-columns:minmax(0,1fr) 322px;gap:18px;align-items:start}
+.worklist{min-width:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.list-head{height:61px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line)}
+.panel-title{font-size:15px;font-weight:650;letter-spacing:-.15px}
+.result-note{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:12px;white-space:nowrap}.result-note .dot{width:6px;height:6px;background:var(--amber);border-radius:50%}
+.toolbar{padding:13px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.search{height:39px;width:265px;display:flex;align-items:center;gap:9px;border:1px solid #343b3c;border-radius:7px;background:#101314;padding:0 11px;color:var(--muted)}
+.search i{font-size:16px;color:#8d9895}.search span{font-size:13px;color:#7f8987;flex:1}.search kbd{font:11px var(--mono);padding:2px 5px;color:#86918e;border:1px solid #39403f;border-radius:4px}
+.filters{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.filter{height:34px;border-radius:7px;padding:0 11px;border:1px solid transparent;background:transparent;color:#a8b1ae;font:500 12px var(--font);white-space:nowrap}.filter.selected{background:#252b2b;border-color:#3b4442;color:#f4f7f5}.filter .count{margin-left:5px;color:#8f9a97;font:11px var(--mono)}.filter.critical-count .count{color:var(--red)}.filter.warning-count .count{color:var(--amber)}
+.table-scroll{overflow-x:auto;scrollbar-color:#37403e #141718}
+table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:960px}
+col.type{width:14%}col.severity{width:11%}col.message{width:26%}col.vehicle{width:9%}col.vcc{width:8%}col.time{width:8%}col.status{width:12%}col.action{width:12%}
+thead th{height:39px;padding:0 10px;text-align:left;color:#899491;background:#171a1b;border-bottom:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+thead th:first-child,tbody td:first-child{padding-left:17px}
+tbody tr{height:66px;border-bottom:1px solid #242a2b}
+tbody tr:last-child{border-bottom:0}
+tbody tr:hover{background:#1a1f20}
+tbody tr[aria-current="true"]{background:#1b2422;box-shadow:inset 2px 0 0 var(--mint)}
+tbody td{padding:9px 10px;color:#dce3e0;font-size:13px;vertical-align:middle;overflow:hidden;text-overflow:ellipsis}
+.type-cell{display:flex;align-items:center;gap:8px;color:#e8eeeb;font-weight:550;white-space:nowrap}.type-icon{width:24px;height:24px;flex:none;border-radius:6px;display:grid;place-items:center;background:#222829;color:#bdc8c4}.type-icon i{font-size:14px}.type-icon.therm{color:var(--red);background:#311d22}.type-icon.bmc{color:var(--amber);background:#322b1c}.type-icon.route{color:var(--mint);background:#18332d}
+span.severity{display:inline-flex;align-items:center;gap:6px;color:#dce3e0;font-size:12px;font-weight:600;white-space:nowrap}.sev-dot{width:7px;height:7px;border-radius:50%;background:var(--blue)}span.severity.critical .sev-dot{background:var(--red)}span.severity.warning .sev-dot{background:var(--amber)}span.severity.info .sev-dot{background:var(--blue)}
+.message{line-height:1.35;color:#e1e8e5}.message small{display:block;color:#889390;font-size:12px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mono{font-family:var(--mono);font-size:12px!important;color:#c9d2ce!important;white-space:nowrap}
+.status-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#d9e1dd;white-space:nowrap}.status-tag .status-dot{width:6px;height:6px;border-radius:50%;background:var(--amber)}.status-tag.ack{color:#9ca6a2}.status-tag.ack .status-dot{background:#75817d}
+.btn{height:34px;padding:0 10px;border-radius:6px;border:1px solid #414948;background:#222828;color:#f2f7f4;font:600 12px var(--font);white-space:nowrap}.btn:hover{background:#2b3332;border-color:#626d69}.btn.acknowledge{border-color:#476b60;color:#9de9ce;background:#182621}.btn.acknowledge:hover{background:#213a30}.btn:focus-visible,.filter:focus-visible,.search:focus-visible,.nav a:focus-visible,.link:focus-visible{outline:2px solid #8aefcf;outline-offset:2px}
+.list-footer{height:38px;padding:0 17px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#87928e}.list-footer strong{font:500 11px var(--mono);color:#bcc7c2}
+.context{padding:18px 18px 0}
+.context-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.context-head h2{font-size:14px;margin:0;font-weight:650}.icon-button{width:30px;height:30px;border:1px solid #37403f;border-radius:6px;background:#1b2021;color:#b4bfbb;display:grid;place-items:center;font-size:15px}
+.context-type{display:flex;align-items:center;gap:8px;color:#a8b3af;font-size:12px;margin-bottom:9px}.context-type .severity{font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:#ff9aa6}.context h3{font-size:17px;line-height:1.35;margin:0 0 8px;letter-spacing:-.22px}.context-copy{font-size:13px;color:#aab4b0;line-height:1.5;margin:0 0 16px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px 16px;padding:13px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.detail label{display:block;color:#899491;font-size:11px;margin-bottom:4px}.detail strong{font-size:13px;font-weight:550;color:#e5ece8}.detail .link{color:var(--mint);text-decoration:none;border-bottom:1px solid #31564b}
+.route-block{padding:15px 0 12px}.route-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.route-top strong{font-size:13px;font-weight:600}.route-top a{font-size:12px;color:var(--mint);text-decoration:none}.stop{position:relative;display:grid;grid-template-columns:19px minmax(0,1fr) auto;gap:9px;align-items:start;padding-bottom:13px}.stop:last-child{padding-bottom:0}.stop:not(:last-child):before{content:'';position:absolute;left:8px;top:17px;bottom:0;width:1px;background:#3e4945}.stop-mark{width:17px;height:17px;border:1px solid #52615b;border-radius:50%;background:#1d2422;color:#bdc8c3;display:grid;place-items:center;font:10px var(--mono);z-index:1}.stop.done .stop-mark{border-color:#427863;color:var(--mint);background:#17332a}.stop.current .stop-mark{border-color:var(--amber);color:#0e1111;background:var(--amber)}.stop-name{font-size:12px;font-weight:550;color:#e1e7e4}.stop-sub{font-size:11px;color:#87938f;margin-top:2px}.stop-time{font:11px var(--mono);color:#aab5b1;white-space:nowrap;text-align:right}.stop.current .stop-name{color:#f4f7f5}.tsb{display:flex;align-items:center;justify-content:space-between;padding:10px 11px;border:1px solid #463c25;border-radius:7px;background:#211e17;margin:2px 0 13px}.tsb span{font-size:12px;color:#b6aa8b}.tsb strong{font:600 13px var(--mono);color:var(--amber)}.model-note{font-size:11px;color:#928a74;margin:-6px 0 13px;line-height:1.4}
+.ack-copy{border-top:1px solid var(--line);padding:13px 0 17px;color:#a8b2ae;font-size:12px;line-height:1.45}.ack-copy strong{color:#e0e7e3;font-weight:600}.context-action{width:100%;height:40px;border-radius:7px;background:#1a3a30;border:1px solid #3c7964;color:#a7f2d7;font:600 13px var(--font);margin-bottom:17px}.context-action:hover{background:#234b3e}.context-action:focus-visible{outline:2px solid #8aefcf;outline-offset:2px}
+.states{margin-top:18px}.states h2{font-size:13px;font-weight:600;color:#aab4b0;margin:0 0 9px}.state-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.state-card{display:flex;gap:10px;align-items:flex-start;min-height:80px;background:#131718;border:1px solid #2a3031;border-radius:8px;padding:11px 12px}.state-card i{margin-top:1px;font-size:16px;color:var(--mint)}.state-card.unavailable i{color:var(--amber)}.state-card strong{display:block;font-size:12px;font-weight:600;margin-bottom:3px}.state-card p{margin:0;color:#9ba6a2;font-size:11px;line-height:1.4}.state-card button{border:0;background:none;color:var(--mint);font:600 11px var(--font);padding:3px 0 0;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:1100px){.topbar{padding:0 22px;gap:22px}.brand{min-width:155px}.page{padding-left:22px;padding-right:22px}.workgrid{grid-template-columns:minmax(0,1fr) 295px}.stat{padding:0 16px}.stat-label{font-size:12px}}
+@media(max-width:780px){.topbar{height:auto;min-height:62px;padding:10px 16px;gap:12px;flex-wrap:wrap}.brand{min-width:0;flex:1}.top-right{gap:8px}.demo-state{font-size:11px;padding:7px 9px}.avatar{display:none}.nav{order:3;flex:0 0 100%;height:43px;overflow-x:auto;gap:2px}.nav a{padding:0 12px;font-size:12px}.page{padding:22px 16px 32px}.page-head{align-items:flex-start;flex-direction:column;gap:8px}.page-head h1{font-size:25px}.page-context{padding:0}.statline{overflow-x:auto;gap:0}.stat{padding:0 14px;min-width:max-content}.stat:first-child{padding-left:0}.stat-label{font-size:11px}.stat-value{font-size:17px}.workgrid{grid-template-columns:1fr;gap:14px}.worklist{order:0}.context-panel{order:1}.toolbar{align-items:stretch}.search{width:100%}.filters{overflow-x:auto;flex-wrap:nowrap;padding:2px 1px 3px}.filter{min-height:40px}.list-head{height:56px;padding:0 13px}.result-note{font-size:11px}.table-scroll{max-height:470px}table{min-width:960px}.context{padding:16px}.states{margin-top:14px}.state-grid{grid-template-columns:1fr}.state-card{min-height:70px}}
+@media(max-width:420px){.page{padding-left:12px;padding-right:12px}.brand{font-size:15px}.brand-mark{width:28px;height:28px}.demo-state{padding:6px 8px}.page-head h1{font-size:23px}.stat{gap:7px;padding:0 10px}.stat-label{font-size:10px}.stat-value{font-size:15px}.filter{padding:0 9px}.result-note{white-space:normal;text-align:right;max-width:120px}.state-grid{gap:8px}}
+</style>
+<div class="shell" data-kid="1" data-name="app page shell">
+    <header class="topbar" data-kid="1-1" data-name="top app bar">
+        <div class="brand" data-kid="1-1-1" data-name="brand group with logo">
+            <span class="brand-mark" data-kid="1-1-1-1" data-name="brand logo monogram tile">
+                T
+            </span>
+            <span data-kid="1-1-1-2" data-name="brand product name text">
+                T.E.M.P.O.
+            </span>
+        </div>
+        <nav aria-label="Main navigation" class="nav" data-kid="1-1-2" data-name="main navigation bar">
+            <a data-kid="1-1-2-1" data-name="dashboard nav link" href="/dashboard">
+                <i class="ti ti-layout-dashboard" data-kid="1-1-2-1-1" data-name="dashboard layout icon">
+                </i>
+                Dashboard
+            </a>
+            <a data-kid="1-1-2-2" data-name="routes nav link" href="/routes">
+                <i class="ti ti-route" data-kid="1-1-2-2-1" data-name="routes path icon">
+                </i>
+                Routes
+            </a>
+            <a aria-current="page" class="active" data-kid="1-1-2-3" data-name="alerts nav link (active)" href="/alerts">
+                <i class="ti ti-alert-triangle" data-kid="1-1-2-3-1" data-name="alert triangle icon">
+                </i>
+                Alerts
+            </a>
+            <a data-kid="1-1-2-4" data-name="analytics nav link" href="/analytics">
+                <i class="ti ti-chart-bar" data-kid="1-1-2-4-1" data-name="bar chart icon">
+                </i>
+                Analytics
+            </a>
+        </nav>
+        <div class="top-right" data-kid="1-1-3" data-name="top bar right actions group">
+            <div class="demo-state" data-kid="1-1-3-1" data-name="demo mode status badge">
+                <span class="demo-dot" data-kid="1-1-3-1-1" data-name="amber status dot">
+                </span>
+                Demo scenario · not live
+            </div>
+        </div>
+    </header>
+    <main class="page" data-kid="1-2" data-name="main content page area">
+        <div class="page-head" data-kid="1-2-1" data-name="page header with title and note">
+            <div data-kid="1-2-1-1" data-name="page title block">
+                <h1 data-kid="1-2-1-1-1" data-name="page headline">
+                    Alert center
+                </h1>
+                <p data-kid="1-2-1-1-2" data-name="page description text">
+                    Review thermal, quality and route exceptions across the collection round.
+                </p>
+            </div>
+            <div class="page-context" data-kid="1-2-1-2" data-name="page context note with icon">
+                <i class="ti ti-database-off" data-kid="1-2-1-2-1" data-name="database-off icon">
+                </i>
+                <span data-kid="1-2-1-2-2" data-name="context note text">
+                    Sample records shown for layout review
+                </span>
+            </div>
+        </div>
+        <section aria-label="Alert totals" class="statline" data-kid="1-2-2" data-name="alert totals stat strip">
+            <div class="stat" data-kid="1-2-2-1" data-name="total alerts stat">
+                <span class="stat-label" data-kid="1-2-2-1-1" data-name="total alerts label">
+                    Total alerts
+                </span>
+                <strong class="stat-value" data-kid="1-2-2-1-2" data-name="total alerts value">
+                    05
+                </strong>
+            </div>
+            <div class="stat critical" data-kid="1-2-2-2" data-name="critical alerts stat">
+                <span class="stat-label" data-kid="1-2-2-2-1" data-name="critical alerts label">
+                    Critical
+                </span>
+                <strong class="stat-value" data-kid="1-2-2-2-2" data-name="critical alerts value">
+                    02
+                </strong>
+            </div>
+            <div class="stat warning" data-kid="1-2-2-3" data-name="warning alerts stat">
+                <span class="stat-label" data-kid="1-2-2-3-1" data-name="warning alerts label">
+                    Warning
+                </span>
+                <strong class="stat-value" data-kid="1-2-2-3-2" data-name="warning alerts value">
+                    02
+                </strong>
+            </div>
+            <div class="stat unack" data-kid="1-2-2-4" data-name="unacknowledged alerts stat">
+                <span class="stat-label" data-kid="1-2-2-4-1" data-name="unacknowledged alerts label">
+                    Unacknowledged
+                </span>
+                <strong class="stat-value" data-kid="1-2-2-4-2" data-name="unacknowledged alerts value">
+                    04
+                </strong>
+            </div>
+        </section>
+        <div class="workgrid" data-kid="1-2-3" data-name="work grid layout with list and context panel">
+            <section aria-labelledby="worklist-title" class="worklist" data-kid="1-2-3-1" data-name="alert worklist column">
+                <div class="panel" data-kid="1-2-3-1-1" data-name="worklist panel">
+                    <div class="list-head" data-kid="1-2-3-1-1-1" data-name="worklist panel header">
+                        <div class="panel-title" data-kid="1-2-3-1-1-1-1" data-name="worklist panel title" id="worklist-title">
+                            Alert worklist
+                        </div>
+                        <div class="result-note" data-kid="1-2-3-1-1-1-2" data-name="worklist sample data note">
+                            <span class="dot" data-kid="1-2-3-1-1-1-2-1" data-name="note indicator dot">
+                            </span>
+                            Demo scenario · not live
+                        </div>
+                    </div>
+                    <div class="toolbar" data-kid="1-2-3-1-1-2" data-name="worklist toolbar">
+                        <div class="search" data-kid="1-2-3-1-1-2-1" data-name="search input field" role="search">
+                            <i class="ti ti-search" data-kid="1-2-3-1-1-2-1-1" data-name="search magnifier icon">
+                            </i>
+                            <span data-kid="1-2-3-1-1-2-1-2" data-name="search placeholder text">
+                                Search message, vehicle or VCC
+                            </span>
+                            <kbd data-kid="1-2-3-1-1-2-1-3" data-name="search shortcut hint">
+                                ⌕
+                            </kbd>
+                        </div>
+                        <div aria-label="Filter by severity" class="filters" data-kid="1-2-3-1-1-2-2" data-name="severity filter group">
+                            <button aria-pressed="true" class="filter selected" data-kid="1-2-3-1-1-2-2-1" data-name="all severity filter button (selected)">
+                                All
+                                <span class="count" data-kid="1-2-3-1-1-2-2-1-1" data-name="all severity count">
+                                    05
+                                </span>
+                            </button>
+                            <button aria-pressed="false" class="filter critical-count" data-kid="1-2-3-1-1-2-2-2" data-name="critical severity filter button">
+                                Critical
+                                <span class="count" data-kid="1-2-3-1-1-2-2-2-1" data-name="critical severity count">
+                                    02
+                                </span>
+                            </button>
+                            <button aria-pressed="false" class="filter warning-count" data-kid="1-2-3-1-1-2-2-3" data-name="warning severity filter button">
+                                Warning
+                                <span class="count" data-kid="1-2-3-1-1-2-2-3-1" data-name="warning severity count">
+                                    02
+                                </span>
+                            </button>
+                            <button aria-pressed="false" class="filter" data-kid="1-2-3-1-1-2-2-4" data-name="info severity filter button">
+                                Info
+                                <span class="count" data-kid="1-2-3-1-1-2-2-4-1" data-name="info severity count">
+                                    01
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-scroll" data-kid="1-2-3-1-1-3" data-name="horizontally scrollable table container">
+                        <table aria-label="Demo alert records" data-kid="1-2-3-1-1-3-1" data-name="alert records data table">
+                            <colgroup data-kid="1-2-3-1-1-3-1-1" data-name="table column group definitions">
+                                <col class="type" data-kid="1-2-3-1-1-3-1-1-1" data-name="type column"/>
+                                <col class="severity" data-kid="1-2-3-1-1-3-1-1-2" data-name="severity column"/>
+                                <col class="message" data-kid="1-2-3-1-1-3-1-1-3" data-name="message column"/>
+                                <col class="vehicle" data-kid="1-2-3-1-1-3-1-1-4" data-name="vehicle column"/>
+                                <col class="vcc" data-kid="1-2-3-1-1-3-1-1-5" data-name="vcc column"/>
+                                <col class="time" data-kid="1-2-3-1-1-3-1-1-6" data-name="time column"/>
+                                <col class="status" data-kid="1-2-3-1-1-3-1-1-7" data-name="status column"/>
+                                <col class="action" data-kid="1-2-3-1-1-3-1-1-8" data-name="action column"/>
+                            </colgroup>
+                            <thead data-kid="1-2-3-1-1-3-1-2" data-name="table header">
+                                <tr data-kid="1-2-3-1-1-3-1-2-1" data-name="table header row">
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-1" data-name="type header cell">
+                                        Type
+                                    </th>
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-2" data-name="severity header cell">
+                                        Severity
+                                    </th>
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-3" data-name="message header cell">
+                                        Message
+                                    </th>
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-4" data-name="vehicle header cell">
+                                        Vehicle
+                                    </th>
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-5" data-name="vcc header cell">
+                                        VCC
+                                    </th>
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-6" data-name="time header cell">
+                                        Time
+                                    </th>
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-7" data-name="status header cell">
+                                        Status
+                                    </th>
+                                    <th data-kid="1-2-3-1-1-3-1-2-1-8" data-name="action header cell">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-kid="1-2-3-1-1-3-1-3" data-name="alert records table body">
+                                <tr aria-current="true" data-kid="1-2-3-1-1-3-1-3-1" data-name="selected alert row (thermal risk)">
+                                    <td data-kid="1-2-3-1-1-3-1-3-1-1" data-name="type cell">
+                                        <div class="type-cell" data-kid="1-2-3-1-1-3-1-3-1-1-1" data-name="type cell content">
+                                            <span class="type-icon therm" data-kid="1-2-3-1-1-3-1-3-1-1-1-1" data-name="thermal risk type icon badge">
+                                                <i class="ti ti-thermometer" data-kid="1-2-3-1-1-3-1-3-1-1-1-1-1" data-name="thermometer icon">
+                                                </i>
+                                            </span>
+                                            Thermal risk
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-1-2" data-name="severity cell">
+                                        <span class="severity critical" data-kid="1-2-3-1-1-3-1-3-1-2-1" data-name="critical severity badge">
+                                            <i class="sev-dot" data-kid="1-2-3-1-1-3-1-3-1-2-1-1" data-name="critical severity dot">
+                                            </i>
+                                            Critical
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-1-3" data-name="message cell">
+                                        <div class="message" data-kid="1-2-3-1-1-3-1-3-1-3-1" data-name="message text block">
+                                            TSB below modeled threshold
+                                            <small data-kid="1-2-3-1-1-3-1-3-1-3-1-1" data-name="message subheading">
+                                                Next collection stop needs review
+                                            </small>
+                                        </div>
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-1-4" data-name="vehicle id cell">
+                                        VEH-002
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-1-5" data-name="vcc id cell">
+                                        VCC-014
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-1-6" data-name="time cell">
+                                        08:42
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-1-7" data-name="status cell">
+                                        <span class="status-tag" data-kid="1-2-3-1-1-3-1-3-1-7-1" data-name="needs review status tag">
+                                            <i class="status-dot" data-kid="1-2-3-1-1-3-1-3-1-7-1-1" data-name="status indicator dot">
+                                            </i>
+                                            Needs review
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-1-8" data-name="action cell">
+                                        <button class="btn acknowledge" data-kid="1-2-3-1-1-3-1-3-1-8-1" data-name="acknowledge alert button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr data-kid="1-2-3-1-1-3-1-3-2" data-name="alert row (bmc overload)">
+                                    <td data-kid="1-2-3-1-1-3-1-3-2-1" data-name="type cell">
+                                        <div class="type-cell" data-kid="1-2-3-1-1-3-1-3-2-1-1" data-name="type cell content">
+                                            <span class="type-icon bmc" data-kid="1-2-3-1-1-3-1-3-2-1-1-1" data-name="bmc type icon badge">
+                                                <i class="ti ti-snowflake" data-kid="1-2-3-1-1-3-1-3-2-1-1-1-1" data-name="snowflake icon">
+                                                </i>
+                                            </span>
+                                            BMC overload
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-2-2" data-name="severity cell">
+                                        <span class="severity critical" data-kid="1-2-3-1-1-3-1-3-2-2-1" data-name="critical severity badge">
+                                            <i class="sev-dot" data-kid="1-2-3-1-1-3-1-3-2-2-1-1" data-name="critical severity dot">
+                                            </i>
+                                            Critical
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-2-3" data-name="message cell">
+                                        <div class="message" data-kid="1-2-3-1-1-3-1-3-2-3-1" data-name="message text block">
+                                            Cooler queue exceeds modeled hold
+                                            <small data-kid="1-2-3-1-1-3-1-3-2-3-1-1" data-name="message subheading">
+                                                Capacity condition requires attention
+                                            </small>
+                                        </div>
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-2-4" data-name="vehicle id cell">
+                                        VEH-006
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-2-5" data-name="empty vcc placeholder cell">
+                                        —
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-2-6" data-name="time cell">
+                                        08:31
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-2-7" data-name="status cell">
+                                        <span class="status-tag" data-kid="1-2-3-1-1-3-1-3-2-7-1" data-name="needs review status tag">
+                                            <i class="status-dot" data-kid="1-2-3-1-1-3-1-3-2-7-1-1" data-name="status indicator dot">
+                                            </i>
+                                            Needs review
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-2-8" data-name="action cell">
+                                        <button class="btn acknowledge" data-kid="1-2-3-1-1-3-1-3-2-8-1" data-name="acknowledge alert button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr data-kid="1-2-3-1-1-3-1-3-3" data-name="alert row (route change)">
+                                    <td data-kid="1-2-3-1-1-3-1-3-3-1" data-name="type cell">
+                                        <div class="type-cell" data-kid="1-2-3-1-1-3-1-3-3-1-1" data-name="type cell content">
+                                            <span class="type-icon route" data-kid="1-2-3-1-1-3-1-3-3-1-1-1" data-name="route change type icon badge">
+                                                <i class="ti ti-route" data-kid="1-2-3-1-1-3-1-3-3-1-1-1-1" data-name="route path icon">
+                                                </i>
+                                            </span>
+                                            Route change
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-3-2" data-name="severity cell">
+                                        <span class="severity warning" data-kid="1-2-3-1-1-3-1-3-3-2-1" data-name="warning severity badge">
+                                            <i class="sev-dot" data-kid="1-2-3-1-1-3-1-3-3-2-1-1" data-name="warning severity dot">
+                                            </i>
+                                            Warning
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-3-3" data-name="message cell">
+                                        <div class="message" data-kid="1-2-3-1-1-3-1-3-3-3-1" data-name="message text block">
+                                            Stop order changed after road delay
+                                            <small data-kid="1-2-3-1-1-3-1-3-3-3-1-1" data-name="message subheading">
+                                                Review the updated collection sequence
+                                            </small>
+                                        </div>
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-3-4" data-name="vehicle id cell">
+                                        VEH-003
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-3-5" data-name="vcc id cell">
+                                        VCC-009
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-3-6" data-name="time cell">
+                                        08:14
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-3-7" data-name="status cell">
+                                        <span class="status-tag ack" data-kid="1-2-3-1-1-3-1-3-3-7-1" data-name="acknowledged status tag">
+                                            <i class="status-dot" data-kid="1-2-3-1-1-3-1-3-3-7-1-1" data-name="acknowledged status dot">
+                                            </i>
+                                            Acknowledged
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-3-8" data-name="action cell">
+                                        <span data-kid="1-2-3-1-1-3-1-3-3-8-1" data-name="reviewed action placeholder text" style="color:#7f8a86;font-size:12px">
+                                            Reviewed
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr data-kid="1-2-3-1-1-3-1-3-4" data-name="alert row (adulteration)">
+                                    <td data-kid="1-2-3-1-1-3-1-3-4-1" data-name="type cell">
+                                        <div class="type-cell" data-kid="1-2-3-1-1-3-1-3-4-1-1" data-name="type cell content">
+                                            <span class="type-icon" data-kid="1-2-3-1-1-3-1-3-4-1-1-1" data-name="adulteration type icon badge">
+                                                <i class="ti ti-test-pipe-2" data-kid="1-2-3-1-1-3-1-3-4-1-1-1-1" data-name="test pipe icon">
+                                                </i>
+                                            </span>
+                                            Adulteration
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-4-2" data-name="severity cell">
+                                        <span class="severity warning" data-kid="1-2-3-1-1-3-1-3-4-2-1" data-name="warning severity badge">
+                                            <i class="sev-dot" data-kid="1-2-3-1-1-3-1-3-4-2-1-1" data-name="warning severity dot">
+                                            </i>
+                                            Warning
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-4-3" data-name="message cell">
+                                        <div class="message" data-kid="1-2-3-1-1-3-1-3-4-3-1" data-name="message text block">
+                                            Intake quality variance flagged
+                                            <small data-kid="1-2-3-1-1-3-1-3-4-3-1-1" data-name="message subheading">
+                                                Review the recorded quality check
+                                            </small>
+                                        </div>
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-4-4" data-name="vehicle id cell">
+                                        VEH-005
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-4-5" data-name="vcc id cell">
+                                        VCC-012
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-4-6" data-name="time cell">
+                                        07:58
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-4-7" data-name="status cell">
+                                        <span class="status-tag" data-kid="1-2-3-1-1-3-1-3-4-7-1" data-name="needs review status tag">
+                                            <i class="status-dot" data-kid="1-2-3-1-1-3-1-3-4-7-1-1" data-name="status indicator dot">
+                                            </i>
+                                            Needs review
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-4-8" data-name="action cell">
+                                        <button class="btn acknowledge" data-kid="1-2-3-1-1-3-1-3-4-8-1" data-name="acknowledge alert button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr data-kid="1-2-3-1-1-3-1-3-5" data-name="alert row (weather spike)">
+                                    <td data-kid="1-2-3-1-1-3-1-3-5-1" data-name="type cell">
+                                        <div class="type-cell" data-kid="1-2-3-1-1-3-1-3-5-1-1" data-name="type cell content">
+                                            <span class="type-icon" data-kid="1-2-3-1-1-3-1-3-5-1-1-1" data-name="weather spike type icon badge">
+                                                <i class="ti ti-sun-high" data-kid="1-2-3-1-1-3-1-3-5-1-1-1-1" data-name="high sun icon">
+                                                </i>
+                                            </span>
+                                            Weather spike
+                                        </div>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-5-2" data-name="severity cell">
+                                        <span class="severity info" data-kid="1-2-3-1-1-3-1-3-5-2-1" data-name="info severity badge">
+                                            <i class="sev-dot" data-kid="1-2-3-1-1-3-1-3-5-2-1-1" data-name="info severity dot">
+                                            </i>
+                                            Info
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-5-3" data-name="message cell">
+                                        <div class="message" data-kid="1-2-3-1-1-3-1-3-5-3-1" data-name="message text block">
+                                            Ambient temperature may affect route
+                                            <small data-kid="1-2-3-1-1-3-1-3-5-3-1-1" data-name="message subheading">
+                                                Forecast-based scenario signal
+                                            </small>
+                                        </div>
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-5-4" data-name="vehicle id cell">
+                                        VEH-002
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-5-5" data-name="empty vcc placeholder cell">
+                                        —
+                                    </td>
+                                    <td class="mono" data-kid="1-2-3-1-1-3-1-3-5-6" data-name="time cell">
+                                        07:42
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-5-7" data-name="status cell">
+                                        <span class="status-tag" data-kid="1-2-3-1-1-3-1-3-5-7-1" data-name="needs review status tag">
+                                            <i class="status-dot" data-kid="1-2-3-1-1-3-1-3-5-7-1-1" data-name="status indicator dot">
+                                            </i>
+                                            Needs review
+                                        </span>
+                                    </td>
+                                    <td data-kid="1-2-3-1-1-3-1-3-5-8" data-name="action cell">
+                                        <button class="btn acknowledge" data-kid="1-2-3-1-1-3-1-3-5-8-1" data-name="acknowledge alert button">
+                                            Acknowledge
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="list-footer" data-kid="1-2-3-1-1-4" data-name="worklist footer bar">
+                        <span data-kid="1-2-3-1-1-4-1" data-name="visible records count text">
+                            Showing
+                            <strong data-kid="1-2-3-1-1-4-1-1" data-name="visible records numeric value">
+                                05
+                            </strong>
+                            sample records
+                        </span>
+                        <span data-kid="1-2-3-1-1-4-2" data-name="demo counts disclaimer text">
+                            Counts reflect this demo scenario
+                        </span>
+                    </div>
+                </div>
+                <section aria-labelledby="states-title" class="states" data-kid="1-2-3-1-2" data-name="empty states documentation section">
+                    <h2 data-kid="1-2-3-1-2-1" data-name="empty states section heading" id="states-title">
+                        When there are no alert rows
+                    </h2>
+                    <div class="state-grid" data-kid="1-2-3-1-2-2" data-name="empty state card grid">
+                        <div class="state-card" data-kid="1-2-3-1-2-2-1" data-name="no alerts empty state card">
+                            <i class="ti ti-circle-check" data-kid="1-2-3-1-2-2-1-1" data-name="circle check icon">
+                            </i>
+                            <div data-kid="1-2-3-1-2-2-1-2" data-name="no alerts state content">
+                                <strong data-kid="1-2-3-1-2-2-1-2-1" data-name="no alerts state title">
+                                    No alerts to review
+                                </strong>
+                                <p data-kid="1-2-3-1-2-2-1-2-2" data-name="no alerts state description">
+                                    The alert request succeeded and returned no records. Continue monitoring the round.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="state-card unavailable" data-kid="1-2-3-1-2-2-2" data-name="data unavailable empty state card">
+                            <i class="ti ti-cloud-off" data-kid="1-2-3-1-2-2-2-1" data-name="cloud offline icon">
+                            </i>
+                            <div data-kid="1-2-3-1-2-2-2-2" data-name="unavailable state content">
+                                <strong data-kid="1-2-3-1-2-2-2-2-1" data-name="unavailable state title">
+                                    Alert data unavailable
+                                </strong>
+                                <p data-kid="1-2-3-1-2-2-2-2-2" data-name="unavailable state description">
+                                    Couldn’t retrieve alert records. Counts are unknown—not zero.
+                                </p>
+                                <button data-kid="1-2-3-1-2-2-2-2-3" data-name="retry alert data button">
+                                    Retry alert data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <aside aria-labelledby="context-title" class="panel context-panel" data-kid="1-2-3-2" data-name="selected alert context side panel">
+                <div class="context" data-kid="1-2-3-2-1" data-name="context panel content">
+                    <div class="context-head" data-kid="1-2-3-2-1-1" data-name="context panel header">
+                        <h2 data-kid="1-2-3-2-1-1-1" data-name="context panel title" id="context-title">
+                            Selected alert
+                        </h2>
+                    </div>
+                    <div class="context-type" data-kid="1-2-3-2-1-2" data-name="alert type summary line">
+                        <span class="severity critical" data-kid="1-2-3-2-1-2-1" data-name="critical severity badge">
+                            <i class="sev-dot" data-kid="1-2-3-2-1-2-1-1" data-name="critical severity dot">
+                            </i>
+                            Critical
+                        </span>
+                        <span data-kid="1-2-3-2-1-2-2" data-name="summary separator dot">
+                            ·
+                        </span>
+                        <span data-kid="1-2-3-2-1-2-3" data-name="alert category text">
+                            Thermal risk
+                        </span>
+                    </div>
+                    <h3 data-kid="1-2-3-2-1-3" data-name="selected alert headline">
+                        Thermal buffer below modeled threshold
+                    </h3>
+                    <p class="context-copy" data-kid="1-2-3-2-1-4" data-name="selected alert description">
+                        The next stop is flagged for review. The demo uses an estimated threshold; it is not a live temperature reading.
+                    </p>
+                    <div class="detail-grid" data-kid="1-2-3-2-1-5" data-name="alert detail grid">
+                        <div class="detail" data-kid="1-2-3-2-1-5-1" data-name="vehicle detail item">
+                            <label data-kid="1-2-3-2-1-5-1-1" data-name="vehicle detail label">
+                                Vehicle
+                            </label>
+                            <strong data-kid="1-2-3-2-1-5-1-2" data-name="vehicle detail value wrapper">
+                                <a class="link" data-kid="1-2-3-2-1-5-1-2-1" data-name="view vehicle route link" href="/routes">
+                                    VEH-002 · View route
+                                </a>
+                            </strong>
+                        </div>
+                        <div class="detail" data-kid="1-2-3-2-1-5-2" data-name="collection center detail item">
+                            <label data-kid="1-2-3-2-1-5-2-1" data-name="collection center label">
+                                Collection center
+                            </label>
+                            <strong data-kid="1-2-3-2-1-5-2-2" data-name="collection center value">
+                                VCC-014
+                            </strong>
+                        </div>
+                        <div class="detail" data-kid="1-2-3-2-1-5-3" data-name="sample time detail item">
+                            <label data-kid="1-2-3-2-1-5-3-1" data-name="sample time label">
+                                Sample event time
+                            </label>
+                            <strong data-kid="1-2-3-2-1-5-3-2" data-name="sample time value">
+                                08:42 · scenario
+                            </strong>
+                        </div>
+                        <div class="detail" data-kid="1-2-3-2-1-5-4" data-name="alert status detail item">
+                            <label data-kid="1-2-3-2-1-5-4-1" data-name="alert status label">
+                                Alert status
+                            </label>
+                            <strong data-kid="1-2-3-2-1-5-4-2" data-name="alert status value" style="color:var(--amber)">
+                                Needs review
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="route-block" data-kid="1-2-3-2-1-6" data-name="related route sequence block">
+                        <div class="route-top" data-kid="1-2-3-2-1-6-1" data-name="route sequence header">
+                            <strong data-kid="1-2-3-2-1-6-1-1" data-name="route sequence title">
+                                Related route sequence
+                            </strong>
+                            <a class="link" data-kid="1-2-3-2-1-6-1-2" data-name="open route link" href="/routes">
+                                Open route
+                                <i class="ti ti-arrow-up-right" data-kid="1-2-3-2-1-6-1-2-1" data-name="arrow up-right icon">
+                                </i>
+                            </a>
+                        </div>
+                        <div class="stop done" data-kid="1-2-3-2-1-6-2" data-name="completed route stop">
+                            <span class="stop-mark" data-kid="1-2-3-2-1-6-2-1" data-name="stop marker circle with check">
+                                <i class="ti ti-check" data-kid="1-2-3-2-1-6-2-1-1" data-name="checkmark icon">
+                                </i>
+                            </span>
+                            <div data-kid="1-2-3-2-1-6-2-2" data-name="stop details">
+                                <div class="stop-name" data-kid="1-2-3-2-1-6-2-2-1" data-name="stop name and status">
+                                    VCC-008 · Collected
+                                </div>
+                                <div class="stop-sub" data-kid="1-2-3-2-1-6-2-2-2" data-name="stop subtitle">
+                                    Actual arrival recorded
+                                </div>
+                            </div>
+                            <span class="stop-time" data-kid="1-2-3-2-1-6-2-3" data-name="stop arrival time">
+                                07:56
+                            </span>
+                        </div>
+                        <div class="stop current" data-kid="1-2-3-2-1-6-3" data-name="current route stop">
+                            <span class="stop-mark" data-kid="1-2-3-2-1-6-3-1" data-name="stop marker number circle">
+                                2
+                            </span>
+                            <div data-kid="1-2-3-2-1-6-3-2" data-name="stop details">
+                                <div class="stop-name" data-kid="1-2-3-2-1-6-3-2-1" data-name="stop name and status">
+                                    VCC-014 · Next stop
+                                </div>
+                                <div class="stop-sub" data-kid="1-2-3-2-1-6-3-2-2" data-name="stop subtitle">
+                                    Estimated arrival
+                                </div>
+                            </div>
+                            <span class="stop-time" data-kid="1-2-3-2-1-6-3-3" data-name="stop arrival time">
+                                08:42
+                            </span>
+                        </div>
+                        <div class="stop" data-kid="1-2-3-2-1-6-4" data-name="upcoming destination stop">
+                            <span class="stop-mark" data-kid="1-2-3-2-1-6-4-1" data-name="stop marker number circle">
+                                3
+                            </span>
+                            <div data-kid="1-2-3-2-1-6-4-2" data-name="stop details">
+                                <div class="stop-name" data-kid="1-2-3-2-1-6-4-2-1" data-name="stop name and status">
+                                    BMC-001 · Destination
+                                </div>
+                                <div class="stop-sub" data-kid="1-2-3-2-1-6-4-2-2" data-name="stop subtitle">
+                                    Route sequence continues
+                                </div>
+                            </div>
+                            <span class="stop-time" data-kid="1-2-3-2-1-6-4-3" data-name="stop arrival time placeholder">
+                                —
+                            </span>
+                        </div>
+                    </div>
+                    <div class="tsb" data-kid="1-2-3-2-1-7" data-name="modeled TSB metric callout">
+                        <span data-kid="1-2-3-2-1-7-1" data-name="modeled TSB label">
+                            Modeled TSB · sample value
+                        </span>
+                        <strong data-kid="1-2-3-2-1-7-2" data-name="modeled TSB value">
+                            0.4 h
+                        </strong>
+                    </div>
+                    <p class="model-note" data-kid="1-2-3-2-1-8" data-name="model threshold disclaimer note">
+                        The demo threshold is an engineering estimate, not a verified safety limit.
+                    </p>
+                    <div class="ack-copy" data-kid="1-2-3-2-1-9" data-name="acknowledgment scope disclaimer">
+                        <strong data-kid="1-2-3-2-1-9-1" data-name="acknowledgment scope emphasis text">
+                            Acknowledging records review only.
+                        </strong>
+                        It does not resolve the underlying temperature or route condition.
+                    </div>
+                    <button class="context-action" data-kid="1-2-3-2-1-10" data-name="acknowledge alert action button">
+                        Acknowledge alert
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </main>
+</div>
+</div>
+</body></html>

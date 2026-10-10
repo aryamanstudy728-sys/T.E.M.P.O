@@ -1,0 +1,141 @@
+.tempo-village-marker {
+  z-index: 600;
+}
+
+.marker-village {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  --marker-color: var(--mint);
+}
+
+.marker-seq {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  background: #18201d;
+  color: #fff;
+  border: 1px solid var(--marker-color);
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 4px;
+  line-height: 1;
+}
+
+.marker-body {
+  background: var(--marker-color);
+  color: #07110e;
+  border-radius: 12px;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.marker-buffer {
+  font-variant-numeric: tabular-nums;
+}
+
+.marker-band {
+  font-size: 9px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.marker-triangle {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--marker-color);
+  margin-top: -1px;
+}
+
+.tempo-centre-marker {
+  z-index: 700;
+}
+
+.marker-centre {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}
+
+.marker-centre-label {
+  background: #f1f7f3;
+  color: #07110e;
+  border: 2px solid var(--mint);
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+}
+
+.marker-centre-triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--mint);
+  margin-top: -1px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The Leaflet container fills whatever box the design gives the map (map-canvas or map-stage). */
+.village-map {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  background: #151b19;
+}
+
+/* Leaflet panes sit at z-index 400 to 700, so controls must be above them. */
+.village-map .map-controls {
+  z-index: 1000 !important;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: grid;
+  gap: 5px;
+}
+
+.map-control-btn {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line, #222d28);
+  border-radius: 6px;
+  background: var(--surface-raised, #18201d);
+  color: var(--text, #e6ede8);
+  cursor: pointer;
+}
+
+.map-control-btn:hover { border-color: var(--mint, #2ee59d); }
+.map-control-btn:focus-visible { outline: 2px solid var(--mint, #2ee59d); outline-offset: 2px; }
+
+.threshold-note { color: var(--muted, #87948d); font-size: 11px; }
