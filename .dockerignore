@@ -1,0 +1,14 @@
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+**/*.pyo
+web/node_modules
+web/.vite
+web/.env*
+.vscode
+.idea
+*.log
+.kombai
+.pytest_cache
+web/.pytest_cache

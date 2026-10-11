@@ -84,3 +84,13 @@ def sensitivity():
             status_code=503,
             detail="Sensitivity results not generated yet. Run: py run_sensitivity.py")
     return json.loads(SENSITIVITY_FILE.read_text(encoding="utf-8"))
+
+
+# ---------------------------------------------------------------------------
+# Static file serving (production): serve the built React frontend from /api-free
+# paths so the whole app works from a single origin.
+# ---------------------------------------------------------------------------
+WEB_DIST = pathlib.Path(__file__).resolve().parents[2] / "web" / "dist"
+if WEB_DIST.exists():
+    from fastapi.staticfiles import StaticFiles
+    app.mount("/", StaticFiles(directory=str(WEB_DIST), html=True), name="frontend")
