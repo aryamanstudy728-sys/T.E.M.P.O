@@ -3,32 +3,38 @@ name: Deploy to Railway
 on:
   push:
     branches: [main]
-
-env:
-  RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-  RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
-  RAILWAY_ENVIRONMENT_ID: ${{ secrets.RAILWAY_ENVIRONMENT_ID }}
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
       - name: Install Railway CLI
-        run: npm install -g @railway/cli
+        run: npm install -g @railway/cli@latest
+
+      - name: Setup Railway config
+        run: |
+          mkdir -p ~/.railway
+          cat > ~/.railway/config.json << 'CONFIGEOF'
+          {
+            "user": {
+              "accessToken": "${{ secrets.RAILWAY_ACCESS_TOKEN }}",
+              "id": "${{ secrets.RAILWAY_USER_ID }}",
+              "refreshToken": "${{ secrets.RAILWAY_REFRESH_TOKEN }}",
+              "token": null,
+              "tokenExpiresAt": 2147483647
+            },
+            "projects": {}
+          }
+          CONFIGEOF
 
       - name: Deploy to Railway
+        env:
+          RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
+          RAILWAY_ENVIRONMENT_ID: ${{ secrets.RAILWAY_ENVIRONMENT_ID }}
         run: |
           railway link --project "$RAILWAY_PROJECT_ID" --environment production
-          railway up --detach
+          railway up
