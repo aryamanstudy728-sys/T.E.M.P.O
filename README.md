@@ -45,7 +45,7 @@ T.E.M.P.O TechZ's/
 └── .kombai/                Original UI design mockups (reference only)
 ```
 
----
+---UPDATE NOW A DEPLOYED WEBSITE IS AVAILABLE - https://tempo-techz-production.up.railway.app/
 
 ## Tech stack
 
