@@ -2,8 +2,10 @@ import { useAssumptions, useSensitivity, useLastResult, useThresholds } from '..
 import SensitivityTable from '../components/SensitivityTable'
 import ParameterTable from '../components/ParameterTable'
 import BandDistribution from '../components/BandDistribution'
+import SensitivityLineChart from '../components/charts/SensitivityLineChart'
 import { EmptyState, ErrorMessage } from '../components/states'
 import '../styles/kombai-analytics.css'
+import '../styles/charts.css'
 
 export function Analytics() {
   const sens = useSensitivity()
@@ -29,7 +31,26 @@ export function Analytics() {
 
         {sens.isLoading && <EmptyState>Loading sensitivity results.</EmptyState>}
         {sens.isError && <ErrorMessage message={sens.error.message} onRetry={() => sens.refetch()} />}
-        {sens.data && <SensitivityTable data={sens.data} />}
+        
+        {sens.data && (
+          <>
+            <section className="sensitivity-line-panel" aria-labelledby="sensitivity-line-title">
+              <div className="sensitivity-line-panel-head">
+                <div>
+                  <h2 id="sensitivity-line-title" className="sensitivity-line-panel-title">Sensitivity: vehicles vs mean breaches</h2>
+                  <p className="sensitivity-line-panel-subtitle">Mean over seeds {sens.data.seeds.join(', ')}</p>
+                </div>
+                <p className="sensitivity-line-panel-caption">
+                  Risk-based wins in {sens.data.rows.filter(r => r.parameter === 'vehicles' && r.risk_based_wins).length} of {sens.data.rows.filter(r => r.parameter === 'vehicles').length} settings
+                </p>
+              </div>
+              <SensitivityLineChart data={sens.data} />
+            </section>
+            
+            <SensitivityTable data={sens.data} />
+          </>
+        )}
+        
         {last && <BandDistribution data={last} thresholds={thresholds} />}
 
         {params.isError && <ErrorMessage message={params.error.message} onRetry={() => params.refetch()} />}

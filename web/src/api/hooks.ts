@@ -29,6 +29,13 @@ export function useThresholds() {
   return data ? thresholdsFrom(data.items) : undefined
 }
 
+// Route ceiling from /api/assumptions (route_ceiling_h).
+export function useRouteCeiling() {
+  const { data } = useAssumptions()
+  const item = data?.items.find((i) => i.name === 'route_ceiling_h')
+  return typeof item?.value === 'number' ? item.value : undefined
+}
+
 export function useSensitivity() {
   return useQuery({ queryKey: ['sensitivity'], queryFn: getSensitivity, staleTime: Infinity, retry: false })
 }

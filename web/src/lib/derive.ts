@@ -1,4 +1,4 @@
-import type { Band, AssumptionItem, RoutePlan, Village } from '../api/types'
+import type { Band, AssumptionItem, RoutePlan, Village, MethodResult } from '../api/types'
 
 export interface Thresholds { greenH: number; redH: number }
 
@@ -10,10 +10,52 @@ export function thresholdsFrom(items: AssumptionItem[]): Thresholds | undefined 
 }
 
 // Same rule as the engine's risk.band(), using thresholds from /api/assumptions.
-export function bandOf(buffer: number, t: Thresholds): Band {
-  if (buffer > t.greenH) return 'green'
-  if (buffer < t.redH) return 'red'
+export function bandOf(buffer: number, t: Thresholds): Band
+// New: bandOf with individual threshold params
+export function bandOf(buffer_h: number, greenH: number, redH: number): Band
+export function bandOf(buffer_h: number, tOrGreenH: Thresholds | number, redH?: number): Band {
+  if (typeof tOrGreenH === 'number') {
+    const g = tOrGreenH
+    const r = redH ?? 0
+    if (buffer_h > g) return 'green'
+    if (buffer_h < r) return 'red'
+    return 'yellow'
+  }
+  const t = tOrGreenH
+  if (buffer_h > t.greenH) return 'green'
+  if (buffer_h < t.redH) return 'red'
   return 'yellow'
+}
+
+export interface BandCounts { green: number; yellow: number; red: number }
+
+// New: count buffers by band using individual thresholds
+export function bandCounts(buffers: Record<string, number>, greenH: number, redH: number): BandCounts {
+  const counts: BandCounts = { green: 0, yellow: 0, red: 0 }
+  for (const b of Object.values(buffers)) {
+    if (b > greenH) counts.green++
+    else if (b < redH) counts.red++
+    else counts.yellow++
+  }
+  return counts
+}
+
+export interface BufferSeriesPoint { seq: number; id: string; buffer_h: number }
+
+// New: buffer series in stop order (1-based seq)
+export function bufferSeries(route: RoutePlan, buffers: Record<string, number>): BufferSeriesPoint[] {
+  return route.stops.map((id, idx) => ({
+    seq: idx + 1,
+    id,
+    buffer_h: buffers[id] ?? NaN
+  }))
+}
+
+// New: per-vehicle route times
+export interface RouteTime { vehicle_id: number; time_h: number }
+
+export function routeTimes(method: MethodResult): RouteTime[] {
+  return method.routes.map((r) => ({ vehicle_id: r.vehicle_id, time_h: r.time_h }))
 }
 
 // derived from villages[].band

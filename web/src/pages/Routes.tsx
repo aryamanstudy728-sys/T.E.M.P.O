@@ -1,14 +1,18 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { useLastResult, useThresholds } from '../api/hooks'
-import { bandOf, getTimeDifference, getWorstStop } from '../lib/derive'
+import { useLastResult, useThresholds, useRouteCeiling } from '../api/hooks'
+import { bandOf, getTimeDifference, getWorstStop, bandCounts, bufferSeries, routeTimes } from '../lib/derive'
 import type { MethodKey } from '../api/types'
 import RouteTable from '../components/RouteTable'
 import VillageMap from '../components/map/VillageMap'
 import VillageList from '../components/map/VillageList'
 import { EmptyState } from '../components/states'
 import Icon from '../components/Icon'
+import RiskBar from '../components/charts/RiskBar'
+import BufferLines from '../components/charts/BufferLines'
+import VehicleTimes from '../components/charts/VehicleTimes'
 import '../styles/kombai-routes.css'
+import '../styles/charts.css'
 
 const LABELS: Record<MethodKey, string> = { fixed: 'Fixed', nearest: 'Nearest', risk_based: 'Risk-based' }
 const BAND_LABEL = { green: 'On track', yellow: 'Watch', red: 'Critical' } as const
@@ -16,6 +20,7 @@ const BAND_LABEL = { green: 'On track', yellow: 'Watch', red: 'Critical' } as co
 export function Routes() {
   const { data } = useLastResult()
   const thresholds = useThresholds()
+  const ceiling = useRouteCeiling()
   const [method, setMethod] = useState<MethodKey>('risk_based')
   const [compare, setCompare] = useState(false)
   const [params, setParams] = useSearchParams()
@@ -31,7 +36,7 @@ export function Routes() {
     )
   }
 
-  const { methods, villages, centre } = data
+  const { methods, villages, centre, meta } = data
   const ids = methods[method].routes.filter((r) => r.stops.length > 0).map((r) => String(r.vehicle_id))
   const wanted = params.get('vehicle')
   const vehicleId = wanted && ids.includes(wanted) ? wanted : ids[0]
@@ -42,6 +47,28 @@ export function Routes() {
   const priority = route ? getWorstStop(route, buffers) : null
   const priorityVillage = priority ? villages.find((v) => v.id === priority.id) : undefined
   const priorityBand = priority && thresholds ? bandOf(priority.buffer, thresholds) : null
+
+  const bandLabels = { fixed: 'Fixed', nearest: 'Nearest', risk_based: 'Risk-based' } as const
+  const methodKeys: MethodKey[] = ['fixed', 'nearest', 'risk_based']
+
+  const riskBars = methodKeys.map((m) => {
+    const counts = bandCounts(methods[m].buffers, thresholds?.greenH ?? 2.5, thresholds?.redH ?? 0.5)
+    return <RiskBar key={m} label={bandLabels[m]} counts={counts} />
+  })
+
+  const bufferLinesSeries = methodKeys
+    .map((m) => {
+      const r = methods[m].routes.find((rt) => String(rt.vehicle_id) === vehicleId)
+      if (!r) return null
+      return {
+        method: m,
+        label: bandLabels[m],
+        points: bufferSeries(r, methods[m].buffers),
+      }
+    })
+    .filter((s): s is NonNullable<typeof s> => s !== null)
+
+  const vehicleTimes = routeTimes(methods[method])
 
   return (
     <div id="tempo-shell" className="page-routes">
@@ -80,6 +107,45 @@ export function Routes() {
             </div>
           </section>
         )}
+
+        <section className="risk-bar-panel" aria-labelledby="risk-bar-title">
+          <div className="risk-bar-panel-head">
+            <div>
+              <h2 id="risk-bar-title" className="risk-bar-panel-title">Villages by risk band</h2>
+              <p className="risk-bar-panel-subtitle">Scenario {meta.scenario} · seed {meta.seed}</p>
+            </div>
+            <span className="risk-bar-panel-caption">{methods[method].routes.length} vehicles · {villages.length} villages</span>
+          </div>
+          <div className="risk-bar-list">
+            {riskBars}
+          </div>
+        </section>
+
+        {bufferLinesSeries.length > 0 && (
+          <section className="buffer-lines-panel" aria-labelledby="buffer-lines-title">
+            <div className="buffer-lines-panel-head">
+              <div>
+                <h2 id="buffer-lines-title" className="buffer-lines-panel-title">Buffer along the route (selected vehicle)</h2>
+                <p className="buffer-lines-panel-subtitle">Scenario {meta.scenario} · seed {meta.seed}</p>
+              </div>
+            </div>
+            <BufferLines
+              series={bufferLinesSeries}
+              greenH={thresholds?.greenH ?? 2.5}
+              redH={thresholds?.redH ?? 0.5}
+            />
+          </section>
+        )}
+
+        <section className="vehicle-times-panel" aria-labelledby="vehicle-times-title">
+          <div className="vehicle-times-panel-head">
+            <div>
+              <h2 id="vehicle-times-title" className="vehicle-times-panel-title">Route time per vehicle</h2>
+              <p className="vehicle-times-panel-subtitle">{LABELS[method]} · Scenario {meta.scenario} · seed {meta.seed}</p>
+            </div>
+          </div>
+          <VehicleTimes times={vehicleTimes} ceiling={ceiling} />
+        </section>
 
         <div className="main-grid" style={{ gridTemplateColumns: compare ? 'repeat(3, 1fr)' : '1fr 344px' }}>
           {compare ? (

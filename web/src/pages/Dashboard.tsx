@@ -15,7 +15,9 @@ import FleetTable from '../components/FleetTable'
 import MethodCells from '../components/MethodCells'
 import { ResultFrame, ErrorMessage, EmptyState } from '../components/states'
 import Icon from '../components/Icon'
+import MetricBars from '../components/charts/MetricBars'
 import '../styles/kombai-dashboard.css'
+import '../styles/charts.css'
 
 export function Dashboard() {
   const queryClient = useQueryClient()
@@ -61,6 +63,35 @@ export function Dashboard() {
               onSelect={setMethod}
               atRisk={countAtRiskVillages(data.villages)}
             />
+            <div className="metric-bars-grid">
+              <MetricBars
+                title="Breaches"
+                unit=""
+                values={[
+                  { label: 'Fixed', value: data.methods.fixed.breaches },
+                  { label: 'Nearest', value: data.methods.nearest.breaches },
+                  { label: 'Risk-based', value: data.methods.risk_based.breaches },
+                ]}
+              />
+              <MetricBars
+                title="Volume at risk"
+                unit="L"
+                values={[
+                  { label: 'Fixed', value: data.methods.fixed.volume_at_risk_l },
+                  { label: 'Nearest', value: data.methods.nearest.volume_at_risk_l },
+                  { label: 'Risk-based', value: data.methods.risk_based.volume_at_risk_l },
+                ]}
+              />
+              <MetricBars
+                title="Route time"
+                unit="h"
+                values={[
+                  { label: 'Fixed', value: data.methods.fixed.time_h },
+                  { label: 'Nearest', value: data.methods.nearest.time_h },
+                  { label: 'Risk-based', value: data.methods.risk_based.time_h },
+                ]}
+              />
+            </div>
             <section className="work-grid">
               <section className="map-panel" id="fleet-map">
                 <div className="map-head">

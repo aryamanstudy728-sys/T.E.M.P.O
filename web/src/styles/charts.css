@@ -1,0 +1,409 @@
+.risk-bar-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.risk-bar-panel-head {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.risk-bar-panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.risk-bar-panel-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.risk-bar-panel-caption {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.risk-bar-list {
+  padding: 12px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.risk-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.risk-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.risk-bar-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.risk-bar-track {
+  flex: 1;
+  height: 28px;
+  border-radius: 14px;
+  background: #0e1415;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  border: 1px solid var(--line);
+}
+
+.risk-bar-segment {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 12px 'IBM Plex Mono', monospace;
+  color: #091512;
+  white-space: nowrap;
+  position: relative;
+}
+
+.risk-bar-segment::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.risk-bar-segment:last-child::after {
+  display: none;
+}
+
+.risk-bar-segment.green {
+  background: var(--mint);
+}
+
+.risk-bar-segment.yellow {
+  background: var(--amber);
+}
+
+.risk-bar-segment.red {
+  background: var(--red);
+}
+
+.risk-bar-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.risk-bar-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.risk-bar-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.risk-bar-legend-dot.green {
+  background: var(--mint);
+}
+
+.risk-bar-legend-dot.yellow {
+  background: var(--amber);
+}
+
+.risk-bar-legend-dot.red {
+  background: var(--red);
+}
+
+.risk-bar-sentence {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.buffer-lines-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.buffer-lines-panel-head {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.buffer-lines-panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.buffer-lines-panel-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.buffer-lines-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+}
+
+.buffer-lines-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px 18px 16px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.buffer-lines-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.buffer-lines-legend-marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.buffer-lines-legend-marker.square {
+  border-radius: 2px;
+}
+
+.buffer-lines-legend-marker.triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 9px solid currentColor;
+  border-radius: 0;
+}
+
+.buffer-lines-legend-marker.circle {
+  border-radius: 50%;
+}
+
+.buffer-lines-legend-marker.fixed {
+  background: var(--muted);
+}
+
+.buffer-lines-legend-marker.nearest {
+  background: var(--muted);
+  color: var(--muted);
+}
+
+.buffer-lines-legend-marker.risk_based {
+  background: var(--mint);
+}
+
+.metric-bars-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.metric-bars-head {
+  padding: 16px 18px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.metric-bars-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.metric-bars-list {
+  padding: 12px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.metric-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-bar-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.metric-bar-track {
+  flex: 1;
+  height: 28px;
+  border-radius: 14px;
+  background: #0e1415;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--line);
+  display: flex;
+}
+
+.metric-bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  justify-content: flex-end;
+  font: 600 12px 'IBM Plex Mono', monospace;
+  color: #091512;
+  white-space: nowrap;
+  border-radius: 13px;
+  transition: width 0.3s ease;
+}
+
+.metric-bar-fill.risk-based {
+  background: var(--mint);
+}
+
+.metric-bar-fill.other {
+  background: var(--muted);
+}
+
+.metric-bar-value {
+  margin-right: 4px;
+}
+
+.metric-bars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 16px 0 24px;
+}
+
+@media (max-width: 1050px) {
+  .metric-bars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vehicle-times-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.vehicle-times-panel-head {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.vehicle-times-panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.vehicle-times-panel-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.vehicle-times-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+}
+
+.sensitivity-line-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.sensitivity-line-panel-head {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sensitivity-line-panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sensitivity-line-panel-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.sensitivity-line-panel-caption {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.sensitivity-line-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+}
